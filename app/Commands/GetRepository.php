@@ -22,7 +22,7 @@ class GetRepository extends Command
      *
      * @var string
      */
-    protected $description = 'Get all data from a repository from GitHub';
+    protected $description = 'Get all data from a specific repository from GitHub';
 
     /**
      * Execute the console command.
