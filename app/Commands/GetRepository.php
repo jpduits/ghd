@@ -43,7 +43,6 @@ class GetRepository extends Command
 
 
         $client = new Client();
-        var_dump(env('GITHUB_TOKEN'));
         $client->authenticate(env('GITHUB_TOKEN'), null, AuthMethod::ACCESS_TOKEN);
 
         $repo = $client->api('repo')->show($owner, $repository);
@@ -65,7 +64,6 @@ class GetRepository extends Command
         }
 
 
-        print_r($commits);
 
 
 //        var_dump(json_decode($response->body()));
