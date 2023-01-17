@@ -79,7 +79,7 @@ class SearchRepositories extends Command
                 $repoDetails = $client->api('repo')->showById($repo['id']);
                 // get the issues from the current repo (to get the total count)
                 $q = "repo:{$repoDetails['owner']['login']}/{$repoDetails['name']} is:issue";
-                //$this->info($q, 2);
+
                 $repoIssues = $client->api('search')->issues($q);
 
                 $this->line(

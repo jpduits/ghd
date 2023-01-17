@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('full_name');
             $table->unsignedBigInteger('owner_id');
-            $table->string('description');
-            $table->string('html_url');
+            $table->string('description')->nullable();
+            $table->string('html_url')->nullable();
+            $table->string('default_branch');
+            $table->timestamp('last_check')->nullable()->default(null);
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users');

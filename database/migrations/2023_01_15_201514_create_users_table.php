@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('login');
             $table->string('node_id');
             $table->string('name');
-            $table->string('company');
-            $table->string('location');
-            $table->string('email');
-            $table->string('html_url');
+            $table->string('company')->nullable();
+            $table->string('location')->nullable();
+            $table->string('email')->nullable();
+            $table->string('html_url')->nullable();
             $table->timestamps();
         });
     }

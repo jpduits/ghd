@@ -14,16 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('commits', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->primary('id');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('repository_id');
-            $table->unsignedBigInteger('author_id');
-            $table->unsignedBigInteger('committer_id');
-            $table->string('message');
+            $table->unsignedBigInteger('author_id')->nullable();
+            $table->unsignedBigInteger('committer_id')->nullable();
+            $table->string('message')->nullable();
             $table->string('sha');
             $table->string('node_id');
             $table->timestamp('created_at');
-            $table->string('html_url');
+            $table->string('html_url')->nullable();
 
             $table->foreign('repository_id')->references('id')->on('repositories');
             $table->foreign('author_id')->references('id')->on('users');
