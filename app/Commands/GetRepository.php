@@ -8,6 +8,7 @@ use Github\Client;
 use Carbon\Carbon;
 use App\Repository;
 use Github\AuthMethod;
+use Github\ResultPager;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
@@ -52,47 +53,66 @@ class GetRepository extends Command
 
         // now get commits from selected repository
         $params = [
-            'sha' => $repository['default_branch']
+            'sha' => $repository['default_branch'],
+            'page' => 1,
+            'per_page' => 30,
         ];
 
         if ($repository->last_check !== null) {
             $params['since'] = $repository->last_check;
         }
 
-        $commits = $this->client->api('repo')->commits()->all($_owner, $_repository, $params);
-        foreach ($commits as $commit) {
+        $hasNextPage = true;
 
-            $commitRecord = new Commit();
-            $commitRecord->sha = $commit['sha'];
-            $commitRecord->repository_id = $repository->id;
+        $repoApi = $this->client->api('repo');
+        $paginator = new ResultPager($this->client);
 
-            $commitDate = $commit['commit']['author']['date'];
-            $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
+        while($hasNextPage) {
 
-            if (isset($commit['author']['id'])) {
-                $authorId = $commit['author']['id'];
-                $author = $this->userExistsOrCreate($authorId);
+            $commits = ->commits()->all($_owner, $_repository, $params);
+
+            if (!empty($commits)) {
+                foreach ($commits as $commit) {
+
+                    $commitRecord = new Commit();
+                    $commitRecord->sha = $commit['sha'];
+                    $commitRecord->repository_id = $repository->id;
+
+                    $commitDate = $commit['commit']['author']['date'];
+                    $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
+
+                    if (isset($commit['author']['id'])) {
+                        $authorId = $commit['author']['id'];
+                        $author = $this->userExistsOrCreate($authorId);
+                    }
+                    else {
+                        $author = $this->userExistsOrCreate(0); // user deleted
+                    }
+
+                    if (isset($commit['committer']['id'])) {
+                        $committerId = $commit['committer']['id'];
+                        $committer = $this->userExistsOrCreate($committerId);
+                    }
+                    else {
+                        $committer = $this->userExistsOrCreate(0); // user deleted
+                    }
+
+                    $commitRecord->author_id = $author->id ?? null;
+                    $commitRecord->committer_id = $committer->id ?? null;
+
+                    $commitRecord->message = $commit['commit']['message'] ?? '';
+                    $commitRecord->node_id = $commit['node_id'];
+                    $commitRecord->html_url = $commit['html_url'];
+                    $commitRecord->save();
+                }
+                $params['page'] = $params['page']++;
+                $this->info(print_r($params, true));
             }
             else {
-                $author =  $this->userExistsOrCreate(0); // user deleted
+                $hasNextPage = false;
             }
 
-            if (isset($commit['committer']['id'])) {
-                $committerId = $commit['committer']['id'];
-                $committer = $this->userExistsOrCreate($committerId);
-            }
-            else {
-                $committer = $this->userExistsOrCreate(0); // user deleted
-            }
-
-            $commitRecord->author_id = $author->id ?? null;
-            $commitRecord->committer_id = $committer->id ?? null;
-
-            $commitRecord->message = $commit['commit']['message'] ?? '';
-            $commitRecord->node_id = $commit['node_id'];
-            $commitRecord->html_url = $commit['html_url'];
-            $commitRecord->save();
-        }
+        } // while
 
         return 0;
     }
