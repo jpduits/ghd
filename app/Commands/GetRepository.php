@@ -51,67 +51,79 @@ class GetRepository extends Command
         // load or store repository if not exists
         $repository = $this->repositoryExistsOrCreate($_owner, $_repository);
 
+/*        $client     = new Github\Client();
+        $gists      = $client->api('gists');
+        $per_page   = 5;
+        $paginator  = new Github\ResultPager($client, $per_page);
+
+// first page
+        $result     = $paginator->fetch($gists, 'all');
+
+// next page
+        $result     = $paginator->fetchNext();*/
+
+
+
         // now get commits from selected repository
         $params = [
             'sha' => $repository['default_branch'],
-            'page' => 1,
-            'per_page' => 30,
+/*            'page' => 1,
+            'per_page' => 30,*/
         ];
 
         if ($repository->last_check !== null) {
             $params['since'] = $repository->last_check;
         }
 
-        $hasNextPage = true;
 
         $repoApi = $this->client->api('repo');
-        $paginator = new ResultPager($this->client);
+        $paginator = new ResultPager($this->client, 30);
+
+        // first fetch
+        $commits = $paginator->fetch($repoApi, 'all', $params);
+
+        // first loop always true
+        $hasNextPage = true;
 
         while($hasNextPage) {
 
-            $commits = ->commits()->all($_owner, $_repository, $params);
+            foreach ($commits as $commit) {
 
-            if (!empty($commits)) {
-                foreach ($commits as $commit) {
+                $commitRecord = new Commit();
+                $commitRecord->sha = $commit['sha'];
+                $commitRecord->repository_id = $repository->id;
 
-                    $commitRecord = new Commit();
-                    $commitRecord->sha = $commit['sha'];
-                    $commitRecord->repository_id = $repository->id;
+                $commitDate = $commit['commit']['author']['date'];
+                $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
 
-                    $commitDate = $commit['commit']['author']['date'];
-                    $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
-
-                    if (isset($commit['author']['id'])) {
-                        $authorId = $commit['author']['id'];
-                        $author = $this->userExistsOrCreate($authorId);
-                    }
-                    else {
-                        $author = $this->userExistsOrCreate(0); // user deleted
-                    }
-
-                    if (isset($commit['committer']['id'])) {
-                        $committerId = $commit['committer']['id'];
-                        $committer = $this->userExistsOrCreate($committerId);
-                    }
-                    else {
-                        $committer = $this->userExistsOrCreate(0); // user deleted
-                    }
-
-                    $commitRecord->author_id = $author->id ?? null;
-                    $commitRecord->committer_id = $committer->id ?? null;
-
-                    $commitRecord->message = $commit['commit']['message'] ?? '';
-                    $commitRecord->node_id = $commit['node_id'];
-                    $commitRecord->html_url = $commit['html_url'];
-                    $commitRecord->save();
+                if (isset($commit['author']['id'])) {
+                    $authorId = $commit['author']['id'];
+                    $author = $this->userExistsOrCreate($authorId);
                 }
-                $params['page'] = $params['page']++;
-                $this->info(print_r($params, true));
-            }
-            else {
-                $hasNextPage = false;
+                else {
+                    $author = $this->userExistsOrCreate(0); // user deleted
+                }
+
+                if (isset($commit['committer']['id'])) {
+                    $committerId = $commit['committer']['id'];
+                    $committer = $this->userExistsOrCreate($committerId);
+                }
+                else {
+                    $committer = $this->userExistsOrCreate(0); // user deleted
+                }
+
+                $commitRecord->author_id = $author->id ?? null;
+                $commitRecord->committer_id = $committer->id ?? null;
+
+                $commitRecord->message = $commit['commit']['message'] ?? '';
+                $commitRecord->node_id = $commit['node_id'];
+                $commitRecord->html_url = $commit['html_url'];
+                $commitRecord->save();
             }
 
+            $hasNextPage = $paginator->hasNext(); // breaks while when false
+            $commits = $paginator->fetchNext();
+            
         } // while
 
         return 0;
