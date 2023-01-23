@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('repository_id');
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('committer_id')->nullable();
-            $table->string('message')->nullable();
+            $table->text('message')->nullable();
             $table->string('sha');
             $table->string('node_id');
             $table->timestamp('created_at');

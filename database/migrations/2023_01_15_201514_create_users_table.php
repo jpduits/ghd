@@ -18,7 +18,7 @@ return new class extends Migration
             $table->primary('id');
             $table->string('login');
             $table->string('node_id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('company')->nullable();
             $table->string('location')->nullable();
             $table->string('email')->nullable();

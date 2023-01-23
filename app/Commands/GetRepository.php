@@ -10,6 +10,8 @@ use App\Repository;
 use Github\AuthMethod;
 use Github\ResultPager;
 use Illuminate\Support\Facades\Http;
+use TiagoHillebrandt\ParseLinkHeader;
+use Github\Exception\RuntimeException;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
@@ -47,50 +49,46 @@ class GetRepository extends Command
     {
         $_owner = $this->argument('owner');
         $_repository = $this->argument('repository');
+        $project = $_owner.'/'.$_repository;
 
         // load or store repository if not exists
         $repository = $this->repositoryExistsOrCreate($_owner, $_repository);
 
-/*        $client     = new Github\Client();
-        $gists      = $client->api('gists');
-        $per_page   = 5;
-        $paginator  = new Github\ResultPager($client, $per_page);
-
-// first page
-        $result     = $paginator->fetch($gists, 'all');
-
-// next page
-        $result     = $paginator->fetchNext();*/
-
-
-
         // now get commits from selected repository
-        $params = [
-            'sha' => $repository['default_branch'],
-/*            'page' => 1,
-            'per_page' => 30,*/
-        ];
+        $paginator = new ResultPager($this->client, 5);
 
-        if ($repository->last_check !== null) {
-            $params['since'] = $repository->last_check;
-        }
+        $page = 1;
+        $uri = 'repos/'.$project.'/commits?per_page=100';
+        while (true) {
 
+            $this->line('Get commits for '.$project.' page '.$page);
+            $response = $this->client->getHttpClient()->get($uri);
+            $headers = $response->getHeaders();
 
-        $repoApi = $this->client->api('repo');
-        $paginator = new ResultPager($this->client, 30);
+            if (isset($headers['X-RateLimit-Remaining'][0])) {
+                $this->info('Remaining requests: '.$headers['X-RateLimit-Remaining'][0].'/'.$headers['X-RateLimit-Limit'][0]);
+            }
 
-        // first fetch
-        $commits = $paginator->fetch($repoApi, 'all', $params);
+            if (isset($headers['Link'][0] )) {
+                $links = (new ParseLinkHeader($headers['Link'][0]))->toArray();
+                $lastPage = $links['last']['page'] ?? 1;
+            }
 
-        // first loop always true
-        $hasNextPage = true;
+            $commits = \Github\HttpClient\Message\ResponseMediator::getContent($response);
 
-        while($hasNextPage) {
-
+            // save the commits
+            $this->line('Saving commits for '.$project.' page '.$page.'/'.$lastPage);
             foreach ($commits as $commit) {
 
+
                 $commitRecord = new Commit();
+
+                if ($commit['sha'] == '04f4654be6f58409da5087eeb49122324fbc8414') {
+                    echo 'break!';
+                }
+
                 $commitRecord->sha = $commit['sha'];
+
                 $commitRecord->repository_id = $repository->id;
 
                 $commitDate = $commit['commit']['author']['date'];
@@ -119,12 +117,32 @@ class GetRepository extends Command
                 $commitRecord->node_id = $commit['node_id'];
                 $commitRecord->html_url = $commit['html_url'];
                 $commitRecord->save();
+//                $this->line('SHA '.$commit['sha'].' saved');
             }
 
-            $hasNextPage = $paginator->hasNext(); // breaks while when false
-            $commits = $paginator->fetchNext();
-            
-        } // while
+
+
+
+
+
+
+
+            // no next page, break from while
+            if (!isset($links['next'])) {
+                break;
+            }
+
+            // else get next page
+            $page++;
+            $uri = $links['next']['link'];
+
+        }
+
+
+
+
+
+
 
         return 0;
     }
@@ -145,7 +163,13 @@ class GetRepository extends Command
         $user = User::where('id', '=', $id)->first();
         if (!$user instanceof User) {
             // get user and save
-            $userFromRequest = $this->client->api('user')->showById($id);
+            try {
+                $userFromRequest = $this->client->api('user')->showById($id);
+            }
+            catch (RuntimeException $e) {
+                $this->warn('User '.$id.' does not exists!');
+                return User::find(0);
+            }
             // save to DB
             $user = new User();
             $user->id = $userFromRequest['id'];

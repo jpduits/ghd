@@ -23,7 +23,8 @@
         "illuminate/http": "^9.0",
         "knplabs/github-api": "^3.0",
         "laravel-zero/framework": "^9.2",
-        "nunomaduro/termwind": "^1.14"
+        "nunomaduro/termwind": "^1.14",
+        "tiagohillebrandt/php-parse-link-header": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

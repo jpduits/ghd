@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d51d8cc4f14c990ac1821f6b9d7ec150",
+    "content-hash": "7537eb4609977ada1046bbdd975c2fad",
     "packages": [
         {
             "name": "brick/math",
@@ -5880,6 +5880,54 @@
                 }
             ],
             "time": "2022-12-22T17:55:15+00:00"
+        },
+        {
+            "name": "tiagohillebrandt/php-parse-link-header",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tiagohillebrandt/php-parse-link-header.git",
+                "reference": "f59cefc8b8a17e0887c0bc36aafaaa1d1fe47b9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tiagohillebrandt/php-parse-link-header/zipball/f59cefc8b8a17e0887c0bc36aafaaa1d1fe47b9d",
+                "reference": "f59cefc8b8a17e0887c0bc36aafaaa1d1fe47b9d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TiagoHillebrandt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tiago Hillebrandt",
+                    "email": "tiago@tiagohillebrandt.com",
+                    "homepage": "https://tiagohillebrandt.com"
+                }
+            ],
+            "description": "Parses the Link HTTP header and returns the values as an array.",
+            "homepage": "https://github.com/tiagohillebrandt/php-parse-link-header",
+            "keywords": [
+                "github",
+                "header",
+                "link",
+                "parse"
+            ],
+            "support": {
+                "issues": "https://github.com/tiagohillebrandt/php-parse-link-header/issues",
+                "source": "https://github.com/tiagohillebrandt/php-parse-link-header/tree/1.0.4"
+            },
+            "time": "2020-04-15T22:58:44+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

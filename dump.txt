@@ -1,60 +1,4658 @@
-1001..1666	https://github.com/magefree/mage	magefree	mage	magefree/mage	4158448	2012-04-27T13:18:34Z	1486	103	654	6331	1205	master
-1001..1666	https://github.com/preslavmihaylov/booknotes	preslavmihaylov	booknotes	preslavmihaylov/booknotes	280924415	2020-07-19T18:16:26Z	1250	38	117	5	3	master
-1001..1666	https://github.com/BiglySoftware/BiglyBT	BiglySoftware	BiglyBT	BiglySoftware/BiglyBT	97876479	2017-07-20T20:40:00Z	1191	51	126	1710	588	master
-1001..1666	https://github.com/psi-probe/psi-probe	psi-probe	psi-probe	psi-probe/psi-probe	32333558	2015-03-16T15:15:01Z	1265	102	394	728	158	master
-1001..1666	https://github.com/M66B/FairEmail	M66B	FairEmail	M66B/FairEmail	143298715	2018-08-02T13:30:25Z	1504	36	610	0	4	master
-1001..1666	https://github.com/Baeldung/spring-security-registration	Baeldung	spring-security-registration	Baeldung/spring-security-registration	52949435	2016-03-02T09:10:48Z	1439	119	1097	58	9	master
-1001..1666	https://github.com/apache/inlong	apache	inlong	apache/inlong	231533573	2020-01-03T07:13:14Z	1088	73	387	3875	99	master
-1001..1666	https://github.com/Peergos/Peergos	Peergos	Peergos	Peergos/Peergos	12323472	2013-08-23T13:18:59Z	1607	73	143	489	70	master
-1001..1666	https://github.com/codenameone/CodenameOne	codenameone	CodenameOne	codenameone/CodenameOne	32973467	2015-03-27T07:37:42Z	1394	104	350	3379	572	master
-1001..1666	https://github.com/OpenLineage/OpenLineage	OpenLineage	OpenLineage	OpenLineage/OpenLineage	306977038	2020-10-24T21:45:05Z	1145	37	139	590	169	main
-1667..2333	https://github.com/apache/incubator-hugegraph	apache	incubator-hugegraph	apache/incubator-hugegraph	141376301	2018-07-18T03:30:20Z	2160	119	424	1264	204	master
-1667..2333	https://github.com/MuntashirAkon/AppManager	MuntashirAkon	AppManager	MuntashirAkon/AppManager	268006778	2020-05-30T04:08:56Z	2306	68	175	788	136	master
-1667..2333	https://github.com/Creators-of-Create/Create	Creators-of-Create	Create	Creators-of-Create/Create	197545351	2019-07-18T08:27:10Z	1759	47	616	3835	1107	mc1.18/dev
-1667..2333	https://github.com/apache/netbeans	apache	netbeans	apache/netbeans	102083576	2017-09-01T07:00:11Z	2140	154	739	814	572	master
-1667..2333	https://github.com/osfans/trime	osfans	trime	osfans/trime	36422720	2015-05-28T07:43:37Z	1862	70	280	652	80	develop
-1667..2333	https://github.com/lealone/Lealone	lealone	Lealone	lealone/Lealone	7502247	2013-01-08T13:57:08Z	2164	246	489	145	22	master
-1667..2333	https://github.com/openhab/openhab-addons	openhab	openhab-addons	openhab/openhab-addons	19753195	2014-05-13T19:41:58Z	1718	207	3332	4861	654	main
-1667..2333	https://github.com/jdbi/jdbi	jdbi	jdbi	jdbi/jdbi	229738	2009-06-17T16:36:36Z	1732	78	317	955	128	master
-1667..2333	https://github.com/syncthing/syncthing-android	syncthing	syncthing-android	syncthing/syncthing-android	17089728	2014-02-22T17:15:19Z	2282	95	329	1284	139	main
-1667..2333	https://github.com/pac4j/pac4j	pac4j	pac4j	pac4j/pac4j	3291848	2012-01-28T17:04:12Z	2209	119	644	0	0	master
-2334..3000	https://github.com/spotbugs/spotbugs	spotbugs	spotbugs	spotbugs/spotbugs	72889410	2016-11-04T22:18:08Z	2930	81	515	1006	522	master
-2334..3000	https://github.com/apache/logging-log4j2	apache	logging-log4j2	apache/logging-log4j2	10637896	2013-06-12T07:00:19Z	2989	112	1479	2	92	release-2.x
-2334..3000	https://github.com/OpenHFT/Chronicle-Map	OpenHFT	Chronicle-Map	OpenHFT/Chronicle-Map	21985130	2014-07-18T15:33:57Z	2536	168	453	271	13	ea
-2334..3000	https://github.com/yidongnan/grpc-spring-boot-starter	yidongnan	grpc-spring-boot-starter	yidongnan/grpc-spring-boot-starter	77675033	2016-12-30T09:06:15Z	2778	113	692	439	82	master
-2334..3000	https://github.com/apache/linkis	apache	linkis	apache/linkis	198368711	2019-07-23T06:41:51Z	2783	262	975	2060	277	master
-2334..3000	https://github.com/fabric8io/kubernetes-client	fabric8io	kubernetes-client	fabric8io/kubernetes-client	38829639	2015-07-09T15:43:13Z	2798	129	1296	2055	140	master
-2334..3000	https://github.com/andpor/react-native-sqlite-storage	andpor	react-native-sqlite-storage	andpor/react-native-sqlite-storage	45239059	2015-10-30T08:42:28Z	2544	52	484	446	155	master
-2334..3000	https://github.com/deepjavalibrary/djl	deepjavalibrary	djl	deepjavalibrary/djl	218396611	2019-10-29T22:38:54Z	2952	88	494	547	85	master
-2334..3000	https://github.com/gsantner/markor	gsantner	markor	gsantner/markor	101451042	2017-08-26T00:08:35Z	2496	56	298	1030	35	master
-2334..3000	https://github.com/mongodb/mongo-java-driver	mongodb	mongo-java-driver	mongodb/mongo-java-driver	108050	2009-01-15T15:16:29Z	2526	221	1460	0	11	master
-0..333	https://github.com/AnonymMan/learngit	AnonymMan	learngit	AnonymMan/learngit	59924934	2016-05-29T03:39:22Z	0	1	0	0	0	master
-0..333	https://github.com/cmfitzg2/2d-horror	cmfitzg2	2d-horror	cmfitzg2/2d-horror	297607503	2020-09-22T09:57:55Z	0	1	0	1	1	master
-0..333	https://github.com/AndroidWonder/14-Lottery	AndroidWonder	14-Lottery	AndroidWonder/14-Lottery	90656946	2017-05-08T17:54:11Z	0	1	0	0	0	master
-0..333	https://github.com/bgillam/grafprogFX	bgillam	grafprogFX	bgillam/grafprogFX	201548351	2019-08-09T22:27:09Z	0	2	0	0	0	master
-0..333	https://github.com/PixelExperience/frameworks_opt_telephony	PixelExperience	frameworks_opt_telephony	PixelExperience/frameworks_opt_telephony	134967392	2018-05-26T14:16:10Z	2	1	16	0	0	thirteen
-10..333	https://github.com/WolfgangKonen/GBG	WolfgangKonen	GBG	WolfgangKonen/GBG	73695989	2016-11-14T10:58:36Z	16	6	5	6	2	master
-10..333	https://github.com/crdroidandroid/android_packages_apps_Settings	crdroidandroid	android_packages_apps_Settings	crdroidandroid/android_packages_apps_Settings	26325354	2014-11-07T15:28:35Z	15	13	70	12	0	13.0
-10..333	https://github.com/palantir/gradle-revapi	palantir	gradle-revapi	palantir/gradle-revapi	206836137	2019-09-06T16:43:36Z	26	164	9	30	19	develop
-10..333	https://github.com/smpawlowski/covid19	smpawlowski	covid19	smpawlowski/covid19	248469123	2020-03-19T10:05:15Z	12	1	1	0	0	master
-10..333	https://github.com/jenkinsci/dingtalk-plugin	jenkinsci	dingtalk-plugin	jenkinsci/dingtalk-plugin	72379907	2016-10-30T22:37:50Z	333	12	162	108	2	main
-334..666	https://github.com/VazkiiMods/Quark	VazkiiMods	Quark	VazkiiMods/Quark	54141567	2016-03-17T18:21:36Z	483	31	240	3492	65	master
-334..666	https://github.com/Waffle/waffle	Waffle	waffle	Waffle/waffle	3945055	2012-04-05T23:18:03Z	429	23	189	226	53	master
-334..666	https://github.com/mybatis/jpetstore-6	mybatis	jpetstore-6	mybatis/jpetstore-6	8121696	2013-02-10T11:13:55Z	525	73	753	183	2	master
-334..666	https://github.com/ldtteam/minecolonies	ldtteam	minecolonies	ldtteam/minecolonies	65616760	2016-08-13T12:45:38Z	472	52	279	5390	77	version/main
-334..666	https://github.com/TNG/JGiven	TNG	JGiven	TNG/JGiven	18664242	2014-04-11T06:10:24Z	394	20	93	368	59	master
-334..666	https://github.com/HtmlUnit/htmlunit	HtmlUnit	htmlunit	HtmlUnit/htmlunit	147069989	2018-09-02T08:59:44Z	637	21	139	435	127	master
-334..666	https://github.com/automvc/bee	automvc	bee	automvc/bee	138182666	2018-06-21T14:37:07Z	570	20	57	73	4	master
-334..666	https://github.com/aterai/java-swing-tips	aterai	java-swing-tips	aterai/java-swing-tips	23829681	2014-09-09T10:51:59Z	426	34	137	9	0	master
-334..666	https://github.com/MCreator/MCreator	MCreator	MCreator	MCreator/MCreator	292874684	2020-09-04T14:53:57Z	562	22	128	1710	12	master
-334..666	https://github.com/TownyAdvanced/Towny	TownyAdvanced	Towny	TownyAdvanced/Towny	27524600	2014-12-04T05:21:02Z	401	28	316	4644	95	master
-667..1000	https://github.com/mucommander/mucommander	mucommander	mucommander	mucommander/mucommander	16462032	2014-02-02T20:07:35Z	775	49	171	464	103	master
-667..1000	https://github.com/apache/cxf	apache	cxf	apache/cxf	16977479	2014-02-19T08:00:08Z	801	88	1364	0	42	main
-667..1000	https://github.com/structurizr/java	structurizr	java	structurizr/java	20656032	2014-06-09T17:44:57Z	865	60	254	103	2	master
-667..1000	https://github.com/Wurst-Imperium/Wurst7	Wurst-Imperium	Wurst7	Wurst-Imperium/Wurst7	206354730	2019-09-04T15:41:06Z	680	20	337	437	378	master
-667..1000	https://github.com/eclipse/openvsx	eclipse	openvsx	eclipse/openvsx	226955212	2019-12-09T19:53:55Z	820	18	92	366	71	master
-667..1000	https://github.com/processing/processing4	processing	processing4	processing/processing4	212702345	2019-10-03T23:45:54Z	910	47	154	461	101	main
-667..1000	https://github.com/emanuele-f/PCAPdroid	emanuele-f	PCAPdroid	emanuele-f/PCAPdroid	232157758	2020-01-06T18:11:27Z	816	31	133	209	37	master
-667..1000	https://github.com/beanshell/beanshell	beanshell	beanshell	beanshell/beanshell	43010103	2015-09-23T15:36:06Z	714	48	169	582	73	master
-667..1000	https://github.com/apiman/apiman	apiman	apiman	apiman/apiman	12319410	2013-08-23T09:29:20Z	727	61	339	572	217	master
-667..1000	https://github.com/featurecat/lizzie	featurecat	lizzie	featurecat/lizzie	122782059	2018-02-24T21:39:00Z	863	52	214	525	272	master
+array(27) {
+  ["Server"]=>
+  array(1) {
+    [0]=>
+    string(10) "GitHub.com"
+  }
+  ["Date"]=>
+  array(1) {
+    [0]=>
+    string(29) "Mon, 23 Jan 2023 19:59:06 GMT"
+  }
+  ["Content-Type"]=>
+  array(1) {
+    [0]=>
+    string(31) "application/json; charset=utf-8"
+  }
+  ["Content-Length"]=>
+  array(1) {
+    [0]=>
+    string(5) "96056"
+  }
+  ["Cache-Control"]=>
+  array(1) {
+    [0]=>
+    string(32) "private, max-age=60, s-maxage=60"
+  }
+  ["Vary"]=>
+  array(2) {
+    [0]=>
+    string(43) "Accept, Authorization, Cookie, X-GitHub-OTP"
+    [1]=>
+    string(41) "Accept-Encoding, Accept, X-Requested-With"
+  }
+  ["ETag"]=>
+  array(1) {
+    [0]=>
+    string(66) ""acd2c1618933eaa3c9c62a8260d588ecf8ad140612771340a1f2e513d73b6300""
+  }
+  ["Last-Modified"]=>
+  array(1) {
+    [0]=>
+    string(29) "Mon, 23 Jan 2023 19:50:03 GMT"
+  }
+  ["X-OAuth-Scopes"]=>
+  array(1) {
+    [0]=>
+    string(164) "audit_log, codespace, gist, notifications, project, read:discussion, read:enterprise, read:org, read:packages, read:public_key, read:repo_hook, repo, user, workflow"
+  }
+  ["X-Accepted-OAuth-Scopes"]=>
+  array(1) {
+    [0]=>
+    string(0) ""
+  }
+  ["X-GitHub-Media-Type"]=>
+  array(1) {
+    [0]=>
+    string(22) "github.v3; format=json"
+  }
+  ["Link"]=>
+  array(1) {
+    [0]=>
+    string(150) "<https://api.github.com/repositories/54141567/commits?page=2>;
+    rel="next", <https://api.github.com/repositories/54141567/commits?page=207>; rel="last""
+  }
+  ["x-github-api-version-selected"]=>
+  array(1) {
+    [0]=>
+    string(10) "2022-11-28"
+  }
+  ["X-RateLimit-Limit"]=>
+  array(1) {
+    [0]=>
+    string(4) "5000"
+  }
+  ["X-RateLimit-Remaining"]=>
+  array(1) {
+    [0]=>
+    string(4) "4949"
+  }
+  ["X-RateLimit-Reset"]=>
+  array(1) {
+    [0]=>
+    string(10) "1674505641"
+  }
+  ["X-RateLimit-Used"]=>
+  array(1) {
+    [0]=>
+    string(2) "51"
+  }
+  ["X-RateLimit-Resource"]=>
+  array(1) {
+    [0]=>
+    string(4) "core"
+  }
+  ["Access-Control-Expose-Headers"]=>
+  array(1) {
+    [0]=>
+    string(283) "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset"
+  }
+  ["Access-Control-Allow-Origin"]=>
+  array(1) {
+    [0]=>
+    string(1) "*"
+  }
+  ["Strict-Transport-Security"]=>
+  array(1) {
+    [0]=>
+    string(44) "max-age=31536000; includeSubdomains; preload"
+  }
+  ["X-Frame-Options"]=>
+  array(1) {
+    [0]=>
+    string(4) "deny"
+  }
+  ["X-Content-Type-Options"]=>
+  array(1) {
+    [0]=>
+    string(7) "nosniff"
+  }
+  ["X-XSS-Protection"]=>
+  array(1) {
+    [0]=>
+    string(1) "0"
+  }
+  ["Referrer-Policy"]=>
+  array(1) {
+    [0]=>
+    string(57) "origin-when-cross-origin, strict-origin-when-cross-origin"
+  }
+  ["Content-Security-Policy"]=>
+  array(1) {
+    [0]=>
+    string(18) "default-src 'none'"
+  }
+  ["X-GitHub-Request-Id"]=>
+  array(1) {
+    [0]=>
+    string(37) "AFA0:12C8A:1918A89B:197D4107:63CEE70A"
+  }
+}
+array(30) {
+  [0]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "a0ff245febd425adce144979b6f0f001946a82b7"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGEwZmYyNDVmZWJkNDI1YWRjZTE0NDk3OWI2ZjBmMDAxOTQ2YTgyYjc"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:50:03Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:50:03Z"
+      }
+      ["message"]=>
+      string(5) "build"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "169948c588582e88ef2a5a5e410502887da3c53a"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/169948c588582e88ef2a5a5e410502887da3c53a"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/a0ff245febd425adce144979b6f0f001946a82b7"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/a0ff245febd425adce144979b6f0f001946a82b7"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/a0ff245febd425adce144979b6f0f001946a82b7"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/a0ff245febd425adce144979b6f0f001946a82b7/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+      }
+    }
+  }
+  [1]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDNiZjRkNTM4M2FiMzFjM2E5NjM2YWZlOGY4MGE3ZTFlMzc2ZGRkNzA"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:44:21Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:44:21Z"
+      }
+      ["message"]=>
+      string(68) "Hollow logs can now be crawled into at eye level and also climbed up"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "e8ef7e53c22b7075c1bcf35fb8d2d8ad2da3461d"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/e8ef7e53c22b7075c1bcf35fb8d2d8ad2da3461d"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/3bf4d5383ab31c3a9636afe8f80a7e1e376ddd70/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "da2254dc400487d16ea85fb3e3d7b5931a418732"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/da2254dc400487d16ea85fb3e3d7b5931a418732"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/da2254dc400487d16ea85fb3e3d7b5931a418732"
+      }
+    }
+  }
+  [2]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "da2254dc400487d16ea85fb3e3d7b5931a418732"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGRhMjI1NGRjNDAwNDg3ZDE2ZWE4NWZiM2UzZDdiNTkzMWE0MTg3MzI"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:26:58Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:26:58Z"
+      }
+      ["message"]=>
+      string(34) "Add simple_harvest_blacklisted tag"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "48d9ec8ece576c37b3bd1d188fb618291b8c8e97"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/48d9ec8ece576c37b3bd1d188fb618291b8c8e97"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/da2254dc400487d16ea85fb3e3d7b5931a418732"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/da2254dc400487d16ea85fb3e3d7b5931a418732"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/da2254dc400487d16ea85fb3e3d7b5931a418732"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/da2254dc400487d16ea85fb3e3d7b5931a418732/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+      }
+    }
+  }
+  [3]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGVkODRmN2ZmZmEzNjk5ZTJhNjNjMGRkZWViMTBjZGI5YmJmZDRmMTg"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:17:55Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:17:55Z"
+      }
+      ["message"]=>
+      string(32) "Add config to disable onboarding"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "965d185f8f40b41808f3f9e3aadf03ca1583ce21"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/965d185f8f40b41808f3f9e3aadf03ca1583ce21"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/ed84f7fffa3699e2a63c0ddeeb10cdb9bbfd4f18/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+      }
+    }
+  }
+  [4]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGQxNTVjZGNhZjM2M2U3NjdhN2NhNjg2YjllYmY4Y2UzYTVmYjRlN2M"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:17:01Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T19:17:01Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4047"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "973e6ba5e1d4e985cd1ee5e74820ef30f2ad61f7"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/973e6ba5e1d4e985cd1ee5e74820ef30f2ad61f7"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/d155cdcaf363e767a7ca686b9ebf8ce3a5fb4e7c/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "a8d02a5688c939e519b8efd568ede0126ff43b2c"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/a8d02a5688c939e519b8efd568ede0126ff43b2c"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/a8d02a5688c939e519b8efd568ede0126ff43b2c"
+      }
+    }
+  }
+  [5]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "a8d02a5688c939e519b8efd568ede0126ff43b2c"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGE4ZDAyYTU2ODhjOTM5ZTUxOWI4ZWZkNTY4ZWRlMDEyNmZmNDNiMmM"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T16:50:40Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T16:50:40Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4055"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "8ca7f1513f3f483cd014afe27d457bfc3c610d70"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/8ca7f1513f3f483cd014afe27d457bfc3c610d70"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/a8d02a5688c939e519b8efd568ede0126ff43b2c"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/a8d02a5688c939e519b8efd568ede0126ff43b2c"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/a8d02a5688c939e519b8efd568ede0126ff43b2c"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/a8d02a5688c939e519b8efd568ede0126ff43b2c/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+      }
+    }
+  }
+  [6]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDk0YTQzMWM4ODdkYTZkYjY4M2IzODBiM2ZkOWZiMmZkYWViNDk5YTU"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T16:43:29Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T16:43:29Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4037"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "f1e3a3292e1c7ebb699c42d1c1b5f8794a8f745d"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/f1e3a3292e1c7ebb699c42d1c1b5f8794a8f745d"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/94a431c887da6db683b380b3fd9fb2fdaeb499a5"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/94a431c887da6db683b380b3fd9fb2fdaeb499a5/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "acdc754813093ce4f628bfe0a1f128b008a794d4"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/acdc754813093ce4f628bfe0a1f128b008a794d4"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/acdc754813093ce4f628bfe0a1f128b008a794d4"
+      }
+    }
+  }
+  [7]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "acdc754813093ce4f628bfe0a1f128b008a794d4"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGFjZGM3NTQ4MTMwOTNjZTRmNjI4YmZlMGExZjEyOGIwMDhhNzk0ZDQ"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T16:30:36Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T16:30:36Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4051"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "483f8766d65d5eaa4689ee52ff70faa6ae7ed2a0"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/483f8766d65d5eaa4689ee52ff70faa6ae7ed2a0"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/acdc754813093ce4f628bfe0a1f128b008a794d4"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/acdc754813093ce4f628bfe0a1f128b008a794d4"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/acdc754813093ce4f628bfe0a1f128b008a794d4"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/acdc754813093ce4f628bfe0a1f128b008a794d4/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "0d48044b95de99dfabd483506cb22c8b3cea4031"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/0d48044b95de99dfabd483506cb22c8b3cea4031"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/0d48044b95de99dfabd483506cb22c8b3cea4031"
+      }
+    }
+  }
+  [8]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "0d48044b95de99dfabd483506cb22c8b3cea4031"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDBkNDgwNDRiOTVkZTk5ZGZhYmQ0ODM1MDZjYjIyYzhiM2NlYTQwMzE"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T15:57:02Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T15:57:02Z"
+      }
+      ["message"]=>
+      string(44) "Merge remote-tracking branch 'origin/master'"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "be8ab3fd747f8b73ded053b568615312db8c2d22"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/be8ab3fd747f8b73ded053b568615312db8c2d22"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/0d48044b95de99dfabd483506cb22c8b3cea4031"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/0d48044b95de99dfabd483506cb22c8b3cea4031"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/0d48044b95de99dfabd483506cb22c8b3cea4031"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/0d48044b95de99dfabd483506cb22c8b3cea4031/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(2) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "bf13e882d555f30e8c9d53611086486e134036cb"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/bf13e882d555f30e8c9d53611086486e134036cb"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/bf13e882d555f30e8c9d53611086486e134036cb"
+      }
+      [1]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "f1fb4b4477782a186555d554d18c00a9b6918670"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/f1fb4b4477782a186555d554d18c00a9b6918670"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/f1fb4b4477782a186555d554d18c00a9b6918670"
+      }
+    }
+  }
+  [9]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "bf13e882d555f30e8c9d53611086486e134036cb"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGJmMTNlODgyZDU1NWYzMGU4YzlkNTM2MTEwODY0ODZlMTM0MDM2Y2I"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T15:56:54Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T15:56:54Z"
+      }
+      ["message"]=>
+      string(22) "Clean up the lang file"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "a199c7ac49cca9e8d56424066092ba745fb06cd0"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/a199c7ac49cca9e8d56424066092ba745fb06cd0"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/bf13e882d555f30e8c9d53611086486e134036cb"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/bf13e882d555f30e8c9d53611086486e134036cb"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/bf13e882d555f30e8c9d53611086486e134036cb"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/bf13e882d555f30e8c9d53611086486e134036cb/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "1015d105b307f190ff2c3d356a6185e1a589fb7a"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+      }
+    }
+  }
+  [10]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "f1fb4b4477782a186555d554d18c00a9b6918670"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGYxZmI0YjQ0Nzc3ODJhMTg2NTU1ZDU1NGQxOGMwMGE5YjY5MTg2NzA"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-23T15:40:04Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(6) "GitHub"
+        ["email"]=>
+        string(18) "noreply@github.com"
+        ["date"]=>
+        string(20) "2023-01-23T15:40:04Z"
+      }
+      ["message"]=>
+      string(90) "Merge pull request #4008 from Aegide/french-translation
+
+Update french translation (fr_fr)"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "d1c015ac0a7a84363ea123090c755adcfffbe346"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/d1c015ac0a7a84363ea123090c755adcfffbe346"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/f1fb4b4477782a186555d554d18c00a9b6918670"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(true)
+        ["reason"]=>
+        string(5) "valid"
+        ["signature"]=>
+        string(455) "-----BEGIN PGP SIGNATURE-----
+
+wsBcBAABCAAQBQJjzqpUCRBK7hj4Ov3rIwAAjwUIAHy3ku6Nj1Iez/HJnK3u+GLc
+DHZZoxYAGjsO+fhilPtQK1+5PPG5T8o6WHiTduTp9z0FdABDAfV2AxFrOmF26i2C
+L55qqzp1lWxeHRcQSf7c3Os6IgWPD57Rw/Mc44TJk/tiSzCsFaf+/TnZEmOklAnj
+IN7ha0kksxqwD9OXtmciNMga4Xz7BhPpM/skEn66f+IE2MMwWHgColRh5BMq5zMI
+Lf5PxeiJDJHl3+WPhYDjO7aF4pIokpGZ+fgvz7agXC+tHvTISQAt7sT6oKJNhVk/
+NiYp76octeeEkszKY5bPOUD0QdK2nHb5u6VhDAc0H7hRzmFW3tALvkYerOtIKbs=
+=M+Dk
+-----END PGP SIGNATURE-----
+"
+        ["payload"]=>
+        string(345) "tree d1c015ac0a7a84363ea123090c755adcfffbe346
+parent 1015d105b307f190ff2c3d356a6185e1a589fb7a
+parent c8704a0d15d8b1d01f50d474f36d4dd5a4420ced
+author Vasco Lavos <vazkii@hotmail.com> 1674488404 +0000
+committer GitHub <noreply@github.com> 1674488404 +0000
+
+Merge pull request #4008 from Aegide/french-translation
+
+Update french translation (fr_fr)"
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/f1fb4b4477782a186555d554d18c00a9b6918670"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/f1fb4b4477782a186555d554d18c00a9b6918670"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/f1fb4b4477782a186555d554d18c00a9b6918670/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(8) "web-flow"
+      ["id"]=>
+      int(19864447)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE5ODY0NDQ3"
+      ["avatar_url"]=>
+      string(52) "https://avatars.githubusercontent.com/u/19864447?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(37) "https://api.github.com/users/web-flow"
+      ["html_url"]=>
+      string(27) "https://github.com/web-flow"
+      ["followers_url"]=>
+      string(47) "https://api.github.com/users/web-flow/followers"
+      ["following_url"]=>
+      string(60) "https://api.github.com/users/web-flow/following{/other_user}"
+      ["gists_url"]=>
+      string(53) "https://api.github.com/users/web-flow/gists{/gist_id}"
+      ["starred_url"]=>
+      string(60) "https://api.github.com/users/web-flow/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(51) "https://api.github.com/users/web-flow/subscriptions"
+      ["organizations_url"]=>
+      string(42) "https://api.github.com/users/web-flow/orgs"
+      ["repos_url"]=>
+      string(43) "https://api.github.com/users/web-flow/repos"
+      ["events_url"]=>
+      string(54) "https://api.github.com/users/web-flow/events{/privacy}"
+      ["received_events_url"]=>
+      string(53) "https://api.github.com/users/web-flow/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(2) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "1015d105b307f190ff2c3d356a6185e1a589fb7a"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+      }
+      [1]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+      }
+    }
+  }
+  [11]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGM4NzA0YTBkMTVkOGIxZDAxZjUwZDQ3NGYzNmQ0ZGQ1YTQ0MjBjZWQ"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(6) "Aegide"
+        ["email"]=>
+        string(26) "geoffroygressier1@yahoo.fr"
+        ["date"]=>
+        string(20) "2023-01-22T15:38:11Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(6) "Aegide"
+        ["email"]=>
+        string(26) "geoffroygressier1@yahoo.fr"
+        ["date"]=>
+        string(20) "2023-01-22T22:09:02Z"
+      }
+      ["message"]=>
+      string(33) "Update french translation (fr_fr)"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "d1c015ac0a7a84363ea123090c755adcfffbe346"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/d1c015ac0a7a84363ea123090c755adcfffbe346"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/c8704a0d15d8b1d01f50d474f36d4dd5a4420ced"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/c8704a0d15d8b1d01f50d474f36d4dd5a4420ced/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Aegide"
+      ["id"]=>
+      int(43409914)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjQzNDA5OTE0"
+      ["avatar_url"]=>
+      string(52) "https://avatars.githubusercontent.com/u/43409914?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Aegide"
+      ["html_url"]=>
+      string(25) "https://github.com/Aegide"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Aegide/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Aegide/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Aegide/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Aegide/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Aegide/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Aegide/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Aegide/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Aegide/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Aegide/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Aegide"
+      ["id"]=>
+      int(43409914)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjQzNDA5OTE0"
+      ["avatar_url"]=>
+      string(52) "https://avatars.githubusercontent.com/u/43409914?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Aegide"
+      ["html_url"]=>
+      string(25) "https://github.com/Aegide"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Aegide/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Aegide/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Aegide/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Aegide/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Aegide/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Aegide/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Aegide/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Aegide/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Aegide/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "1015d105b307f190ff2c3d356a6185e1a589fb7a"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+      }
+    }
+  }
+  [12]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "1015d105b307f190ff2c3d356a6185e1a589fb7a"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDEwMTVkMTA1YjMwN2YxOTBmZjJjM2QzNTZhNjE4NWUxYTU4OWZiN2E"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:28:38Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:28:38Z"
+      }
+      ["message"]=>
+      string(5) "build"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "ce2d2226e0aae20a7553c7aa5c5b97efb46b5c91"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/ce2d2226e0aae20a7553c7aa5c5b97efb46b5c91"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/1015d105b307f190ff2c3d356a6185e1a589fb7a"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/1015d105b307f190ff2c3d356a6185e1a589fb7a/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "80a866249c4ded620548c5caad5de054d61c7895"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/80a866249c4ded620548c5caad5de054d61c7895"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/80a866249c4ded620548c5caad5de054d61c7895"
+      }
+    }
+  }
+  [13]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "80a866249c4ded620548c5caad5de054d61c7895"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDgwYTg2NjI0OWM0ZGVkNjIwNTQ4YzVjYWFkNWRlMDU0ZDYxYzc4OTU"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:28:36Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:28:36Z"
+      }
+      ["message"]=>
+      string(18) "Fix PMD violations"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "37ee177122147bf8f3db429e6d1184a38f6c484e"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/37ee177122147bf8f3db429e6d1184a38f6c484e"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/80a866249c4ded620548c5caad5de054d61c7895"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/80a866249c4ded620548c5caad5de054d61c7895"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/80a866249c4ded620548c5caad5de054d61c7895"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/80a866249c4ded620548c5caad5de054d61c7895/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+      }
+    }
+  }
+  [14]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDNlMWJlODA4YWExNGM2MjNmNTIxMWNiMjJlMmZlOGIxOTg3MGIzMmI"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:20:14Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:20:14Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4042"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "f61475fafb5194e9b1a1a728e8bb1f68e7a52c57"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/f61475fafb5194e9b1a1a728e8bb1f68e7a52c57"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/3e1be808aa14c623f5211cb22e2fe8b19870b32b"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/3e1be808aa14c623f5211cb22e2fe8b19870b32b/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+      }
+    }
+  }
+  [15]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDdmYTFjY2JiNzkyYzk2Yjg4MzNjNjQ4NWRlN2Y4ZmFjMTdhZjlmMWE"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:16:33Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:16:33Z"
+      }
+      ["message"]=>
+      string(53) "Delegate recipe crawl to first tick, should fix #4045"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "52543b1ab89ec617477975bdf42d775cae581a10"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/52543b1ab89ec617477975bdf42d775cae581a10"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/7fa1ccbb792c96b8833c6485de7f8fac17af9f1a"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/7fa1ccbb792c96b8833c6485de7f8fac17af9f1a/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+      }
+    }
+  }
+  [16]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDIzNGRkOWJmZDkzMDFhNjYzZWFhZGMxOGE4N2FmOThkOWMzYjI2ZmI"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:12:59Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:12:59Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4041"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "94882e9b5e160f2a5d9970f809828d0854d363bc"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/94882e9b5e160f2a5d9970f809828d0854d363bc"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/234dd9bfd9301a663eaadc18a87af98d9c3b26fb"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/234dd9bfd9301a663eaadc18a87af98d9c3b26fb/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "e07c3b99ce253013172890f55e16f9434f445f5c"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/e07c3b99ce253013172890f55e16f9434f445f5c"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/e07c3b99ce253013172890f55e16f9434f445f5c"
+      }
+    }
+  }
+  [17]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "e07c3b99ce253013172890f55e16f9434f445f5c"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGUwN2MzYjk5Y2UyNTMwMTMxNzI4OTBmNTVlMTZmOTQzNGY0NDVmNWM"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:12:26Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:12:26Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4040"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "9ce9ac13f9ed9af1273a23f31c4d9a38cd07f151"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/9ce9ac13f9ed9af1273a23f31c4d9a38cd07f151"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/e07c3b99ce253013172890f55e16f9434f445f5c"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/e07c3b99ce253013172890f55e16f9434f445f5c"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/e07c3b99ce253013172890f55e16f9434f445f5c"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/e07c3b99ce253013172890f55e16f9434f445f5c/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "fe13bce874877c1d54bea8d16e74ba43a52a3478"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/fe13bce874877c1d54bea8d16e74ba43a52a3478"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/fe13bce874877c1d54bea8d16e74ba43a52a3478"
+      }
+    }
+  }
+  [18]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "fe13bce874877c1d54bea8d16e74ba43a52a3478"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGZlMTNiY2U4NzQ4NzdjMWQ1NGJlYThkMTZlNzRiYTQzYTUyYTM0Nzg"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:11:48Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-20T15:11:48Z"
+      }
+      ["message"]=>
+      string(24) "Make getRuneColor common"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "1079e0c3f84106f74605261b147663ceb049d95c"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/1079e0c3f84106f74605261b147663ceb049d95c"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/fe13bce874877c1d54bea8d16e74ba43a52a3478"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/fe13bce874877c1d54bea8d16e74ba43a52a3478"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/fe13bce874877c1d54bea8d16e74ba43a52a3478"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/fe13bce874877c1d54bea8d16e74ba43a52a3478/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+      }
+    }
+  }
+  [19]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDUwNTc3MjdhYWRiNmFhMjJhMmJiMTVjMWIyMjNjOTc5N2QzYzg5NTc"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:38:00Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:38:00Z"
+      }
+      ["message"]=>
+      string(44) "Merge remote-tracking branch 'origin/master'"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "012d74a447d8edc5a8d78c01a759e7f08638c592"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/012d74a447d8edc5a8d78c01a759e7f08638c592"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/5057727aadb6aa22a2bb15c1b223c9797d3c8957"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/5057727aadb6aa22a2bb15c1b223c9797d3c8957/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(2) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "a1c08a93192b4b37020d00cf7602f7d4d0756730"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/a1c08a93192b4b37020d00cf7602f7d4d0756730"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/a1c08a93192b4b37020d00cf7602f7d4d0756730"
+      }
+      [1]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+      }
+    }
+  }
+  [20]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "a1c08a93192b4b37020d00cf7602f7d4d0756730"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGExYzA4YTkzMTkyYjRiMzcwMjBkMDBjZjc2MDJmN2Q0ZDA3NTY3MzA"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:37:53Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:37:53Z"
+      }
+      ["message"]=>
+      string(5) "build"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "98150f13bbdc44283d764695809de129446dc812"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/98150f13bbdc44283d764695809de129446dc812"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/a1c08a93192b4b37020d00cf7602f7d4d0756730"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/a1c08a93192b4b37020d00cf7602f7d4d0756730"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/a1c08a93192b4b37020d00cf7602f7d4d0756730"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/a1c08a93192b4b37020d00cf7602f7d4d0756730/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "1b35b18eec5425e4f053bdb4039e791617f5faed"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1b35b18eec5425e4f053bdb4039e791617f5faed"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/1b35b18eec5425e4f053bdb4039e791617f5faed"
+      }
+    }
+  }
+  [21]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGUxZjRjZWUyZjMxYTI2ZTE4ZmI2ODQ2YWM4MTQyNWQ3YjQ3NjA3ZjY"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:35:39Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(6) "GitHub"
+        ["email"]=>
+        string(18) "noreply@github.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:35:39Z"
+      }
+      ["message"]=>
+      string(79) "Merge pull request #4035 from An12854/master
+
+Updated pt_pt.json and es_es.json"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "41c2f261f288a192c39a1dc39ccd393b59e915f0"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/41c2f261f288a192c39a1dc39ccd393b59e915f0"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(true)
+        ["reason"]=>
+        string(5) "valid"
+        ["signature"]=>
+        string(455) "-----BEGIN PGP SIGNATURE-----
+
+wsBcBAABCAAQBQJjyB/bCRBK7hj4Ov3rIwAAJHYIAJfyYuhsFoUg5xaPWVKPFEW3
+ETMK1q9TrV9dU0G2VSagvUhYVjocWTXzYe8KNpcugnalQ22yvKf8AYXol/s2nonY
+lOUNAmxJG1QYRBNtCzJwXyNAfXYiIXDacsdtHS3tovWxB7CJmbJgvPb5G8ZkGm+R
+03eLO2ove22hIJ2mGysbWcpun8P+8F0zThl3fGCjfOJmiTxofUocCbyFuqNRSK3S
+bzbI/YehP+L10v+oUjy0ZteCFYdUCbFckYsOXHhZNZMLdct1FT6iEcmSeBKLtDyf
+n8FU7l2iME8rX7Io+K9FcVl1SQIyAYm7jXfUjQX5carfuF+TSdp+GqhUWg+Scmk=
+=Yy41
+-----END PGP SIGNATURE-----
+"
+        ["payload"]=>
+        string(334) "tree 41c2f261f288a192c39a1dc39ccd393b59e915f0
+parent 1b35b18eec5425e4f053bdb4039e791617f5faed
+parent 23c37c2a64753565a4c5ecf14c33f223c1c52e4d
+author Vasco Lavos <vazkii@hotmail.com> 1674059739 +0000
+committer GitHub <noreply@github.com> 1674059739 +0000
+
+Merge pull request #4035 from An12854/master
+
+Updated pt_pt.json and es_es.json"
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/e1f4cee2f31a26e18fb6846ac81425d7b47607f6"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/e1f4cee2f31a26e18fb6846ac81425d7b47607f6/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(8) "web-flow"
+      ["id"]=>
+      int(19864447)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE5ODY0NDQ3"
+      ["avatar_url"]=>
+      string(52) "https://avatars.githubusercontent.com/u/19864447?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(37) "https://api.github.com/users/web-flow"
+      ["html_url"]=>
+      string(27) "https://github.com/web-flow"
+      ["followers_url"]=>
+      string(47) "https://api.github.com/users/web-flow/followers"
+      ["following_url"]=>
+      string(60) "https://api.github.com/users/web-flow/following{/other_user}"
+      ["gists_url"]=>
+      string(53) "https://api.github.com/users/web-flow/gists{/gist_id}"
+      ["starred_url"]=>
+      string(60) "https://api.github.com/users/web-flow/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(51) "https://api.github.com/users/web-flow/subscriptions"
+      ["organizations_url"]=>
+      string(42) "https://api.github.com/users/web-flow/orgs"
+      ["repos_url"]=>
+      string(43) "https://api.github.com/users/web-flow/repos"
+      ["events_url"]=>
+      string(54) "https://api.github.com/users/web-flow/events{/privacy}"
+      ["received_events_url"]=>
+      string(53) "https://api.github.com/users/web-flow/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(2) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "1b35b18eec5425e4f053bdb4039e791617f5faed"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1b35b18eec5425e4f053bdb4039e791617f5faed"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/1b35b18eec5425e4f053bdb4039e791617f5faed"
+      }
+      [1]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+      }
+    }
+  }
+  [22]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "1b35b18eec5425e4f053bdb4039e791617f5faed"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDFiMzViMThlZWM1NDI1ZTRmMDUzYmRiNDAzOWU3OTE2MTdmNWZhZWQ"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:35:16Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T16:35:16Z"
+      }
+      ["message"]=>
+      string(57) "improve TPS by 5x with this easy trick (mojang hates him)"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "bd893e0e98b394365ba164b8237d37a9d003feb6"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/bd893e0e98b394365ba164b8237d37a9d003feb6"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/1b35b18eec5425e4f053bdb4039e791617f5faed"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/1b35b18eec5425e4f053bdb4039e791617f5faed"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/1b35b18eec5425e4f053bdb4039e791617f5faed"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/1b35b18eec5425e4f053bdb4039e791617f5faed/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "7ff30279281b06efded2871f5459322be95f1d93"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7ff30279281b06efded2871f5459322be95f1d93"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/7ff30279281b06efded2871f5459322be95f1d93"
+      }
+    }
+  }
+  [23]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDIzYzM3YzJhNjQ3NTM1NjVhNGM1ZWNmMTRjMzNmMjIzYzFjNTJlNGQ"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(7) "an12854"
+        ["email"]=>
+        string(15) "an12854@sapo.pt"
+        ["date"]=>
+        string(20) "2023-01-18T16:26:20Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(7) "an12854"
+        ["email"]=>
+        string(15) "an12854@sapo.pt"
+        ["date"]=>
+        string(20) "2023-01-18T16:26:20Z"
+      }
+      ["message"]=>
+      string(33) "Updated pt_pt.json and es_es.json"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "a119a19b18296a153d6481a9697f5ffeb439d7ad"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/a119a19b18296a153d6481a9697f5ffeb439d7ad"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/23c37c2a64753565a4c5ecf14c33f223c1c52e4d"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/23c37c2a64753565a4c5ecf14c33f223c1c52e4d/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(7) "An12854"
+      ["id"]=>
+      int(50544887)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjUwNTQ0ODg3"
+      ["avatar_url"]=>
+      string(52) "https://avatars.githubusercontent.com/u/50544887?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(36) "https://api.github.com/users/An12854"
+      ["html_url"]=>
+      string(26) "https://github.com/An12854"
+      ["followers_url"]=>
+      string(46) "https://api.github.com/users/An12854/followers"
+      ["following_url"]=>
+      string(59) "https://api.github.com/users/An12854/following{/other_user}"
+      ["gists_url"]=>
+      string(52) "https://api.github.com/users/An12854/gists{/gist_id}"
+      ["starred_url"]=>
+      string(59) "https://api.github.com/users/An12854/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(50) "https://api.github.com/users/An12854/subscriptions"
+      ["organizations_url"]=>
+      string(41) "https://api.github.com/users/An12854/orgs"
+      ["repos_url"]=>
+      string(42) "https://api.github.com/users/An12854/repos"
+      ["events_url"]=>
+      string(53) "https://api.github.com/users/An12854/events{/privacy}"
+      ["received_events_url"]=>
+      string(52) "https://api.github.com/users/An12854/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(7) "An12854"
+      ["id"]=>
+      int(50544887)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjUwNTQ0ODg3"
+      ["avatar_url"]=>
+      string(52) "https://avatars.githubusercontent.com/u/50544887?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(36) "https://api.github.com/users/An12854"
+      ["html_url"]=>
+      string(26) "https://github.com/An12854"
+      ["followers_url"]=>
+      string(46) "https://api.github.com/users/An12854/followers"
+      ["following_url"]=>
+      string(59) "https://api.github.com/users/An12854/following{/other_user}"
+      ["gists_url"]=>
+      string(52) "https://api.github.com/users/An12854/gists{/gist_id}"
+      ["starred_url"]=>
+      string(59) "https://api.github.com/users/An12854/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(50) "https://api.github.com/users/An12854/subscriptions"
+      ["organizations_url"]=>
+      string(41) "https://api.github.com/users/An12854/orgs"
+      ["repos_url"]=>
+      string(42) "https://api.github.com/users/An12854/repos"
+      ["events_url"]=>
+      string(53) "https://api.github.com/users/An12854/events{/privacy}"
+      ["received_events_url"]=>
+      string(52) "https://api.github.com/users/An12854/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "7ff30279281b06efded2871f5459322be95f1d93"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7ff30279281b06efded2871f5459322be95f1d93"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/7ff30279281b06efded2871f5459322be95f1d93"
+      }
+    }
+  }
+  [24]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "7ff30279281b06efded2871f5459322be95f1d93"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDdmZjMwMjc5MjgxYjA2ZWZkZWQyODcxZjU0NTkzMjJiZTk1ZjFkOTM"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T12:58:46Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-18T12:58:46Z"
+      }
+      ["message"]=>
+      string(5) "build"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "8637763bc65bf4d4e1c80040236a3c1dd4f503d6"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/8637763bc65bf4d4e1c80040236a3c1dd4f503d6"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/7ff30279281b06efded2871f5459322be95f1d93"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7ff30279281b06efded2871f5459322be95f1d93"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/7ff30279281b06efded2871f5459322be95f1d93"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/7ff30279281b06efded2871f5459322be95f1d93/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+      }
+    }
+  }
+  [25]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGY0YzMxMjAxYjI1N2Y4YjUzN2M3MDMzYjlhNzc0MGI2MmRiOGJkM2M"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T15:22:36Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T15:22:36Z"
+      }
+      ["message"]=>
+      string(35) "Add in sully's latest texture batch"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "bf34d6b273c83d6e358c9cde6b0d36dadf246d7b"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/bf34d6b273c83d6e358c9cde6b0d36dadf246d7b"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/f4c31201b257f8b537c7033b9a7740b62db8bd3c"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/f4c31201b257f8b537c7033b9a7740b62db8bd3c/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+      }
+    }
+  }
+  [26]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGVmYzhmOWI2ZmY4MDdlYmNkZWMzYzIxZmQyZDUzYWNmNWYzYTRjY2E"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T12:05:17Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T12:05:17Z"
+      }
+      ["message"]=>
+      string(5) "build"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "7cf1773207ad1781076f0cd6c8493e44c563cbb8"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/7cf1773207ad1781076f0cd6c8493e44c563cbb8"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/efc8f9b6ff807ebcdec3c21fd2d53acf5f3a4cca/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "7bedeee424877124edcadec341536955602eedb2"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7bedeee424877124edcadec341536955602eedb2"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/7bedeee424877124edcadec341536955602eedb2"
+      }
+    }
+  }
+  [27]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "7bedeee424877124edcadec341536955602eedb2"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKDdiZWRlZWU0MjQ4NzcxMjRlZGNhZGVjMzQxNTM2OTU1NjAyZWVkYjI"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T12:00:01Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T12:00:01Z"
+      }
+      ["message"]=>
+      string(36) "Compress images by removing metadata"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "3faccade3cf731e47faa6fbd0ecb473326faf86c"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/3faccade3cf731e47faa6fbd0ecb473326faf86c"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/7bedeee424877124edcadec341536955602eedb2"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/7bedeee424877124edcadec341536955602eedb2"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/7bedeee424877124edcadec341536955602eedb2"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/7bedeee424877124edcadec341536955602eedb2/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+      }
+    }
+  }
+  [28]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGQ2NGRmZDQ2ZGNlY2ZjNGRkOTFkNGJmNTU1MzJkNTQ0NTE3Y2QwMjM"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T11:58:56Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T11:58:56Z"
+      }
+      ["message"]=>
+      string(23) "Add golden carrot crate"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "a3aa5d1ff27793764a9fac936ecd728b3d229452"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/a3aa5d1ff27793764a9fac936ecd728b3d229452"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/d64dfd46dcecfc4dd91d4bf55532d544517cd023"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/d64dfd46dcecfc4dd91d4bf55532d544517cd023/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+      }
+    }
+  }
+  [29]=>
+  array(9) {
+    ["sha"]=>
+    string(40) "afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+    ["node_id"]=>
+    string(69) "C_kwDOAzoif9oAKGFmZWYwZmY3MzU0ZDY3YjBjYThlZTQ1YTZiYThjNDg4N2ZlOTlhYzY"
+    ["commit"]=>
+    array(7) {
+      ["author"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T11:45:54Z"
+      }
+      ["committer"]=>
+      array(3) {
+        ["name"]=>
+        string(11) "Vasco Lavos"
+        ["email"]=>
+        string(18) "vazkii@hotmail.com"
+        ["date"]=>
+        string(20) "2023-01-17T11:45:54Z"
+      }
+      ["message"]=>
+      string(9) "Fix #4033"
+      ["tree"]=>
+      array(2) {
+        ["sha"]=>
+        string(40) "6aef0fddcac136bdbb702f4204ab98cd3ee7569b"
+        ["url"]=>
+        string(96) "https://api.github.com/repos/VazkiiMods/Quark/git/trees/6aef0fddcac136bdbb702f4204ab98cd3ee7569b"
+      }
+      ["url"]=>
+      string(98) "https://api.github.com/repos/VazkiiMods/Quark/git/commits/afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+      ["comment_count"]=>
+      int(0)
+      ["verification"]=>
+      array(4) {
+        ["verified"]=>
+        bool(false)
+        ["reason"]=>
+        string(8) "unsigned"
+        ["signature"]=>
+        NULL
+        ["payload"]=>
+        NULL
+      }
+    }
+    ["url"]=>
+    string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+    ["html_url"]=>
+    string(83) "https://github.com/VazkiiMods/Quark/commit/afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6"
+    ["comments_url"]=>
+    string(103) "https://api.github.com/repos/VazkiiMods/Quark/commits/afef0ff7354d67b0ca8ee45a6ba8c4887fe99ac6/comments"
+    ["author"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["committer"]=>
+    array(18) {
+      ["login"]=>
+      string(6) "Vazkii"
+      ["id"]=>
+      int(1794735)
+      ["node_id"]=>
+      string(20) "MDQ6VXNlcjE3OTQ3MzU="
+      ["avatar_url"]=>
+      string(51) "https://avatars.githubusercontent.com/u/1794735?v=4"
+      ["gravatar_id"]=>
+      string(0) ""
+      ["url"]=>
+      string(35) "https://api.github.com/users/Vazkii"
+      ["html_url"]=>
+      string(25) "https://github.com/Vazkii"
+      ["followers_url"]=>
+      string(45) "https://api.github.com/users/Vazkii/followers"
+      ["following_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/following{/other_user}"
+      ["gists_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/gists{/gist_id}"
+      ["starred_url"]=>
+      string(58) "https://api.github.com/users/Vazkii/starred{/owner}{/repo}"
+      ["subscriptions_url"]=>
+      string(49) "https://api.github.com/users/Vazkii/subscriptions"
+      ["organizations_url"]=>
+      string(40) "https://api.github.com/users/Vazkii/orgs"
+      ["repos_url"]=>
+      string(41) "https://api.github.com/users/Vazkii/repos"
+      ["events_url"]=>
+      string(52) "https://api.github.com/users/Vazkii/events{/privacy}"
+      ["received_events_url"]=>
+      string(51) "https://api.github.com/users/Vazkii/received_events"
+      ["type"]=>
+      string(4) "User"
+      ["site_admin"]=>
+      bool(false)
+    }
+    ["parents"]=>
+    array(1) {
+      [0]=>
+      array(3) {
+        ["sha"]=>
+        string(40) "b4d3b317ceab28775f311b9e44b58e7d5ba3a1dc"
+        ["url"]=>
+        string(94) "https://api.github.com/repos/VazkiiMods/Quark/commits/b4d3b317ceab28775f311b9e44b58e7d5ba3a1dc"
+        ["html_url"]=>
+        string(83) "https://github.com/VazkiiMods/Quark/commit/b4d3b317ceab28775f311b9e44b58e7d5ba3a1dc"
+      }
+    }
+  }
+}
