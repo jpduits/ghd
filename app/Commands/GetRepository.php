@@ -14,6 +14,7 @@ use TiagoHillebrandt\ParseLinkHeader;
 use Github\Exception\RuntimeException;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
+use Github\HttpClient\Message\ResponseMediator;
 
 class GetRepository extends Command
 {
@@ -55,94 +56,22 @@ class GetRepository extends Command
         $repository = $this->repositoryExistsOrCreate($_owner, $_repository);
 
         // now get commits from selected repository
-        $paginator = new ResultPager($this->client, 5);
+        //$paginator = new ResultPager($this->client, 5);
+        $commitCount = $this->getCommits($repository);
+        $this->info($commitCount.' commits saved.');
 
+
+        // issues opslaan
+
+
+
+        // watchers
         $page = 1;
         $uri = 'repos/'.$project.'/commits?per_page=100';
-        while (true) {
-
-            $this->line('Get commits for '.$project.' page '.$page);
-            $response = $this->client->getHttpClient()->get($uri);
-            $headers = $response->getHeaders();
-
-            if (isset($headers['X-RateLimit-Remaining'][0])) {
-                $this->info('Remaining requests: '.$headers['X-RateLimit-Remaining'][0].'/'.$headers['X-RateLimit-Limit'][0]);
-            }
-
-            if (isset($headers['Link'][0] )) {
-                $links = (new ParseLinkHeader($headers['Link'][0]))->toArray();
-                $lastPage = $links['last']['page'] ?? 1;
-            }
-
-            $commits = \Github\HttpClient\Message\ResponseMediator::getContent($response);
-
-            // save the commits
-            $this->line('Saving commits for '.$project.' page '.$page.'/'.$lastPage);
-            foreach ($commits as $commit) {
+/*        while (true) {
 
 
-                $commitRecord = new Commit();
-
-                if ($commit['sha'] == '04f4654be6f58409da5087eeb49122324fbc8414') {
-                    echo 'break!';
-                }
-
-                $commitRecord->sha = $commit['sha'];
-
-                $commitRecord->repository_id = $repository->id;
-
-                $commitDate = $commit['commit']['author']['date'];
-                $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
-
-                if (isset($commit['author']['id'])) {
-                    $authorId = $commit['author']['id'];
-                    $author = $this->userExistsOrCreate($authorId);
-                }
-                else {
-                    $author = $this->userExistsOrCreate(0); // user deleted
-                }
-
-                if (isset($commit['committer']['id'])) {
-                    $committerId = $commit['committer']['id'];
-                    $committer = $this->userExistsOrCreate($committerId);
-                }
-                else {
-                    $committer = $this->userExistsOrCreate(0); // user deleted
-                }
-
-                $commitRecord->author_id = $author->id ?? null;
-                $commitRecord->committer_id = $committer->id ?? null;
-
-                $commitRecord->message = $commit['commit']['message'] ?? '';
-                $commitRecord->node_id = $commit['node_id'];
-                $commitRecord->html_url = $commit['html_url'];
-                $commitRecord->save();
-//                $this->line('SHA '.$commit['sha'].' saved');
-            }
-
-
-
-
-
-
-
-
-            // no next page, break from while
-            if (!isset($links['next'])) {
-                break;
-            }
-
-            // else get next page
-            $page++;
-            $uri = $links['next']['link'];
-
-        }
-
-
-
-
-
-
+        }*/
 
         return 0;
     }
@@ -181,7 +110,7 @@ class GetRepository extends Command
             $user->email = $userFromRequest['email'];
             $user->html_url = $userFromRequest['html_url'];
             $user->save();
-            $this->info('User ('.$user->name.') created');
+            $this->info('User ('.$user->login.') created');
         }
         return $user;
     }
@@ -205,5 +134,91 @@ class GetRepository extends Command
             $repository->save();
         }
         return $repository;
+    }
+
+    protected function getCommits(Repository $repository)
+    {
+        $commitCounter = 0;
+
+        $page = 1;
+        $uri = 'repos/'.$repository->full_name.'/commits?per_page=100';
+        while (true) {
+
+            $this->line('Get commits for '.$repository->full_name.' page '.$page);
+            $response = $this->client->getHttpClient()->get($uri);
+            $headers = $response->getHeaders();
+
+            if (isset($headers['X-RateLimit-Remaining'][0])) {
+                $this->info('Remaining requests: '.$headers['X-RateLimit-Remaining'][0].'/'.$headers['X-RateLimit-Limit'][0]);
+            }
+
+            if (isset($headers['Link'][0] )) {
+                $links = (new ParseLinkHeader($headers['Link'][0]))->toArray();
+                $lastPage = $links['last']['page'] ?? 1;
+            }
+
+            $commits = ResponseMediator::getContent($response);
+
+            // save the commits
+            $this->line('Saving commits for '.$repository->full_name.' page '.$page.'/'.$lastPage);
+            foreach ($commits as $commit) {
+
+
+                // first check commit exists
+                $commitRecord = Commit::where('sha', '=', $commit['sha'])->first();
+                if (!$commitRecord instanceof Commit) {
+                    // Commit does not exist, create
+                    $commitRecord = new Commit();
+                    $commitRecord->sha = $commit['sha'];
+
+                    $commitRecord->repository_id = $repository->id;
+
+                    $commitDate = $commit['commit']['author']['date'];
+                    $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
+
+                    if (isset($commit['author']['id'])) {
+                        $authorId = $commit['author']['id'];
+                        $author = $this->userExistsOrCreate($authorId);
+                    }
+                    else {
+                        $author = $this->userExistsOrCreate(0); // user deleted
+                    }
+
+                    if (isset($commit['committer']['id'])) {
+                        $committerId = $commit['committer']['id'];
+                        $committer = $this->userExistsOrCreate($committerId);
+                    }
+                    else {
+                        $committer = $this->userExistsOrCreate(0); // user deleted
+                    }
+
+                    $commitRecord->author_id = $author->id ?? null;
+                    $commitRecord->committer_id = $committer->id ?? null;
+
+                    $commitRecord->message = $commit['commit']['message'] ?? '';
+                    $commitRecord->node_id = $commit['node_id'];
+                    $commitRecord->html_url = $commit['html_url'];
+                    $commitRecord->save();
+                    $commitCounter++;
+                }
+                else {
+                    $this->line('Commit: '.$commit['sha'].' already exists, skipping.');
+                }
+
+            }
+
+            // no next page, break from while
+            if (!isset($links['next'])) {
+            //if (true) { //debug
+                break;
+            }
+
+            // else get next page
+            $page++;
+            $uri = $links['next']['link'];
+
+        }
+
+        return $commitCounter;
     }
 }
