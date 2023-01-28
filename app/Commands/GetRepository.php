@@ -6,6 +6,7 @@ use App\User;
 use App\Commit;
 use Github\Client;
 use Carbon\Carbon;
+use App\Stargazer;
 use App\Repository;
 use Github\AuthMethod;
 use Github\ResultPager;
@@ -60,7 +61,8 @@ class GetRepository extends Command
         $commitCount = $this->getCommits($repository);
         $this->info($commitCount.' commits saved.');
 
-
+        $stargazerCount = $this->getStargazers($repository);
+        $this->info($stargazerCount.' stargazers saved.');
         // issues opslaan
 
 
@@ -208,8 +210,8 @@ class GetRepository extends Command
             }
 
             // no next page, break from while
-            if (!isset($links['next'])) {
-            //if (true) { //debug
+            //if (!isset($links['next'])) {
+            if (true) { //debug
                 break;
             }
 
@@ -221,4 +223,71 @@ class GetRepository extends Command
 
         return $commitCounter;
     }
+
+    protected function getStargazers(Repository $repository)
+    {
+        $stargazerCounter = 0;
+
+        $page = 1;
+        $uri = 'repos/'.$repository->full_name.'/stargazers?per_page=100';
+        $httpClient = $this->client->getHttpClient();
+
+        while (true) {
+
+            $this->line('Get stargazers for ' . $repository->full_name . ' page ' . $page);
+
+            $response = $httpClient->get($uri, ['Accept' => 'application/vnd.github.star+json']);
+            $headers = $response->getHeaders();
+
+            print_r($headers['X-GitHub-Media-Type']);
+
+            if (isset($headers['X-RateLimit-Remaining'][0])) {
+                $this->info('Remaining requests: ' . $headers['X-RateLimit-Remaining'][0] . '/' . $headers['X-RateLimit-Limit'][0]);
+            }
+
+            if (isset($headers['Link'][0] )) {
+                $links = (new ParseLinkHeader($headers['Link'][0]))->toArray();
+                $lastPage = $links['last']['page'] ?? 1;
+            }
+
+            $stargazers = ResponseMediator::getContent($response);
+
+            // save the commits
+            $this->line('Saving stargazers for '.$repository->full_name.' page '.$page.'/'.$lastPage);
+
+            foreach ($stargazers as $stargazer) {
+                // first check stargazer exists
+                $stargazerRecord = Stargazer::where('user_id', '=', $stargazer['user']['id'])->where('repository_id', '=', $repository->id)->first();
+                if (!$stargazerRecord instanceof Stargazer) {
+                    // Commit does not exist, create
+                    $stargazerRecord = new Stargazer();
+                    $user = $this->userExistsOrCreate($stargazer['user']['id']);
+                    $stargazerRecord->user_id = $user->id;
+                    $stargazerRecord->repository_id = $repository->id;
+                    $starredAtDate = $stargazer['starred_at'];
+                    $stargazerRecord->starred_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $starredAtDate)->toDateTimeString();
+                    $stargazerRecord->save();
+                    $stargazerCounter++;
+                }
+                else {
+                    $this->line('Startgazer: '.$stargazer['user']['id'].' already exists, skipping.');
+                }
+
+            }
+
+            // no next page, break from while
+            if (!isset($links['next'])) {
+                //if (true) { //debug
+                break;
+            }
+
+            // else get next page
+            $page++;
+            $uri = $links['next']['link'];
+
+        }
+
+        return $stargazerCounter;
+    }
+
 }
