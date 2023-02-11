@@ -12,4 +12,20 @@ class Commit extends Model
     protected $table = 'commits';
 
     public $timestamps = false;
+
+    public function repository()
+    {
+        return $this->belongsTo(Repository::class, 'repository_id', 'id');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id', 'id');
+    }
+
+    public function committer()
+    {
+        return $this->belongsTo(User::class, 'committer_id', 'id');
+    }
+
 }

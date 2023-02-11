@@ -25,6 +25,7 @@
         "illuminate/validation": "^9.50",
         "knplabs/github-api": "^3.0",
         "laravel-zero/framework": "^9.2",
+        "nesbot/carbon": "^2.66",
         "nunomaduro/termwind": "^1.14",
         "tiagohillebrandt/php-parse-link-header": "^1.0"
     },

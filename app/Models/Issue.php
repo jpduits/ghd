@@ -14,4 +14,14 @@ class Issue extends Model
     public $incrementing = false;
 
     public $timestamps = false;
+
+    public function repository()
+    {
+        return $this->belongsTo(Repository::class, 'repository_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'author_id', 'id');
+    }
 }
