@@ -6,6 +6,7 @@ use Github\Client;
 use Carbon\Carbon;
 use App\Models\Commit;
 use App\Models\Repository;
+use App\Models\PullRequest;
 use TiagoHillebrandt\ParseLinkHeader;
 use Symfony\Component\Console\Output\Output;
 use Github\HttpClient\Message\ResponseMediator;
@@ -14,14 +15,16 @@ class CommitParser extends BaseParser
 {
 
     private UserParser $userParser;
+    private RepositoryParser $repositoryParser;
 
-    public function __construct(Client $client, Output $output, UserParser $userParser)
+    public function __construct(Client $client, Output $output, UserParser $userParser, RepositoryParser $repositoryParser)
     {
         parent::__construct($client, $output);
         $this->userParser = $userParser;
+        $this->repositoryParser = $repositoryParser;
     }
 
-    public function getCommits(Repository $repository, int $pullRequestNumber = null)
+    public function getCommits(Repository $repository, PullRequest $pullRequest = null): Int
     {
         $commitCounter = 0;
 
@@ -29,9 +32,9 @@ class CommitParser extends BaseParser
         $lastPage = 1;
 
         $suffix = '';
-        if ($pullRequestNumber) {
-            $uri = 'repos/' . $repository->full_name . '/pulls/'.$pullRequestNumber.'/commits?per_page=100';
-            $suffix = ' (for not merged PullRequest '.$pullRequestNumber.')';
+        if ($pullRequest instanceof PullRequest) {
+            $uri = 'repos/' . $repository->full_name . '/pulls/'.$pullRequest->number.'/commits?per_page=100';
+            $suffix = ' (pull Request '.$pullRequest->number.')';
         }
         else {
             $uri = 'repos/' . $repository->full_name . '/commits?per_page=100';
@@ -63,40 +66,65 @@ class CommitParser extends BaseParser
                 if (!$commitRecord instanceof Commit) {
                     // Commit does not exist, create
                     $commitRecord = new Commit();
+
+                    // if commit not exists and it is a pull request, set repository_id to head repository (the original)
+                    if (($pullRequest instanceof PullRequest) && ($pullRequest->merged_at == null)) {
+                        [$repoOwner, $repoName] = explode('/', $pullRequest->head_full_name);
+                        $headRepo = $this->repositoryParser->repositoryExistsOrCreate($repoOwner, $repoName);
+                        $commitRecord->repository_id = $headRepo->id;
+                    }
+                    else {
+                        $commitRecord->repository_id = $repository->id;
+                    }
+
                     $commitRecord->sha = $commit['sha'];
 
-                    $commitRecord->repository_id = $repository->id;
-
-                    $commitDate = $commit['commit']['author']['date'];
+                    $commitDate = $commit['commit']['author']['date']; // date of commit
                     $commitRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $commitDate)->toDateTimeString();
 
-                    if (isset($commit['author']['id'])) {
-                        $authorId = $commit['author']['id'];
-                        $author = $this->userParser->userExistsOrCreate($authorId);
+                    if (isset($commit['commit']['author'])) {
+                        $author = $this->userParser->userExistsOrCreate($commit['commit']['author']);
                     }
                     else {
-                        $author = $this->userParser->userExistsOrCreate(0); // user deleted
+                        //$author = $this->userParser->userExistsOrCreate(0); // user does not exist (deleted)
                     }
+                    $commitRecord->author_id = $author->id;
 
-                    if (isset($commit['committer']['id'])) {
-                        $committerId = $commit['committer']['id'];
-                        $committer = $this->userParser->userExistsOrCreate($committerId);
+                    if (isset($commit['commit']['committer'])) {
+                        $committer = $this->userParser->userExistsOrCreate($commit['commit']['committer']);
                     }
                     else {
-                        $committer = $this->userParser->userExistsOrCreate(0); // user deleted
+                        //$committer = $this->userParser->userExistsOrCreate(0); // user deleted
                     }
-
-                    $commitRecord->author_id = $author->id ?? null;
-                    $commitRecord->committer_id = $committer->id ?? null;
+                    $commitRecord->committer_id = $committer->id;
 
                     $commitRecord->message = $commit['commit']['message'] ?? '';
-                    $commitRecord->node_id = $commit['node_id'];
+                    $commitRecord->url = $commit['url'];
                     $commitRecord->html_url = $commit['html_url'];
+
                     $commitRecord->save();
+
+                    // save parent commits
+                    if (isset($commit['parents'])) {
+
+                        foreach ($commit['parents'] as $parent) {
+                            $parentCommit = Commit::where('sha', '=', $parent['sha'])->first();
+                            if ($parentCommit instanceof Commit) {
+                                $commitRecord->parents()->attach($parentCommit->id);
+                            }
+                        }
+                    }
+
                     $commitCounter++;
                 }
                 else {
-                    $this->writeToTerminal('Commit: '.$commit['sha'].' already exists, skipping.', 'warning');
+                    $this->writeToTerminal('Commit: '.$commit['sha'].' already exists, skipping.');
+                }
+
+                // link commit to pull request
+                if ($pullRequest instanceof PullRequest) {
+                    $this->writeToTerminal('Commit: '.$commit['sha'].' linking to pull request '.$pullRequest->number.'.', 'info-yellow');
+                    $commitRecord->pullRequest()->attach($pullRequest->github_id);
                 }
 
             }
@@ -114,6 +142,8 @@ class CommitParser extends BaseParser
         }
 
         $this->writeToTerminal(sprintf('%s commits saved for repository (%s)', $commitCounter, $repository->full_name));
+
+        return $commitCounter;
     }
 
 

@@ -57,7 +57,7 @@ class StargazerParser extends BaseParser
                 if (!$stargazerRecord instanceof Stargazer) {
                     // Commit does not exist, create
                     $stargazerRecord = new Stargazer();
-                    $user = $this->userParser->userExistsOrCreate($stargazer['user']['id']);
+                    $user = $this->userParser->userExistsOrCreate($stargazer['user']);
                     $stargazerRecord->user_id = $user->id;
                     $stargazerRecord->repository_id = $repository->id;
                     $starredAtDate = $stargazer['starred_at'];

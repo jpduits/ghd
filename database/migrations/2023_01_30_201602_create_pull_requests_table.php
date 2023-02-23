@@ -14,32 +14,45 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pull_requests', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->primary('id');
-            $table->string('node_id');
-            $table->string('url');
-            $table->string('state')->nullable();
+            $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('github_id');
+            $table->index('github_id');
+
             $table->bigInteger('number')->unsigned()->nullable();
-            $table->string('title')->nullable();
-            $table->longText('body')->nullable();
-            $table->string('merge_commit_sha')->nullable();
-            $table->unsignedBigInteger('merge_commit_id')->nullable();
-            $table->foreign('merge_commit_id')->references('id')->on('commits');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('state')->nullable();
+            $table->bigInteger('user_id')->unsigned(); // user who created the pull request
+
+            $table->timestamps();
             $table->timestamp('closed_at')->nullable();
             $table->timestamp('merged_at')->nullable();
-            $table->timestamps();
-            $table->bigInteger('head_user_id')->unsigned()->nullable();
-            $table->foreign('head_user_id')->references('id')->on('users');
+
+            $table->string('merge_commit_sha')->nullable();
+            // head
             $table->unsignedBigInteger('head_repository_id')->nullable();
             $table->foreign('head_repository_id')->references('id')->on('repositories');
-            $table->string('head_ref')->nullable();
-            $table->bigInteger('base_user_id')->unsigned()->nullable();
-            $table->foreign('base_user_id')->references('id')->on('users');
+            $table->string('head_ref')->nullable(); // branch name
+            $table->string('head_sha')->nullable(); // most recent commit sha (last commit of parent branch)
+            $table->bigInteger('head_user_id')->unsigned()->nullable();
+            $table->foreign('head_user_id')->references('id')->on('users');
+            $table->string('head_full_name')->nullable();
+
+
+            // base
             $table->unsignedBigInteger('base_repository_id')->nullable();
             $table->foreign('base_repository_id')->references('id')->on('repositories');
-            $table->string('base_ref')->nullable();
+            $table->string('base_ref')->nullable(); // branch name
+            $table->string('base_sha')->nullable();
+            $table->bigInteger('base_user_id')->unsigned()->nullable();
+            $table->foreign('base_user_id')->references('id')->on('users');
+            $table->string('base_full_name')->nullable();
+
+
+            $table->string('title')->nullable();
+            $table->longText('body')->nullable();
+            $table->string('url');
+            $table->string('html_url');
+
         });
     }
 

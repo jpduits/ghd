@@ -14,21 +14,32 @@ return new class extends Migration
     public function up()
     {
         Schema::create('issues', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->primary('id');
-            $table->string('node_id');
+            $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('github_id');
+            $table->index('github_id');
+
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+
             $table->bigInteger('repository_id')->unsigned();
             $table->foreign('repository_id')->references('id')->on('repositories');
+            $table->index('repository_id');
+
             $table->string('title')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('state')->nullable();
             $table->bigInteger('number')->unsigned()->nullable();
+            $table->string('state')->nullable();
+
             $table->bigInteger('comments')->unsigned()->default(0);
-            $table->timestamp('closed_at')->nullable();
+
+            $table->string('url')->nullable();
+            $table->string('html_url')->nullable();
+
             $table->timestamps();
-            $table->string('html_url');
+            $table->timestamp('closed_at')->nullable();
+
+            $table->longText('body')->nullable();
+
         });
     }
 

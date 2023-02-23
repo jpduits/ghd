@@ -63,33 +63,19 @@ class PullRequestParser extends BaseParser
             $this->writeToTerminal('Saving pull requests for '.$repository->full_name.' page '.$page.'/'.$lastPage);
 
             foreach ($pullRequests as $pullRequest) {
-                // first check stargazer exists
-                $pullRequestRecord = PullRequest::find($pullRequest['id']);
+
+                // check the pull request already exists
+                $pullRequestRecord = PullRequest::where('github_id', '=', $pullRequest['id'])->first();
                 if (!$pullRequestRecord instanceof PullRequest) {
-                    // Commit does not exist, create
+
+                    // pull request does not exist, create
                     $pullRequestRecord = new PullRequest();
-
-                    $pullRequestRecord->id = $pullRequest['id'];
-                    $pullRequestRecord->node_id = $pullRequest['node_id'];
-                    $pullRequestRecord->url = $pullRequest['url'];
-                    $pullRequestRecord->state = $pullRequest['state'];
+                    $pullRequestRecord->github_id = $pullRequest['id'];
                     $pullRequestRecord->number = $pullRequest['number'];
-                    $pullRequestRecord->title = $pullRequest['title'];
-                    $pullRequestRecord->body = $pullRequest['body'];
-                    $pullRequestRecord->merge_commit_sha = $pullRequest['merge_commit_sha'];
-                    $mergeCommit = Commit::where('sha', '=', $pullRequest['merge_commit_sha'])->first();
-                    if ($mergeCommit instanceof Commit) {
-                        // there is a merge commit, so the commits are saved under the selected branch
-                        $pullRequestRecord->merge_commit_id = $mergeCommit->id;
-                    }
+                    $pullRequestRecord->state = $pullRequest['state'];
 
-                    $user = $this->userParser->userExistsOrCreate($pullRequest['user']['id']);
+                    $user = $this->userParser->userExistsOrCreate($pullRequest['user']);
                     $pullRequestRecord->user_id = $user->id;
-
-                    $closedAtDate = $pullRequest['closed_at'];
-                    if ($closedAtDate !== null) {
-                        $pullRequestRecord->closed_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $closedAtDate)->toDateTimeString();
-                    }
 
                     $createdAtDate = $pullRequest['created_at'];
                     if ($createdAtDate !== null) {
@@ -101,46 +87,56 @@ class PullRequestParser extends BaseParser
                         $pullRequestRecord->updated_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $updatedAtDate)->toDateTimeString();
                     }
 
+                    $closedAtDate = $pullRequest['closed_at'];
+                    if ($closedAtDate !== null) {
+                        $pullRequestRecord->closed_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $closedAtDate)->toDateTimeString();
+                    }
+
                     $mergedAtDate = $pullRequest['merged_at'];
                     if ($mergedAtDate !== null) {
                         $pullRequestRecord->merged_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $mergedAtDate)->toDateTimeString();
                     }
+                    $pullRequestRecord->merge_commit_sha = $pullRequest['merge_commit_sha'];
 
-                    if (isset($pullRequest['head']['user']['id'])) {
-                        $user = $this->userParser->userExistsOrCreate($pullRequest['head']['user']['id']);
+                    // head
+                    if (isset($pullRequest['head']['user'])) {
+                        $user = $this->userParser->userExistsOrCreate($pullRequest['head']['user']);
                         $pullRequestRecord->head_user_id = $user->id;
                     }
 
                     if (isset($pullRequest['head']['repo']['full_name'])) {
 
                         try {
-
-                            $mainRepository = $this->repositoryParser->repositoryExistsOrCreate($pullRequest['head']['repo']['owner']['login'], $pullRequest['head']['repo']['name']);
-                            $pullRequestRecord->head_repository_id = $mainRepository->id;
-                            $pullRequestRecord->head_ref = $pullRequest['head']['ref'];
-
-                            // save commits of not merged pull request
-                            if ($pullRequest['merge_commit_sha'] == null) {
-                                // Pull request not merged, try to get the commits and users.
-                                $commitCount = $this->commitParser->getCommits($repository, $pullRequest['number']);
-                                $this->writeToTerminal($commitCount.' commits saved for not merged pull request.');
-                            }
-
+                            $headRepository = $this->repositoryParser->repositoryExistsOrCreate($pullRequest['head']['repo']['owner']['login'], $pullRequest['head']['repo']['name']);
+                            $pullRequestRecord->head_repository_id = $headRepository->id;
+                            $pullRequestRecord->head_sha = $pullRequest['head']['sha'];
+                            $pullRequestRecord->head_ref = $pullRequest['head']['ref']; // branch name
+                            $pullRequestRecord->head_full_name = $pullRequest['head']['repo']['full_name'];
                         } catch (RuntimeException $e) {
-                            $this->writeToTerminal('Repository '.$pullRequest['head']['repo']['full_name'].' does not exist anymore, commits not saved');
+                            $this->writeToTerminal('Repository '.$pullRequest['head']['repo']['full_name'].' does not exist anymore', 'info-red');
                         }
 
                     }
 
-                    $user = $this->userParser->userExistsOrCreate($pullRequest['base']['user']['id']);
+                    // base, always exist
+                    $user = $this->userParser->userExistsOrCreate($pullRequest['base']['user']);
                     $pullRequestRecord->base_user_id = $user->id;
-
                     $baseRepository = $this->repositoryParser->repositoryExistsOrCreate($pullRequest['base']['repo']['owner']['login'], $pullRequest['base']['repo']['name']);
                     $pullRequestRecord->base_repository_id = $baseRepository->id;
                     $pullRequestRecord->base_ref = $pullRequest['base']['ref'];
+                    $pullRequestRecord->base_sha = $pullRequest['base']['sha'];
+                    $pullRequestRecord->base_full_name = $pullRequest['base']['repo']['full_name'];
 
+                    $pullRequestRecord->title = $pullRequest['title'];
+                    $pullRequestRecord->body = $pullRequest['body'];
+                    $pullRequestRecord->html_url = $pullRequest['html_url'];
+                    $pullRequestRecord->url = $pullRequest['url'];
 
                     $pullRequestRecord->save();
+
+                    // save and link the commits of the pull request
+                    $this->commitParser->getCommits($repository, $pullRequestRecord);
+
                     $pullRequestCounter++;
                 }
                 else {

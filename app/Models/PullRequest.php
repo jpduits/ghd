@@ -13,6 +13,8 @@ class PullRequest extends Model
 
     public $timestamps = false;
 
+    public $incrementing = false;
+
     public function baseRepository()
     {
         return $this->belongsTo(Repository::class, 'repository_id', 'id');
@@ -42,4 +44,10 @@ class PullRequest extends Model
     {
         return $this->hasOne(Commit::class, 'id', 'merge_commit_id');
     }
+
+    public function commits()
+    {
+        return $this->belongsToMany(Commit::class, 'pull_request_commits', 'pull_request_id', 'commit_id');
+    }
+
 }

@@ -28,4 +28,16 @@ class Commit extends Model
         return $this->belongsTo(User::class, 'committer_id', 'id');
     }
 
+    public function pullRequest()
+    {
+        return $this->belongsToMany(PullRequest::class, 'pull_requests_commits', 'commit_id', 'pull_request_id', 'id', 'id');
+    }
+
+
+    public function parents()
+    {
+        return $this->belongsToMany(Commit::class, 'commit_parents', 'commit_id', 'parent_id', 'id', 'id');
+    }
+
+
 }

@@ -58,8 +58,8 @@ class IssueParser extends BaseParser
                 if (!$issueRecord instanceof Issue) {
                     // Commit does not exist, create
                     $issueRecord = new Issue();
-                    $issueRecord->id = $issue['id'];
-                    $user = $this->userParser->userExistsOrCreate($issue['user']['id']);
+                    $issueRecord->github_id = $issue['id'];
+                    $user = $this->userParser->userExistsOrCreate($issue['user']);
                     $issueRecord->user_id = $user->id;
                     $issueRecord->repository_id = $repository->id;
                     $closedAtDate = $issue['closed_at'];
@@ -78,12 +78,13 @@ class IssueParser extends BaseParser
                     }
 
                     $issueRecord->title = $issue['title'];
-                    $issueRecord->description = $issue['body'] ?? '';
+                    $issueRecord->body = $issue['body'] ?? '';
                     $issueRecord->state = $issue['state'];
-                    $issueRecord->node_id = $issue['node_id'];
                     $issueRecord->number = $issue['number'] ?? null;
                     $issueRecord->comments = $issue['comments'] ?? 0;
+                    $issueRecord->url = $issue['url'];
                     $issueRecord->html_url = $issue['html_url'];
+
 
                     $issueRecord->save();
                     $issuesCounter++;

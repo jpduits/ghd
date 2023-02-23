@@ -15,13 +15,18 @@ return new class extends Migration
     {
         Schema::create('commits', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->unsignedBigInteger('repository_id');
+            $table->index('repository_id');
+
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('committer_id')->nullable();
-            $table->text('message')->nullable();
+
             $table->string('sha');
-            $table->string('node_id');
             $table->timestamp('created_at');
+
+            $table->text('message')->nullable();
+            $table->string('url')->nullable();
             $table->string('html_url')->nullable();
 
             $table->foreign('repository_id')->references('id')->on('repositories');

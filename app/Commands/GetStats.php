@@ -43,6 +43,7 @@ class GetStats extends Command
 
         }
         else {
+
             if (is_numeric($repository)) {
                 $repo = Repository::find($repository);
             }

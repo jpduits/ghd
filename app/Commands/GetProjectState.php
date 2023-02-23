@@ -112,6 +112,9 @@ class GetProjectState extends Command
                                            ->distinct()
                                            ->get();
 
+
+
+
             // get all unique developers from the Pi period that also contributed in Pi-1
             $contributingDevelopersIdsPeriod = $repository->commits()
                                            ->where('created_at', '>=', $startRangeDate)

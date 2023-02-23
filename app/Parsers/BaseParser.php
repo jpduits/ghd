@@ -37,6 +37,9 @@ class BaseParser
     public function writeToTerminal(string $message, string $style = null) : void
     {
         $styles = [
+            'info-green' => '<options=bold;fg=green>',
+            'info-yellow' => '<options=bold;fg=yellow>',
+            'info-red' => '<options=bold;fg=red>',
             'info' => '<options=bold>',
             'comment' => '<fg=black;bg=blue>',
             'question' => '<fg=black;bg=green>',
@@ -50,18 +53,13 @@ class BaseParser
         $this->output->writeLn($message, OutputInterface::OUTPUT_NORMAL);
     }
 
-    /**
-     * @param array $headers
-     * @param bool $activateSleep
-     * @return void
-     */
-    public function checkRemainingRequests(array $headers, bool $activateSleep = true) : void
+    public function checkRemainingRequests(array $headers, bool $activateSleep = true) : int
     {
         if (isset($headers['X-RateLimit-Remaining'][0])) {
             $remainingRequests = $headers['X-RateLimit-Remaining'][0];
             $maxRequests = $headers['X-RateLimit-Limit'][0];
 
-            $this->writeToTerminal('Remaining requests: '.$remainingRequests.'/'.$maxRequests);
+            $this->writeToTerminal('Remaining requests: '.$remainingRequests.'/'.$maxRequests, 'info-green');
 
             if ($remainingRequests <= 1  && $activateSleep) {
                 $this->writeToTerminal('Waiting for 1 hour...', 'info');
@@ -83,6 +81,8 @@ class BaseParser
             }
 
         }
+
+        return $remainingRequests;
 
     }
 

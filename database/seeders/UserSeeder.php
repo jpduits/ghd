@@ -18,8 +18,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 0,
             'login' => 'unknown',
-            'node_id' => 'unknown',
-            'name' => 'unknown / deleted',
+            'name' => 'unknown / deleted'
         ]);
     }
 }

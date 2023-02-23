@@ -11,7 +11,7 @@ class Repository extends Model
 
     protected $table = 'repositories';
 
-    public $incrementing = false;
+    //public $incrementing = false;
 
     public $timestamps = false;
 

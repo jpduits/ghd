@@ -27,7 +27,6 @@ return new class extends Migration
             $table->integer('contributors_new')->nullable();
             $table->integer('contributors_with_contributions_last_period')->nullable();
             $table->integer('contributors_with_contributions_current_period')->nullable();
-
         });
     }
 

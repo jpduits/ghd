@@ -28,17 +28,27 @@ class RepositoryParser extends BaseParser
         if (!$repository instanceof Repository) {
 
             $repositoryFromRequest = $this->client->api('repo')->show($ownerName, $repositoryName);
-            $owner = $this->userParser->userExistsOrCreate($repositoryFromRequest['owner']['id']);
+            $headers = $this->client->getLastResponse()->getHeaders();
+            $this->checkRemainingRequests($headers);
+
+            $owner = $this->userParser->userExistsOrCreate($repositoryFromRequest['owner']);
+
             $repository = new Repository();
-            $repository->id = $repositoryFromRequest['id'];
-            $repository->node_id = $repositoryFromRequest['node_id'];
+            $repository->github_id = $repositoryFromRequest['id'];
+            $repository->owner_id = $owner->id;
             $repository->name = $repositoryFromRequest['name'];
             $repository->full_name = $repositoryFromRequest['full_name'];
-            $repository->owner_id = $owner->id;
+
+            $repository->default_branch = $repositoryFromRequest['default_branch'];
+            $repository->language = $repositoryFromRequest['language'] ?? null;
+            $repository->is_fork = $repositoryFromRequest['fork'] ?? false;
+            $repository->forks_count = $repositoryFromRequest['forks_count'] ?? false;
+            $repository->stargazers_count = $repositoryFromRequest['stargazers_count'] ?? false;
+            $repository->subscribers_count = $repositoryFromRequest['subscribers_count'] ?? false;
+
             $repository->description = $repositoryFromRequest['description'];
             $repository->html_url = $repositoryFromRequest['html_url'];
-            $repository->default_branch = $repositoryFromRequest['default_branch'];
-            $repository->is_fork = $repositoryFromRequest['fork'] ?? false;
+            $repository->url = $repositoryFromRequest['url'];
 
             $createdAtDate = $repositoryFromRequest['created_at'];
             if ($createdAtDate !== null) {
@@ -48,6 +58,11 @@ class RepositoryParser extends BaseParser
             $updatedAtDate = $repositoryFromRequest['updated_at'];
             if ($updatedAtDate !== null) {
                 $repository->updated_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $updatedAtDate)->toDateTimeString();
+            }
+
+            $pushedAtDate = $repositoryFromRequest['pushed_at'];
+            if ($pushedAtDate !== null) {
+                $repository->pushed_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $pushedAtDate)->toDateTimeString();
             }
 
             $repository->save();
