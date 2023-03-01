@@ -5,6 +5,10 @@ namespace App\Commands;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Repository;
+use Illuminate\Support\Str;
+use App\Models\ProjectState;
+use App\Metrics\StickyMetric;
+use App\Metrics\MagnetMetric;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
@@ -33,12 +37,22 @@ class GetProjectState extends Command
 
     private string $outputFormat = 'cli';
     private Carbon $startDate;
-    private Carbon $endDate;
+    private ?Carbon $endDate = null;
     private int $interval = 26; // default half a year
     private string $owner = '';
     private string $repository = '';
     private string $fullName = '';
+    private StickyMetric $stickyMetric;
+    private MagnetMetric $magnetMetric;
+    private string $uuid;
 
+
+    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric)
+    {
+        parent::__construct();
+        $this->stickyMetric = $stickyMetric;
+        $this->magnetMetric = $magnetMetric;
+    }
     /**
      * Execute the console command.
      *
@@ -46,31 +60,86 @@ class GetProjectState extends Command
      */
     public function handle()
     {
+        // validate input arguments
         $input = array_merge($this->arguments(), $this->options());
         $this->validate($input);
 
-
+        // generate UUID for this run
+        $this->uuid = (string) Str::uuid();
         $this->outputFormat = $input['output-format'];
-        $this->startDate = Carbon::createFromFormat( 'Y-m-d', $input['start-date'])->startOfDay();
-        $this->endDate = (Carbon::createFromFormat( 'Y-m-d', $input['end-date'])->startOfDay()) ?: Carbon::now()->startOfDay();
-        $this->interval = $input['interval'];
-        $this->owner = $input['owner'];
-        $this->repository = $input['repository'];
-        $this->fullName = $input['owner'].'/'.$input['repository'];
 
-        $repository = Repository::where('full_name', '=', $this->fullName)->first();
+        $startDate = Carbon::createFromFormat( 'Y-m-d', $input['start-date'])->startOfDay();
+
+        $endDate = null;
+        if ($input['end-date']) {
+            $endDate = (Carbon::createFromFormat('Y-m-d', $input['end-date'])->startOfDay()) ?: Carbon::now()->startOfDay();
+        }
+
+        $interval = $input['interval'];
+
+        // repository
+        $owner = $input['owner'];
+        $repository = $input['repository'];
+        $fullName = $input['owner'].'/'.$input['repository'];
+
+        $repository = Repository::where('full_name', '=', $fullName)->first();
         if ($repository instanceof Repository) {
-            // start state check
-            $this->line($this->fullName.' found in the dataset');
-            // start calculation, first magnet
+            // start parsing dataset
+            $this->line('Repository '.$fullName.' found in the dataset (ID: '.$repository->id.')');
 
-            $this->getMagnet($repository);
 
-            $this->getSticky($repository);
+            $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
+            $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
+
+            // merge these arrays
+
+
+
+            dd($merged);
+
+
+            $data = [
+                'run_uuid',
+                'repository_id',
+                'range_start_date',
+                'range_end_date',
+                'interval_weeks',
+                'sticky_metric_score',
+                'magnet_metric_score',
+                'developers_total',
+                'developers_new',
+                'developers_with_contributions_last_period',
+                'developers_with_contributions_last_and_current_period',
+                'issues_count_new',
+                'issues_count_total',
+                'stargazers_count_new',
+                'stargazers_count_total',
+                'pull_requests_count_new',
+                'pull_requests_count_total',
+                'forks_count_new',
+                'forks_count_total'
+            ];
+
+
+            $projectState = new ProjectState(
+
+
+
+            );
+
+
+
+
+            $projectState->uuid = $this->uuid;
+            $projectState->repository_id = $repository->id;
+            $projectState->start_date = $startDate;
+            $projectState->end_date = $endDate;
+            $projectState->interval = $interval;
+
 
         }
         else {
-            $this->error($this->fullName.' does not exist in the dataset');
+            $this->error('Repository '.$this->fullName.' does not exist in the dataset');
             exit(1);
         }
 
@@ -88,65 +157,14 @@ class GetProjectState extends Command
         // $schedule->command(static::class)->everyMinute();
     }
 
-    public function getSticky(Repository $repository)
+/*    public function getSticky(Repository $repository)
     {
-        $startRangeDate = clone($this->startDate); // period Pi
 
 
-        if ($this->interval) {
-            $endRangeDate = $startRangeDate->copy()->addWeeks($this->interval);
-        }
-        else {
-            $endRangeDate = $this->endDate;
-        }
+    }*/
 
 
-        while (true) {
-
-            $beforeStartRange = $startRangeDate->copy()->subWeeks($this->interval); // period Pi-1
-            // get all unique users from the commits of the repository within the Pi-1 date range
-            $contributingDevelopersIdsPreviousPeriod = $repository->commits()
-                                           ->where('created_at', '>=', $beforeStartRange)
-                                           ->where('created_at', '<', $startRangeDate)
-                                           ->select('author_id')
-                                           ->distinct()
-                                           ->get();
-
-
-
-
-            // get all unique developers from the Pi period that also contributed in Pi-1
-            $contributingDevelopersIdsPeriod = $repository->commits()
-                                           ->where('created_at', '>=', $startRangeDate)
-                                           ->where('created_at', '<', $endRangeDate)
-                                           ->whereIn('author_id', $contributingDevelopersIdsPreviousPeriod)
-                                           ->select('author_id')
-                                           ->distinct()
-                                           ->get();
-
-            $sticky = $contributingDevelopersIdsPeriod->count() / $contributingDevelopersIdsPreviousPeriod->count();
-
-            $this->line('Sticky value between '.$startRangeDate->format('Y-m-d').' and '.$endRangeDate->format('Y-m-d').': '.$contributingDevelopersIdsPeriod->count().' / '.$contributingDevelopersIdsPreviousPeriod->count().' = '.$sticky);
-
-            if ($this->interval) {
-                if (($endRangeDate->gt($this->endDate)) || ($endRangeDate->gt(Carbon::now()))) {
-                    break;
-                }
-
-                $startRangeDate->addWeeks($this->interval);
-                $endRangeDate->addWeeks($this->interval);
-            }
-            else {
-                break;
-            }
-
-        }
-
-
-    }
-
-
-    public function getMagnet(Repository $repository)
+/*    public function getMagnet(Repository $repository)
     {
 
         $startRangeDate = clone($this->startDate);
@@ -209,7 +227,7 @@ class GetProjectState extends Command
             }
         }
 
-    }
+    }*/
 
 
 

@@ -2,6 +2,8 @@
 
 namespace App\Parsers;
 
+use Exception;
+use Throwable;
 use Github\Client;
 use Carbon\Carbon;
 use App\Models\Commit;
@@ -104,18 +106,21 @@ class PullRequestParser extends BaseParser
                         $pullRequestRecord->head_user_id = $user->id;
                     }
 
-                    if (isset($pullRequest['head']['repo']['full_name'])) {
+                    if (isset($pullRequest['head'])) {
 
                         try {
                             $headRepository = $this->repositoryParser->repositoryExistsOrCreate($pullRequest['head']['repo']['owner']['login'], $pullRequest['head']['repo']['name']);
                             $pullRequestRecord->head_repository_id = $headRepository->id;
-                            $pullRequestRecord->head_sha = $pullRequest['head']['sha'];
-                            $pullRequestRecord->head_ref = $pullRequest['head']['ref']; // branch name
-                            $pullRequestRecord->head_full_name = $pullRequest['head']['repo']['full_name'];
-                        } catch (RuntimeException $e) {
-                            $this->writeToTerminal('Repository '.$pullRequest['head']['repo']['full_name'].' does not exist anymore', 'info-red');
+
+                            if (isset($pullRequest['head']['repo'])) {
+                                $pullRequestRecord->head_full_name = $pullRequest['head']['repo']['full_name'] ?? null;
+                            }
+                        } catch (Throwable $e) {
+                            $this->writeToTerminal('Repository '.$pullRequest['head']['sha'].' does not exist anymore', 'info-red');
                         }
 
+                        $pullRequestRecord->head_sha = $pullRequest['head']['sha'];
+                        $pullRequestRecord->head_ref = $pullRequest['head']['ref']; // branch name
                     }
 
                     // base, always exist

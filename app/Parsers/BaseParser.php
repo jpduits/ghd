@@ -3,11 +3,14 @@
 namespace App\Parsers;
 
 use Github\Client;
+use App\Traits\Terminal;
 use Symfony\Component\Console\Output\Output;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class BaseParser
 {
+    use Terminal;
+
     /**
      * @var Client $client
      */
@@ -27,30 +30,6 @@ class BaseParser
     {
         $this->client = $client;
         $this->output = $output;
-    }
-
-    /**
-     * @param string $message
-     * @param string|null $style
-     * @return void
-     */
-    public function writeToTerminal(string $message, string $style = null) : void
-    {
-        $styles = [
-            'info-green' => '<options=bold;fg=green>',
-            'info-yellow' => '<options=bold;fg=yellow>',
-            'info-red' => '<options=bold;fg=red>',
-            'info' => '<options=bold>',
-            'comment' => '<fg=black;bg=blue>',
-            'question' => '<fg=black;bg=green>',
-            'error' => '<fg=black;bg=red>',
-            'warning' => '<fg=black;bg=yellow>',
-        ];
-
-        if (array_key_exists($style, $styles)) {
-            $message = $styles[$style] . $message . '</>';
-        }
-        $this->output->writeLn($message, OutputInterface::OUTPUT_NORMAL);
     }
 
     public function checkRemainingRequests(array $headers, bool $activateSleep = true) : int

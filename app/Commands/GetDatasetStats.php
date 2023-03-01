@@ -9,14 +9,14 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Helper\Table;
 use Illuminate\Database\Eloquent\Collection;
 
-class GetStats extends Command
+class GetDatasetStats extends Command
 {
     /**
      * The signature of the command.
      *
      * @var string
      */
-    protected $signature = 'get:stats {--repository= : Full name of ID of the repository}';
+    protected $signature = 'get:dataset-stats {--repository= : Full name of ID of the repository}';
 
     /**
      * The description of the command.
@@ -34,12 +34,14 @@ class GetStats extends Command
     {
         $repository = $this->option('repository', null);
         if ($repository === null) {
-            $this->info('Get stats for all repositories');
-            $repo = Repository::all();
+            $this->info('Get stats for all repositories (not forks)');
+            $repo = Repository::where('is_fork', '=', false)->get();
             if ($repo->count() === 0) {
                 $this->error('No repositories found');
                 exit(1);
             }
+
+
 
         }
         else {
@@ -63,7 +65,7 @@ class GetStats extends Command
 
         $table = new Table(new ConsoleOutput);
 
-        $table->setHeaders(['Owner', 'Name', 'Repository', 'ID', 'default branch', 'created_at', 'commits', 'pull_requests', 'stargazers', 'issues']);
+        $table->setHeaders(['Owner', 'Name', 'Repository', 'ID', 'default branch', 'created_at', 'commits', 'pull_requests', 'stargazers', 'issues', 'forks', 'watchers']);
 
         if ($repo instanceof Collection) {
 
@@ -79,6 +81,8 @@ class GetStats extends Command
                     $r->pullRequests->count(),
                     $r->stargazers->count(),
                     $r->issues->count(),
+                    $r->forks->count(),
+                    $r->subscribers_count
                 ]);
             }
 
@@ -96,6 +100,8 @@ class GetStats extends Command
                 $repo->pullRequests->count(),
                 $repo->stargazers->count(),
                 $repo->issues->count(),
+                $repo->fork->count(),
+                $repo->subscribers_count
             ]);
 
             $table->render();

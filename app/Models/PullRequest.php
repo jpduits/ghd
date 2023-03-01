@@ -47,7 +47,7 @@ class PullRequest extends Model
 
     public function commits()
     {
-        return $this->belongsToMany(Commit::class, 'pull_request_commits', 'pull_request_id', 'commit_id');
+        return $this->belongsToMany(Commit::class, 'pull_requests_commits', 'pull_request_id', 'commit_id');
     }
 
 }

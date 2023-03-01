@@ -13,25 +13,26 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('commits', function (Blueprint $table) {
+        Schema::create('forks', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('repository_id')->nullable();
+            $table->unsignedBigInteger('github_id');
+            $table->index('github_id');
+
+            $table->bigInteger('repository_id')->unsigned();
+            $table->foreign('repository_id')->references('id')->on('repositories');
             $table->index('repository_id');
 
-            $table->unsignedBigInteger('author_id')->nullable();
-            $table->unsignedBigInteger('committer_id')->nullable();
+            $table->string('full_name');
 
-            $table->string('sha');
+            $table->unsignedBigInteger('owner_id');
+            $table->foreign('owner_id')->references('id')->on('users');
+
             $table->timestamp('created_at');
 
-            $table->text('message')->nullable();
             $table->string('url')->nullable();
             $table->string('html_url')->nullable();
 
-            $table->foreign('repository_id')->references('id')->on('repositories');
-            $table->foreign('author_id')->references('id')->on('users');
-            $table->foreign('committer_id')->references('id')->on('users');
         });
     }
 
@@ -42,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commits');
+        Schema::dropIfExists('forks');
     }
 };

@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use Github\Client;
+use App\Parsers\ForkParser;
 use App\Parsers\IssueParser;
 use App\Parsers\CommitParser;
 use App\Parsers\StargazerParser;
@@ -35,11 +36,13 @@ class GetRepository extends Command
     private IssueParser $issueParser;
     private PullRequestParser $pullRequestParser;
     private ContributorParser $contributorParser;
+    private ForkParser $forkParser;
 
 
     public function __construct(Client $client, RepositoryParser $repositoryParser, CommitParser $commitParser,
                                 StargazerParser $stargazerParser, IssueParser $issueParser,
-                                PullRequestParser $pullRequestParser, ContributorParser $contributorParser)
+                                PullRequestParser $pullRequestParser, ContributorParser $contributorParser,
+                                ForkParser $forkParser)
     {
         parent::__construct();
         $this->repositoryParser = $repositoryParser;
@@ -48,6 +51,7 @@ class GetRepository extends Command
         $this->issueParser = $issueParser;
         $this->pullRequestParser = $pullRequestParser;
         $this->contributorParser = $contributorParser;
+        $this->forkParser = $forkParser;
     }
     /**
      * Execute the console command.
@@ -59,17 +63,23 @@ class GetRepository extends Command
         $_owner = $this->argument('owner');
         $_repository = $this->argument('repository');
 
+        $start = microtime(true);
+        $this->info('Start time: ' . date('Y-m-d H:i:s', $start));
+
         // load or store repository if not exists
         $repository = $this->repositoryParser->repositoryExistsOrCreate($_owner, $_repository);
 
         // get users from selected repository
-        $this->contributorParser->getContributors($repository);
+        //$this->contributorParser->getContributors($repository);
 
         // get commits from selected repository
         $this->commitParser->getCommits($repository);
 
         // stars
         $this->stargazerParser->getStargazers($repository);
+
+        // forks
+        $this->forkParser->getForks($repository);
 
         // issues
         $this->issueParser->getIssues($repository);

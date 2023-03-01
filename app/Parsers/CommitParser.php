@@ -67,11 +67,21 @@ class CommitParser extends BaseParser
                     // Commit does not exist, create
                     $commitRecord = new Commit();
 
-                    // if commit not exists and it is a pull request, set repository_id to head repository (the original)
+                    // if commit sha not exists, and it is from a pull request, the pull request is not merged
+                    // set repository_id to head repository (the original)
                     if (($pullRequest instanceof PullRequest) && ($pullRequest->merged_at == null)) {
-                        [$repoOwner, $repoName] = explode('/', $pullRequest->head_full_name);
-                        $headRepo = $this->repositoryParser->repositoryExistsOrCreate($repoOwner, $repoName);
-                        $commitRecord->repository_id = $headRepo->id;
+
+                        try {
+
+                            [$repoOwner, $repoName] = explode('/', $pullRequest->head_full_name);
+                            $headRepo = $this->repositoryParser->repositoryExistsOrCreate($repoOwner, $repoName);
+                            $commitRecord->repository_id = $headRepo->id;
+                        }
+                        catch (\Exception $e) {
+                            $commitRecord->repository_id = null; // head repository is deleted
+                            $this->writeToTerminal('Error (head repository does not exist): '.$e->getMessage(), 'info-red');
+                        }
+
                     }
                     else {
                         $commitRecord->repository_id = $repository->id;

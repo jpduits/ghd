@@ -1,0 +1,137 @@
+<?php
+
+namespace App\Metrics;
+
+use Carbon\Carbon;
+use App\Models\Repository;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Output\Output;
+
+class MagnetMetric extends BaseMetric
+{
+
+    public function __construct(Output $output)
+    {
+        parent::__construct($output);
+    }
+
+
+    public function get(Repository $repository, Carbon $startDate, int $periodInterval = 26, Carbon $endDate = null): array
+    {
+/*        $info = 'Magnet metric for ' . $repository->full_name . ' from ' . $startDate->format('Y-m-d');
+        $info .= ' (period interval: ' . $periodInterval . ' weeks)';
+        if ($endDate instanceof Carbon) {
+            $info .= ' loop interval until ' . $endDate->format('Y-m-d');
+        }
+        $this->writeToTerminal($info);*/
+
+        // calculate magnet value for a range of periods
+
+        $measurements = []; // loop results
+
+        while (true) {
+
+            $measurements[] = $this->calculate($repository, $startDate, $periodInterval);
+            //$this->writeToTerminal('Sticky value: ' . $sticky);
+
+            if ($endDate) { // when endDate is set, loop until endDate is reached
+
+                $startDate->addWeeks($periodInterval); // add interval to start date
+                if (($startDate->gt($endDate)) || ($startDate->gt(Carbon::now()))) {
+                    break;
+                }
+            }
+            else {
+                break;
+            }
+
+        }
+
+        return $measurements;
+    }
+
+
+
+
+
+
+    private function calculate(Repository $repository, Carbon $startDate, int $periodInterval) : array
+    {
+        $periodStartDate = $startDate->copy(); // start period Pi
+        $periodEndDate = $startDate->copy()->addWeeks($periodInterval); // end period Pi
+        $periodPreviousStartDate = $periodStartDate->copy()->subWeeks($periodInterval); // start period Pi-1
+/*        $this->writeToTerminal('(Pi)   start date:  ' . $startDate->format('Y-m-d'));
+        $this->writeToTerminal('(Pi)   end date:    ' . $periodEndDate->format('Y-m-d'));*/
+
+        // get values for period Pi
+        $totalDevelopers = $this->getDevelopersInPeriod($repository, $periodPreviousStartDate, $startDate);
+        $currentDevelopers = $this->getDevelopersInPeriod($repository, $startDate, $periodEndDate);
+
+
+        // check how many developers from Pi are not in totalDevelopers
+        $newDevelopers = array_diff($currentDevelopers, $totalDevelopers);
+/*
+        $this->writeToTerminal('Developers in period Pi: ' . count($currentDevelopers).' ('.implode(',', $currentDevelopers).')');
+        $this->writeToTerminal('Total developers: ' . count($totalDevelopers).' ('.implode(',', $totalDevelopers).')');
+        $this->writeToTerminal('New developers in Pi: ' .count($newDevelopers). ' ('. implode(',', $newDevelopers).')');*/
+
+
+        if (count($totalDevelopers) == 0) {
+            $magnetValue = 0;
+        }
+        else {
+            $magnetValue = count($newDevelopers) / count($totalDevelopers);
+        }
+
+        return [
+            'period_start_date' => $periodStartDate->format('Y-m-d'),
+            'period_end_date' => $periodEndDate->format('Y-m-d'),
+            'previous_period_start_date' => $periodPreviousStartDate->format('Y-m-d'),
+            'previous_period_end_date' => $periodStartDate->format('Y-m-d'),
+            'developers_total' => count($totalDevelopers),
+            'developers_new' => count($newDevelopers),
+            'developers_current' => count($currentDevelopers),
+            'magnet_value' => $magnetValue
+        ];
+
+/*        $this->writeToTerminal('Magnet value: ' . count($newDevelopers) . ' / ' . count($totalDevelopers) . ' = ' . count($newDevelopers) / count($totalDevelopers));
+        $magnetValue = count($newDevelopers) / count($totalDevelopers);
+        $this->writeHorizontalLineToTerminal();
+        return $magnetValue;*/
+    }
+
+
+    private function getDevelopersInPeriod(Repository $repository, Carbon $startDate = null, Carbon $endDate)
+    {
+        $developers = DB::table('commits')
+                        ->selectRaw('DISTINCT commits.author_id')
+                        ->where(function ($q) use ($repository) {
+
+                            // OR
+                            $q->whereIn('commits.id', function ($q) use ($repository) {
+                                // subquery, to get commits from pull requests (when not merged)
+                                $q->select('pull_requests_commits.commit_id')
+                                  ->from('pull_requests')
+                                  ->join('pull_requests_commits', 'pull_requests_commits.pull_request_id', '=', 'github_id')
+                                  ->where('pull_requests.base_repository_id', '=', $repository->id);
+
+
+                            })->orWhere('repository_id', '=', $repository->id);
+
+                        })->where('created_at', '<', $endDate); // AND
+
+        if ($startDate !== null) {
+            $developers->where('created_at', '>=', $startDate);
+        }
+
+        DB::enableQueryLog();
+        $developers = $developers->get();
+
+
+        /*if ($startDate === null)
+            dd(DB::getQueryLog());*/
+        return $developers->pluck('author_id')->toArray();
+    }
+
+
+}

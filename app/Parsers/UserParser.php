@@ -15,12 +15,12 @@ class UserParser extends BaseParser
         parent::__construct($client, $output);
     }
 
-    public function userExistsOrCreate(array $user): User
+    public function userExistsOrCreate(array $user, bool $requestMetaData = false): User
     {
 
         if (isset($user['id'])) {
             // return a user based on the github id
-            return $this->gitHubUserExistsOrCreate($user['id']);
+            return $this->gitHubUserExistsOrCreate($user, $requestMetaData);
         }
         else if (isset($user['name']) && isset($user['email'])) {
             // return a user based on the name and email (non github user)
@@ -28,20 +28,31 @@ class UserParser extends BaseParser
         }
 
         // return a dummy user
-        return User::find(0);
+        return User::find(1);
     }
 
 
-    private function gitHubUserExistsOrCreate(int $gitHubId): User
+    private function gitHubUserExistsOrCreate(array $userData, bool $requestMetaData): User
     {
-        $user = User::where('github_id', '=', $gitHubId)->first();
+        $user = User::where('github_id', '=', $userData['id'])->first();
         if (!$user instanceof User) {
+
+            // save only ID and login
+            if (!$requestMetaData) {
+                $user = new User();
+                $user->github_id = $userData['id'];
+                $user->login = $userData['login'];
+                $user->save();
+                $this->writeToTerminal('GitHub user (' . $user->login . ') created');
+                return $user;
+            }
+
             // get user and save
             try {
-                $userFromRequest = $this->client->api('user')->showById($gitHubId);
+                $userFromRequest = $this->client->api('user')->showById($userData['id']);
             } catch (RuntimeException $e) {
-                $this->output->writeln('User ' . $gitHubId . ' does not exist!');
-                return User::find(0);
+                $this->output->writeln('User ' . $userData['id'] . ' does not exist!');
+                return User::find(1);
             }
 
             $headers = $this->client->getLastResponse()->getHeaders();

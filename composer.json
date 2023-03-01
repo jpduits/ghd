@@ -23,6 +23,7 @@
         "illuminate/http": "^9.0",
         "illuminate/translation": "^9.50",
         "illuminate/validation": "^9.50",
+        "intonate/tinker-zero": "^1.2",
         "knplabs/github-api": "^3.0",
         "laravel-zero/framework": "^9.2",
         "nesbot/carbon": "^2.66",
