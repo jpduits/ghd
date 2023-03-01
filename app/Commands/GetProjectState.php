@@ -12,6 +12,9 @@ use App\Metrics\MagnetMetric;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
+use Symfony\Component\Console\Helper\Table;
+use Illuminate\Database\Eloquent\Collection;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
 class GetProjectState extends Command
@@ -92,49 +95,72 @@ class GetProjectState extends Command
             $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
 
             // merge these arrays
+            $measurements = array_reduce($stickyMeasurements, function($result, $item) use ($magnetMeasurements) {
+                $key = array_search($item['period_start_date'], array_column($magnetMeasurements, 'period_start_date'));
+                $key2 = array_search($item['period_end_date'], array_column($magnetMeasurements, 'period_end_date'));
+                $key3 = array_search($item['previous_period_start_date'], array_column($magnetMeasurements, 'previous_period_start_date'));
+                $key4 = array_search($item['previous_period_end_date'], array_column($magnetMeasurements, 'previous_period_end_date'));
+
+                if ($key !== false && $key2 !== false && $key3 !== false && $key4 !== false) {
+                    $result[] = array_merge($item, $magnetMeasurements[$key], $magnetMeasurements[$key2], $magnetMeasurements[$key3], $magnetMeasurements[$key4]);
+                } else {
+                    $result[] = $item;
+                }
+
+                return $result;
+            }, []);
 
 
-
-            dd($merged);
-
-
-            $data = [
-                'run_uuid',
-                'repository_id',
-                'range_start_date',
-                'range_end_date',
-                'interval_weeks',
-                'sticky_metric_score',
-                'magnet_metric_score',
-                'developers_total',
-                'developers_new',
-                'developers_with_contributions_last_period',
-                'developers_with_contributions_last_and_current_period',
-                'issues_count_new',
-                'issues_count_total',
-                'stargazers_count_new',
-                'stargazers_count_total',
-                'pull_requests_count_new',
-                'pull_requests_count_total',
-                'forks_count_new',
-                'forks_count_total'
-            ];
+            foreach($measurements as $measurement) {
 
 
-            $projectState = new ProjectState(
-
+                $projectState = new ProjectState(
+                    [
+                        'run_uuid' => $this->uuid,
+                        'repository_id' => $repository['id'],
+                        'period_start_date' => $measurement['period_start_date'],
+                        'period_end_date' => $measurement['period_end_date'],
+                        'previous_period_start_date' => $measurement['previous_period_start_date'],
+                        'previous_period_end_date' => $measurement['previous_period_end_date'],
+                        'interval_weeks' => $interval,
+                        'sticky_metric_score' => $measurement['sticky_value'],
+                        'magnet_metric_score' => $measurement['magnet_value'],
+                        'developers_total' => $measurement['developers_total'],
+                        'developers_new' => $measurement['developers_new'],
+                        'developers_current' => $measurement['developers_current'],
+                        'developers_with_contributions_previous_period' => $measurement['developers_with_contributions_previous_period'],
+                        'developers_with_contributions_previous_and_current_period' => $measurement['developers_with_contributions_previous_and_current_period'],
+                        /* 'issues_count_new',
+                         'issues_count_total',
+                         'stargazers_count_new',
+                         'stargazers_count_total',
+                         'pull_requests_count_new',
+                         'pull_requests_count_total',
+                         'forks_count_new',
+                         'forks_count_total'*/
+                    ]
 
 
             );
+                $projectState->save();
 
 
 
 
-            $projectState->uuid = $this->uuid;
+          /*  $projectState->uuid = $this->uuid;
             $projectState->repository_id = $repository->id;
             $projectState->start_date = $startDate;
             $projectState->end_date = $endDate;
-            $projectState->interval = $interval;
+            $projectState->interval = $interval;*/
+
+
+
+
+
+
+            }
+
+
 
 
         }
@@ -142,6 +168,16 @@ class GetProjectState extends Command
             $this->error('Repository '.$this->fullName.' does not exist in the dataset');
             exit(1);
         }
+
+        $stateCollection = ProjectState::where('run_uuid', '=', $this->uuid)->get();
+        if ($input['output-format'] == 'cli') {
+           $this->generateTable($stateCollection);
+
+        }
+        else if ($input['output-format'] == 'json') {
+            echo $stateCollection->toJson();
+        }
+
 
         exit(0);
     }
@@ -157,78 +193,66 @@ class GetProjectState extends Command
         // $schedule->command(static::class)->everyMinute();
     }
 
-/*    public function getSticky(Repository $repository)
+
+    private function generateTable(Collection $measurements)
     {
+        $table = new Table(new ConsoleOutput);
 
+        $table->setHeaders([
+            'run_uuid',
+            'repository_id',
+            'period_start_date',
+            'period_end_date',
+            'previous_period_start_date',
+            'previous_period_end_date',
+            'interval_weeks',
+            'sticky_metric_score',
+            'magnet_metric_score',
+            'developers_total',
+            'developers_new',
+            'developers_current',
+            'developers_with_contributions_previous_period',
+            'developers_with_contributions_previous_and_current_period',
+            'issues_count_new',
+            'issues_count_total',
+            'stargazers_count_new',
+            'stargazers_count_total',
+            'pull_requests_count_new',
+            'pull_requests_count_total',
+            'forks_count_new',
+            'forks_count_total'
+        ]);
 
-    }*/
+        foreach ($measurements as $measurement) {
+var_dump($measurement);
+            $table->addRow([
+                $measurement->run_uuid,
+                $measurement->repository_id,
+                $measurement->period_start_date->format('Y-m-d'),
+                $measurement->period_end_date,
+                $measurement->previous_period_start_date,
+                $measurement->previous_period_end_date,
+                $measurement->interval_weeks,
+                $measurement->sticky_metric_score,
+                $measurement->magnet_metric_score,
+                $measurement->developers_total,
+                $measurement->developers_new,
+                $measurement->developers_current,
+                $measurement->developers_with_contributions_previous_period,
+                $measurement->developers_with_contributions_previous_and_current_period,
+                $measurement->issues_count_new,
+                $measurement->issues_count_total,
+                $measurement->stargazers_count_new,
+                $measurement->stargazers_count_total,
+                $measurement->pull_requests_count_new,
+                $measurement->pull_requests_count_total,
+                $measurement->forks_count_new,
+                $measurement->forks_count_total
 
-
-/*    public function getMagnet(Repository $repository)
-    {
-
-        $startRangeDate = clone($this->startDate);
-
-        if ($this->interval) {
-            $endRangeDate = $startRangeDate->copy()->addWeeks($this->interval);
+            ]);
         }
-        else {
-            $endRangeDate = $this->endDate;
-        }
-
-
-        while (true) {
-
-            // get all unique users before the current range
-            $beforeUniqueUserIds = $repository->commits()
-                                        ->where('created_at', '<', $startRangeDate)
-                                        ->select('author_id')
-                                        ->distinct()
-                                        ->get();
-
-            // get all unique users from the commits of the repository within the date range
-            $uniqueNewUserIds = $repository->commits()
-                                        ->where('created_at', '>=', $startRangeDate)
-                                        ->where('created_at', '<', $endRangeDate)
-                                        ->select('author_id')
-                                        ->whereNotIn('author_id', $beforeUniqueUserIds)
-                                        ->distinct()
-                                        ->get();
-
-           // $this->line(implode(', ', $uniqueNewUserIds->pluck('author_id')->toArray()));
-
-            //$this->line('Number of unique users: '.$uniqueUserIds->count());
-
-
-            $totalUniqueUserIds = $repository->commits()
-                                             ->where('created_at', '<', $endRangeDate)
-                                             ->select('author_id')
-                                             ->distinct()
-                                             ->get();
-
-            //$this->line('Number of total unique users until '.$this->endDate.': '.$totalUniqueUserIds->count());
-
-            // calculate the magnet value of Yamashita
-            $magnet = $uniqueNewUserIds->count() / $totalUniqueUserIds->count();
-
-            $this->line('Magnet value between '.$startRangeDate->format('Y-m-d').' and '.$endRangeDate->format('Y-m-d').': '.$uniqueNewUserIds->count().' / '.$totalUniqueUserIds->count().' = '.$magnet);
-
-
-            if ($this->interval) {
-                if (($endRangeDate->gt($this->endDate)) || ($endRangeDate->gt(Carbon::now()))) {
-                    break;
-                }
-
-                $startRangeDate->addWeeks($this->interval);
-                $endRangeDate->addWeeks($this->interval);
-            }
-            else {
-                break;
-            }
-        }
-
-    }*/
-
+        $table->render();
+    }
 
 
 
