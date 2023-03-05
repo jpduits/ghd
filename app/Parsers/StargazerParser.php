@@ -62,18 +62,20 @@ class StargazerParser extends BaseParser
                     $stargazerRecord->repository_id = $repository->id;
                     $starredAtDate = $stargazer['starred_at'];
                     $stargazerRecord->starred_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $starredAtDate)->toDateTimeString();
-                    $stargazerRecord->save();
-                    $stargazerCounter++;
+
+                    if ($stargazerRecord->save()) {
+                        $this->writeToTerminal('Startgazer user: '.$stargazer['user']['id'].' saved ('.$stargazerCounter.').');
+                        $stargazerCounter++;
+                    }
                 }
                 else {
-                    $this->writeToTerminal('Startgazer: '.$stargazer['user']['id'].' already exists, skipping.');
+                    $this->writeToTerminal('Startgazer user: '.$stargazer['user']['id'].' already exists, skipping.');
                 }
 
             }
 
             // no next page, break from while
             if (!isset($links['next'])) {
-                //if (true) { //debug
                 break;
             }
 

@@ -137,12 +137,13 @@ class PullRequestParser extends BaseParser
                     $pullRequestRecord->html_url = $pullRequest['html_url'];
                     $pullRequestRecord->url = $pullRequest['url'];
 
-                    $pullRequestRecord->save();
+                    if ($pullRequestRecord->save()) {
+                        // save and link the commits of the pull request
+                        $this->commitParser->getCommits($repository, $pullRequestRecord);
+                        $this->writeToTerminal('Pull request: '.$pullRequest['id'].' saved ('.$pullRequestCounter.').');
+                        $pullRequestCounter++;
+                    }
 
-                    // save and link the commits of the pull request
-                    $this->commitParser->getCommits($repository, $pullRequestRecord);
-
-                    $pullRequestCounter++;
                 }
                 else {
                     $this->writeToTerminal('Pull request: '.$pullRequest['id'].' already exists, skipping.');

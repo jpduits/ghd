@@ -65,8 +65,9 @@ class RepositoryParser extends BaseParser
                 $repository->pushed_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $pushedAtDate)->toDateTimeString();
             }
 
-            $repository->save();
-            $created = true;
+            if ($repository->save()) {
+                $created = true;
+            }
         }
 
         $this->writeToTerminal(($created) ? sprintf('Repository (%s) created', $repository->full_name) : sprintf('Repository (%s) already exists', $repository->full_name));

@@ -30,27 +30,29 @@ return new class extends Migration
 
             $table->integer('interval_weeks')->nullable();
 
-            $table->float('sticky_metric_score')->nullable();
-            $table->float('magnet_metric_score')->nullable();
+            $table->float('sticky_metric_score', 12, 8)->nullable();
+            $table->float('magnet_metric_score', 12, 8)->nullable();
 
+            $table->integer('developers_current_period')->nullable();
+            $table->integer('developers_new_current_period')->nullable();
             $table->integer('developers_total')->nullable();
-            $table->integer('developers_new')->nullable();
-            $table->integer('developers_current')->nullable();
+
+
 
             $table->integer('developers_with_contributions_previous_period')->nullable();
             $table->integer('developers_with_contributions_current_period')->nullable();
             $table->integer('developers_with_contributions_previous_and_current_period')->nullable();
 
-            $table->integer('issues_count_new')->nullable();
+            $table->integer('issues_count_current_period')->nullable();
             $table->integer('issues_count_total')->nullable();
 
-            $table->integer('stargazers_count_new')->nullable();
+            $table->integer('stargazers_count_current_period')->nullable();
             $table->integer('stargazers_count_total')->nullable();
 
-            $table->integer('pull_requests_count_new')->nullable();
+            $table->integer('pull_requests_count_current_period')->nullable();
             $table->integer('pull_requests_count_total')->nullable();
 
-            $table->integer('forks_count_new')->nullable();
+            $table->integer('forks_count_current_period')->nullable();
             $table->integer('forks_count_total')->nullable();
 
             // do i need these?

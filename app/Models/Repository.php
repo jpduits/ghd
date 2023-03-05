@@ -22,7 +22,7 @@ class Repository extends Model
 
     public function stargazers()
     {
-        return $this->hasMany(Fork::class, 'repository_id', 'id');
+        return $this->hasMany(Stargazer::class, 'repository_id', 'id');
     }
 
     public function pullRequests()

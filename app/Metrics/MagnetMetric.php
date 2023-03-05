@@ -55,7 +55,7 @@ class MagnetMetric extends BaseMetric
 
 
 
-    private function calculate(Repository $repository, Carbon $startDate, int $periodInterval) : array
+    private function calculate(Repository $repository, Carbon $startDate, int $periodInterval = null) : array
     {
         $periodStartDate = $startDate->copy(); // start period Pi
         $periodEndDate = $startDate->copy()->addWeeks($periodInterval); // end period Pi
@@ -64,23 +64,21 @@ class MagnetMetric extends BaseMetric
         $this->writeToTerminal('(Pi)   end date:    ' . $periodEndDate->format('Y-m-d'));*/
 
         // get values for period Pi
-        $totalDevelopers = $this->getDevelopersInPeriod($repository, $periodPreviousStartDate, $startDate);
-        $currentDevelopers = $this->getDevelopersInPeriod($repository, $startDate, $periodEndDate);
-
+        $developersTotal = $this->getDevelopersInPeriod($repository, null, $startDate);
+        $developersCurrentPeriod = $this->getDevelopersInPeriod($repository, $startDate, $periodEndDate);
 
         // check how many developers from Pi are not in totalDevelopers
-        $newDevelopers = array_diff($currentDevelopers, $totalDevelopers);
+        $developersNewCurrentPeriod = array_diff($developersCurrentPeriod, $developersTotal);
 /*
         $this->writeToTerminal('Developers in period Pi: ' . count($currentDevelopers).' ('.implode(',', $currentDevelopers).')');
         $this->writeToTerminal('Total developers: ' . count($totalDevelopers).' ('.implode(',', $totalDevelopers).')');
         $this->writeToTerminal('New developers in Pi: ' .count($newDevelopers). ' ('. implode(',', $newDevelopers).')');*/
 
-
-        if (count($totalDevelopers) == 0) {
+        if (count($developersTotal) == 0) {
             $magnetValue = 0;
         }
         else {
-            $magnetValue = count($newDevelopers) / count($totalDevelopers);
+            $magnetValue = count($developersNewCurrentPeriod) / count($developersTotal);
         }
 
         return [
@@ -88,9 +86,10 @@ class MagnetMetric extends BaseMetric
             'period_end_date' => $periodEndDate->format('Y-m-d'),
             'previous_period_start_date' => $periodPreviousStartDate->format('Y-m-d'),
             'previous_period_end_date' => $periodStartDate->format('Y-m-d'),
-            'developers_total' => count($totalDevelopers),
-            'developers_new' => count($newDevelopers),
-            'developers_current' => count($currentDevelopers),
+
+            'developers_current_period' => count($developersCurrentPeriod),
+            'developers_new_current_period' => count($developersNewCurrentPeriod),
+            'developers_total' => count($developersTotal),
             'magnet_value' => $magnetValue
         ];
 

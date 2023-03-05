@@ -45,6 +45,9 @@ class SearchRepositories extends Command
             return 1;
         }
 
+        // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+        // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+
         $client = new Client();
         $client->authenticate(env('GITHUB_TOKEN'), null, AuthMethod::ACCESS_TOKEN);
 

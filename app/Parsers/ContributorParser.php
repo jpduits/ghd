@@ -62,7 +62,6 @@ class ContributorParser extends BaseParser
 
             // no next page, break from while
             if (!isset($links['next'])) {
-                //if (true) { //debug
                 break;
             }
 

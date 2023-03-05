@@ -85,19 +85,20 @@ class IssueParser extends BaseParser
                     $issueRecord->url = $issue['url'];
                     $issueRecord->html_url = $issue['html_url'];
 
+                    if ($issueRecord->save()) {
+                        $this->writeToTerminal('Issue: '.$issue['id'] . ' saved ('.$issuesCounter.').');
+                        $issuesCounter++;
+                    }
 
-                    $issueRecord->save();
-                    $issuesCounter++;
                 }
                 else {
-                    $this->writeToTerminal('Issue: '.$issue['id'].' already exists, skipping.');
+                    $this->writeToTerminal('Issue: '.$issue['id'].' already exists, skipping.', 'info-warning');
                 }
 
             }
 
             // no next page, break from while
             if (!isset($links['next'])) {
-                //if (true) { //debug
                 break;
             }
 

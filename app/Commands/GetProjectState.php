@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Repository;
 use Illuminate\Support\Str;
+use App\Metrics\GithubMeta;
 use App\Models\ProjectState;
 use App\Metrics\StickyMetric;
 use App\Metrics\MagnetMetric;
@@ -48,13 +49,15 @@ class GetProjectState extends Command
     private StickyMetric $stickyMetric;
     private MagnetMetric $magnetMetric;
     private string $uuid;
+    private GithubMeta $githubMeta;
 
 
-    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric)
+    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric, GithubMeta $githubMeta)
     {
         parent::__construct();
         $this->stickyMetric = $stickyMetric;
         $this->magnetMetric = $magnetMetric;
+        $this->githubMeta = $githubMeta;
     }
     /**
      * Execute the console command.
@@ -93,18 +96,25 @@ class GetProjectState extends Command
 
             $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
             $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
+            $gitHubMeta = $this->githubMeta->get($repository, $startDate->copy(), $interval, clone($endDate));
+
+
 
             // merge these arrays
-            $measurements = array_reduce($stickyMeasurements, function($result, $item) use ($magnetMeasurements) {
-                $key = array_search($item['period_start_date'], array_column($magnetMeasurements, 'period_start_date'));
-                $key2 = array_search($item['period_end_date'], array_column($magnetMeasurements, 'period_end_date'));
-                $key3 = array_search($item['previous_period_start_date'], array_column($magnetMeasurements, 'previous_period_start_date'));
-                $key4 = array_search($item['previous_period_end_date'], array_column($magnetMeasurements, 'previous_period_end_date'));
+            $measurements = array_reduce([$stickyMeasurements, $magnetMeasurements, $gitHubMeta], function($result, $current) {
+                foreach ($current as $item) {
+                    $key = array_search($item['period_start_date'], array_column($result, 'period_start_date'));
+                    $key2 = array_search($item['period_end_date'], array_column($result, 'period_end_date'));
+                    $key3 = array_search($item['previous_period_start_date'], array_column($result, 'previous_period_start_date'));
+                    $key4 = array_search($item['previous_period_end_date'], array_column($result, 'previous_period_end_date'));
 
-                if ($key !== false && $key2 !== false && $key3 !== false && $key4 !== false) {
-                    $result[] = array_merge($item, $magnetMeasurements[$key], $magnetMeasurements[$key2], $magnetMeasurements[$key3], $magnetMeasurements[$key4]);
-                } else {
-                    $result[] = $item;
+                    if ($key !== false && $key2 !== false && $key3 !== false && $key4 !== false) {
+                        // if all keys exist, merge the items
+                        $result[$key] = array_merge($result[$key], $item);
+                    } else {
+                        // otherwise add the item to the result array
+                        $result[] = $item;
+                    }
                 }
 
                 return $result;
@@ -125,43 +135,29 @@ class GetProjectState extends Command
                         'interval_weeks' => $interval,
                         'sticky_metric_score' => $measurement['sticky_value'],
                         'magnet_metric_score' => $measurement['magnet_value'],
+
+                        'developers_new_current_period' => $measurement['developers_new_current_period'],
+                        'developers_current_period' => $measurement['developers_current_period'],
                         'developers_total' => $measurement['developers_total'],
-                        'developers_new' => $measurement['developers_new'],
-                        'developers_current' => $measurement['developers_current'],
+
                         'developers_with_contributions_previous_period' => $measurement['developers_with_contributions_previous_period'],
                         'developers_with_contributions_previous_and_current_period' => $measurement['developers_with_contributions_previous_and_current_period'],
-                        /* 'issues_count_new',
-                         'issues_count_total',
-                         'stargazers_count_new',
-                         'stargazers_count_total',
-                         'pull_requests_count_new',
-                         'pull_requests_count_total',
-                         'forks_count_new',
-                         'forks_count_total'*/
+
+                        'issues_count_current_period' => $measurement['issues_count_current_period'],
+                        'issues_count_total' => $measurement['issues_count_total'],
+                        'stargazers_count_current_period' => $measurement['stargazers_count_current_period'],
+                        'stargazers_count_total' => $measurement['stargazers_count_total'],
+                        'pull_requests_count_current_period' => $measurement['pull_requests_count_current_period'],
+                        'pull_requests_count_total' => $measurement['pull_requests_count_total'],
+                        'forks_count_current_period' => $measurement['forks_count_current_period'],
+                        'forks_count_total' => $measurement['forks_count_total']
                     ]
 
 
             );
                 $projectState->save();
 
-
-
-
-          /*  $projectState->uuid = $this->uuid;
-            $projectState->repository_id = $repository->id;
-            $projectState->start_date = $startDate;
-            $projectState->end_date = $endDate;
-            $projectState->interval = $interval;*/
-
-
-
-
-
-
             }
-
-
-
 
         }
         else {
@@ -199,54 +195,69 @@ class GetProjectState extends Command
         $table = new Table(new ConsoleOutput);
 
         $table->setHeaders([
-            'run_uuid',
-            'repository_id',
-            'period_start_date',
-            'period_end_date',
-            'previous_period_start_date',
-            'previous_period_end_date',
-            'interval_weeks',
-            'sticky_metric_score',
-            'magnet_metric_score',
-            'developers_total',
-            'developers_new',
-            'developers_current',
-            'developers_with_contributions_previous_period',
-            'developers_with_contributions_previous_and_current_period',
-            'issues_count_new',
-            'issues_count_total',
-            'stargazers_count_new',
-            'stargazers_count_total',
-            'pull_requests_count_new',
-            'pull_requests_count_total',
-            'forks_count_new',
-            'forks_count_total'
+            'run', // run_uuid
+            'repo id', // repository_id
+            'start', // start_date
+            'end', // period_end_date
+            'prev start', // previous_period_start_date
+            'prev end', // previous_period_end_date
+
+            'interval', // interval_weeks
+            'sticky', // sticky_metric_score
+            'magnet', // magnet_metric_score
+
+            'devs current', // developers_current_period
+            'devs new current', // developers_new_current_period
+            'devs total', // developers_total
+
+            'devs contrib. prev', // developers_with_contributions_previous_period
+            'devs contrib. prev+current', // developers_with_contributions_previous_and_current_period
+
+            'issues current', // issues_count_current_period
+            'issues total', // issues_count_total
+
+            'stars current', // stargazers_count_current_period
+            'stars total', // stargazers_count_total
+
+            'pull req. current', // pull_requests_count_current_period
+            'pull req. total', // pull_requests_count_total
+
+            'forks current', // forks_count_current_period
+            'forks total' // forks_count_total
         ]);
 
         foreach ($measurements as $measurement) {
-var_dump($measurement);
+
             $table->addRow([
                 $measurement->run_uuid,
                 $measurement->repository_id,
                 $measurement->period_start_date->format('Y-m-d'),
-                $measurement->period_end_date,
-                $measurement->previous_period_start_date,
-                $measurement->previous_period_end_date,
+                $measurement->period_end_date->format('Y-m-d'),
+                $measurement->previous_period_start_date->format('Y-m-d'),
+                $measurement->previous_period_end_date->format('Y-m-d'),
+
                 $measurement->interval_weeks,
                 $measurement->sticky_metric_score,
                 $measurement->magnet_metric_score,
+
+                $measurement->developers_current_period,
+                $measurement->developers_new_current_period,
                 $measurement->developers_total,
-                $measurement->developers_new,
-                $measurement->developers_current,
+
+
                 $measurement->developers_with_contributions_previous_period,
                 $measurement->developers_with_contributions_previous_and_current_period,
-                $measurement->issues_count_new,
+
+                $measurement->issues_count_current_period,
                 $measurement->issues_count_total,
-                $measurement->stargazers_count_new,
+
+                $measurement->stargazers_count_current_period,
                 $measurement->stargazers_count_total,
-                $measurement->pull_requests_count_new,
+
+                $measurement->pull_requests_count_current_period,
                 $measurement->pull_requests_count_total,
-                $measurement->forks_count_new,
+
+                $measurement->forks_count_current_period,
                 $measurement->forks_count_total
 
             ]);

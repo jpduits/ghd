@@ -66,12 +66,14 @@ class ForkParser extends BaseParser
                     $forkRecord->repository_id = $repository->id;
                     $createdAtDate = $fork['created_at'];
                     $forkRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $createdAtDate)->toDateTimeString();
-                    $forkRecord->save();
-                    $forkCounter++;
+                    if ($forkRecord->save()) {
+                        $this->writeToTerminal('Fork: ' . $fork['full_name'] . ' saved ('.$forkCounter.').');
+                        $forkCounter++;
+                    }
 
                 }
                 else {
-                    $this->writeToTerminal('Fork: '.$fork['full_name'].' already exists, skipping.');
+                    $this->writeToTerminal('Fork: '.$fork['full_name'].' already exists, skipping.', 'info-red');
                 }
 
             }

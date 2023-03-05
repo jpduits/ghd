@@ -9,6 +9,15 @@ class ProjectState extends Model
 
     protected $table = 'project_states';
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'period_start_date',
+        'period_end_date',
+        'previous_period_start_date',
+        'previous_period_end_date'
+    ];
+
     protected $fillable = [
         'run_uuid',
         'repository_id',
@@ -20,17 +29,17 @@ class ProjectState extends Model
         'sticky_metric_score',
         'magnet_metric_score',
         'developers_total',
-        'developers_new',
-        'developers_current',
+        'developers_new_current_period',
+        'developers_current_period',
         'developers_with_contributions_previous_period',
         'developers_with_contributions_previous_and_current_period',
-        'issues_count_new',
+        'issues_count_current_period',
         'issues_count_total',
-        'stargazers_count_new',
+        'stargazers_count_current_period',
         'stargazers_count_total',
-        'pull_requests_count_new',
+        'pull_requests_count_current_period',
         'pull_requests_count_total',
-        'forks_count_new',
+        'forks_count_current_period',
         'forks_count_total'
     ];
 

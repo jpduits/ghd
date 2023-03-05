@@ -94,25 +94,22 @@ class CommitParser extends BaseParser
 
                     if (isset($commit['commit']['author'])) {
                         $author = $this->userParser->userExistsOrCreate($commit['commit']['author']);
+                        $commitRecord->author_id = $author->id;
                     }
-                    else {
-                        //$author = $this->userParser->userExistsOrCreate(0); // user does not exist (deleted)
-                    }
-                    $commitRecord->author_id = $author->id;
 
                     if (isset($commit['commit']['committer'])) {
                         $committer = $this->userParser->userExistsOrCreate($commit['commit']['committer']);
                     }
-                    else {
-                        //$committer = $this->userParser->userExistsOrCreate(0); // user deleted
-                    }
-                    $commitRecord->committer_id = $committer->id;
 
+                    $commitRecord->committer_id = $committer->id;
                     $commitRecord->message = $commit['commit']['message'] ?? '';
                     $commitRecord->url = $commit['url'];
                     $commitRecord->html_url = $commit['html_url'];
 
-                    $commitRecord->save();
+                    if ($commitRecord->save()) {
+                        $this->writeToTerminal('Commit: '.$commit['sha'].' saved ('.$commitCounter.').');
+                        $commitCounter++;
+                    }
 
                     // save parent commits
                     if (isset($commit['parents'])) {
@@ -125,7 +122,6 @@ class CommitParser extends BaseParser
                         }
                     }
 
-                    $commitCounter++;
                 }
                 else {
                     $this->writeToTerminal('Commit: '.$commit['sha'].' already exists, skipping.');
@@ -155,6 +151,5 @@ class CommitParser extends BaseParser
 
         return $commitCounter;
     }
-
 
 }
