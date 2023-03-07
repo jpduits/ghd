@@ -27,8 +27,8 @@ class IssueParser extends BaseParser
 
         $issuesCounter = 0;
 
-        $page = 1;
-        $uri = 'repos/'.$repository->full_name.'/issues?per_page=100&state=all';
+        $page = $this->getFailSave($repository, 'issues'); // default = 1
+        $uri = 'repos/'.$repository->full_name.'/issues?per_page=100&state=all&page='.$page;
         $httpClient = $this->client->getHttpClient();
 
         $lastPage = 1;
@@ -54,7 +54,7 @@ class IssueParser extends BaseParser
 
             foreach ($issues as $issue) {
                 // first check stargazer exists
-                $issueRecord = Issue::find($issue['id']);
+                $issueRecord = Issue::where('github_id', '=', $issue['id']);
                 if (!$issueRecord instanceof Issue) {
                     // Commit does not exist, create
                     $issueRecord = new Issue();
@@ -77,7 +77,7 @@ class IssueParser extends BaseParser
                         $issueRecord->updated_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $updatedAtDate)->toDateTimeString();
                     }
 
-                    $issueRecord->title = $issue['title'];
+                    $issueRecord->title = substr($issue['title'], 0, 255);
                     $issueRecord->body = $issue['body'] ?? '';
                     $issueRecord->state = $issue['state'];
                     $issueRecord->number = $issue['number'] ?? null;
@@ -105,6 +105,9 @@ class IssueParser extends BaseParser
             // else get next page
             $page++;
             $uri = $links['next']['link'];
+
+            // save fail save
+            $this->setFailSave($repository, 'issues', $page);
 
         }
 

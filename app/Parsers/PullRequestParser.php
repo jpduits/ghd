@@ -39,8 +39,8 @@ class PullRequestParser extends BaseParser
 
         $pullRequestCounter = 0;
 
-        $page = 1;
-        $uri = 'repos/'.$repository->full_name.'/pulls?per_page=100&state=all';
+        $page = $this->getFailSave($repository, 'pull_requests'); // default = 1
+        $uri = 'repos/'.$repository->full_name.'/pulls?per_page=100&state=all&page='.$page;
         $httpClient = $this->client->getHttpClient();
 
         $lastPage = 1;
@@ -160,6 +160,9 @@ class PullRequestParser extends BaseParser
             // else get next page
             $page++;
             $uri = $links['next']['link'];
+
+            // save fail save
+            $this->setFailSave($repository, 'pull_requests', $page);
 
         }
 

@@ -23,8 +23,8 @@ class ContributorParser extends BaseParser
     public function getContributors(Repository $repository): void
     {
 
-        $page = 1;
-        $uri = 'repos/'.$repository->full_name.'/contributors?per_page=100&state=all';
+        $page = $this->getFailSave($repository, 'contributors'); // default = 1
+        $uri = 'repos/'.$repository->full_name.'/contributors?per_page=100&state=all&page='.$page;
         $httpClient = $this->client->getHttpClient();
 
         $lastPage = 1;
@@ -68,6 +68,10 @@ class ContributorParser extends BaseParser
             // else get next page
             $page++;
             $uri = $links['next']['link'];
+
+            // save fail save
+            $this->setFailSave($repository, 'contributors', $page);
+
 
         }
 

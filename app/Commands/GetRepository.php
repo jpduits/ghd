@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use Github\Client;
+use App\Models\FailSave;
 use App\Parsers\ForkParser;
 use App\Parsers\IssueParser;
 use App\Parsers\CommitParser;
@@ -66,26 +67,59 @@ class GetRepository extends Command
         $start = microtime(true);
         $this->info('Start time: ' . date('Y-m-d H:i:s', $start));
 
+
+
+
         // load or store repository if not exists
         $repository = $this->repositoryParser->repositoryExistsOrCreate($_owner, $_repository);
+
+        $start = false;
+        // check if there is a fail save
+        $failSave = FailSave::where('repository_id', $repository->id)->where('finished', '=', false)->first();
+        if ($failSave instanceof FailSave) {
+            $this->info('Fail save found, continue from ' . $failSave->parser . ' page ' . $failSave->page);
+        }
+        else {
+            $this->info('No fail save found, start from the beginning');
+            $start = true;
+        }
+
+        sleep(2);
 
         // get users from selected repository
         //$this->contributorParser->getContributors($repository);
 
         // get commits from selected repository
-        $this->commitParser->getCommits($repository);
+        if (($start) || ($failSave->parser == 'commits')) {
+            $this->commitParser->getCommits($repository);
+        }
 
         // stars
-        $this->stargazerParser->getStargazers($repository);
+        if (($start) || ($failSave->parser == 'stargazers')) {
+            $this->stargazerParser->getStargazers($repository);
+        }
 
         // forks
-        $this->forkParser->getForks($repository);
+        if (($start) || ($failSave->parser == 'forks')) {
+            $this->forkParser->getForks($repository);
+        }
 
         // issues
-        $this->issueParser->getIssues($repository);
+        if (($start) || ($failSave->parser == 'issues')) {
+            $this->issueParser->getIssues($repository);
+        }
 
         // pull requests
-        $this->pullRequestParser->getPullRequests($repository);
+        if (($start) || ($failSave->parser == 'pull_requests')) {
+            $this->pullRequestParser->getPullRequests($repository);
+        }
+
+        // delete fail save
+        if ($failSave instanceof FailSave) {
+            $failSave->delete();
+        }
+
+        $this->info('End time: ' . date('Y-m-d H:i:s', $start));
 
         exit(0);
     }

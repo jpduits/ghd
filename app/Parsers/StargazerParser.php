@@ -26,8 +26,8 @@ class StargazerParser extends BaseParser
     {
         $stargazerCounter = 0;
 
-        $page = 1;
-        $uri = 'repos/'.$repository->full_name.'/stargazers?per_page=100';
+        $page = $this->getFailSave($repository, 'stargazers'); // default = 1
+        $uri = 'repos/'.$repository->full_name.'/stargazers?per_page=100&page='.$page;
         $httpClient = $this->client->getHttpClient();
 
         $lastPage = 1;
@@ -82,6 +82,9 @@ class StargazerParser extends BaseParser
             // else get next page
             $page++;
             $uri = $links['next']['link'];
+
+            // save fail save
+            $this->setFailSave($repository, 'stargazers', $page);
 
         }
 

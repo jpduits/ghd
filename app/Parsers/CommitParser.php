@@ -37,7 +37,8 @@ class CommitParser extends BaseParser
             $suffix = ' (pull Request '.$pullRequest->number.')';
         }
         else {
-            $uri = 'repos/' . $repository->full_name . '/commits?per_page=100';
+            $page = $this->getFailSave($repository, 'commits'); // default = 1
+            $uri = 'repos/' . $repository->full_name . '/commits?per_page=100&page=' . $page;
         }
 
         while (true) {
@@ -145,11 +146,16 @@ class CommitParser extends BaseParser
             $page++;
             $uri = $links['next']['link'];
 
+            // save fail save
+            if (!$pullRequest instanceof PullRequest) {
+                $this->setFailSave($repository, 'commits', $page);
+            }
         }
 
         $this->writeToTerminal(sprintf('%s commits saved for repository (%s)', $commitCounter, $repository->full_name));
 
         return $commitCounter;
     }
+
 
 }

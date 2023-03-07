@@ -47,6 +47,10 @@ class SearchRepositories extends Command
 
         // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
         // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+        // filter: 	https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+        // per page 	https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28
+
+
 
         $client = new Client();
         $client->authenticate(env('GITHUB_TOKEN'), null, AuthMethod::ACCESS_TOKEN);

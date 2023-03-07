@@ -4,6 +4,8 @@ namespace App\Parsers;
 
 use Github\Client;
 use App\Traits\Terminal;
+use App\Models\FailSave;
+use App\Models\Repository;
 use Symfony\Component\Console\Output\Output;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -63,6 +65,26 @@ class BaseParser
 
         return $remainingRequests;
 
+    }
+
+    public function setFailSave(Repository $repository, string $parser, int $page)
+    {
+        $failSave = FailSave::where('repository_id', '=', $repository->id)->where('finished', '=', false)->firstOrCreate();
+        $failSave->repository_id = $repository->id;
+        $failSave->parser = $parser;
+        $failSave->page = $page;
+        $failSave->save();
+    }
+
+
+    public function getFailSave(Repository $repository, string $parser)
+    {
+        $failSave = FailSave::where('repository_id', '=', $repository->id)->where('parser', '=', $parser)->first();
+        if ($failSave instanceof FailSave) {
+            $this->writeToTerminal('Found fail save for '.$parser.' on page '.$failSave->page, 'info-green');
+            return $failSave->page;
+        }
+        return 1;
     }
 
 }

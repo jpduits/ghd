@@ -26,8 +26,8 @@ class ForkParser extends BaseParser
     {
         $forkCounter = 0;
 
-        $page = 1;
-        $uri = 'repos/'.$repository->full_name.'/forks?per_page=100';
+        $page = $this->getFailSave($repository, 'forks'); // default = 1
+        $uri = 'repos/'.$repository->full_name.'/forks?per_page=100&page='.$page;
         $httpClient = $this->client->getHttpClient();
 
         $lastPage = 1;
@@ -87,6 +87,9 @@ class ForkParser extends BaseParser
             // else get next page
             $page++;
             $uri = $links['next']['link'];
+
+            // save fail save
+            $this->setFailSave($repository, 'forks', $page);
 
         }
 
