@@ -28,6 +28,10 @@ return new class extends Migration
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('users');
 
+            $table->integer('linked_forks_count')->default(0);
+            $table->integer('total_forks_count')->default(1);
+            $table->integer('stargazers_count')->default(0);
+
             $table->timestamp('created_at');
 
             $table->string('url')->nullable();

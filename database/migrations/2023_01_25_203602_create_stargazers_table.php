@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('starred_at');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('repository_id')->references('id')->on('repositories');
+
+            // $table->unique(['user_id', 'repository_id']);
         });
     }
 

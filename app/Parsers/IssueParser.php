@@ -37,7 +37,7 @@ class IssueParser extends BaseParser
 
             $this->writeToTerminal('Get issues for ' . $repository->full_name . ' page ' . $page);
 
-            $response = $httpClient->get($uri, ['Accept' => 'application/vnd.github+json']);
+            $response = $httpClient->get($uri, ['Accept' => 'application/vnd.github.full+json']);
             $headers = $response->getHeaders();
 
             $this->checkRemainingRequests($headers);
@@ -49,12 +49,11 @@ class IssueParser extends BaseParser
 
             $issues = ResponseMediator::getContent($response);
 
-            // save the commits
             $this->writeToTerminal('Saving issues for '.$repository->full_name.' page '.$page.'/'.$lastPage);
 
             foreach ($issues as $issue) {
                 // first check stargazer exists
-                $issueRecord = Issue::where('github_id', '=', $issue['id']);
+                $issueRecord = Issue::where('github_id', '=', $issue['id'])->first();
                 if (!$issueRecord instanceof Issue) {
                     // Commit does not exist, create
                     $issueRecord = new Issue();

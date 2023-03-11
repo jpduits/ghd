@@ -64,8 +64,8 @@ class GetRepository extends Command
         $_owner = $this->argument('owner');
         $_repository = $this->argument('repository');
 
-        $start = microtime(true);
-        $this->info('Start time: ' . date('Y-m-d H:i:s', $start));
+        $startTime = microtime(true);
+        $this->info('Start time: ' . date('Y-m-d H:i:s', $startTime));
 
 
 
@@ -84,7 +84,7 @@ class GetRepository extends Command
             $start = true;
         }
 
-        sleep(2);
+        sleep(1);
 
         // get users from selected repository
         //$this->contributorParser->getContributors($repository);
@@ -92,21 +92,25 @@ class GetRepository extends Command
         // get commits from selected repository
         if (($start) || ($failSave->parser == 'commits')) {
             $this->commitParser->getCommits($repository);
+            $start = true;
         }
 
         // stars
         if (($start) || ($failSave->parser == 'stargazers')) {
             $this->stargazerParser->getStargazers($repository);
+            $start = true;
         }
 
         // forks
         if (($start) || ($failSave->parser == 'forks')) {
             $this->forkParser->getForks($repository);
+            $start = true;
         }
 
         // issues
         if (($start) || ($failSave->parser == 'issues')) {
             $this->issueParser->getIssues($repository);
+            $start = true;
         }
 
         // pull requests
@@ -119,7 +123,10 @@ class GetRepository extends Command
             $failSave->delete();
         }
 
-        $this->info('End time: ' . date('Y-m-d H:i:s', $start));
+        $endTime = microtime(true);
+        $this->info('Start time: ' . date('Y-m-d H:i:s', $endTime));
+        $duration = $endTime - $startTime;
+        $this->info('Duration for this repository: ' .$duration . ' seconds');
 
         exit(0);
     }

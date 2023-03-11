@@ -64,6 +64,10 @@ class ForkParser extends BaseParser
                     $forkRecord->url = $fork['url'];
                     $forkRecord->html_url = $fork['html_url'];
                     $forkRecord->repository_id = $repository->id;
+                    $forkRecord->linked_forks_count = $fork['forks_count']; // linked forks
+                    $forkRecord->total_forks_count = 1 + $fork['forks_count']; // this fork + linked forks
+                    $forkRecord->stargazers_count = $fork['stargazers_count'] ?? 0;
+
                     $createdAtDate = $fork['created_at'];
                     $forkRecord->created_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $createdAtDate)->toDateTimeString();
                     if ($forkRecord->save()) {

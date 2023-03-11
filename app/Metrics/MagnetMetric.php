@@ -104,6 +104,7 @@ class MagnetMetric extends BaseMetric
     {
         $developers = DB::table('commits')
                         ->selectRaw('DISTINCT commits.author_id')
+                        ->join('users', 'users.github_id', '=', 'commits.author_id')
                         ->where(function ($q) use ($repository) {
 
                             // OR
@@ -117,10 +118,11 @@ class MagnetMetric extends BaseMetric
 
                             })->orWhere('repository_id', '=', $repository->id);
 
-                        })->where('created_at', '<', $endDate); // AND
+                        })->where('commits.created_at', '<', $endDate) // AND
+                        ->where('users.name', '<>', 'GitHub'); // AND
 
         if ($startDate !== null) {
-            $developers->where('created_at', '>=', $startDate);
+            $developers->where('commits.created_at', '>=', $startDate);
         }
 
         DB::enableQueryLog();

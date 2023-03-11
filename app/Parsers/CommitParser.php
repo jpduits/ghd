@@ -85,6 +85,7 @@ class CommitParser extends BaseParser
 
                     }
                     else {
+                        // pull request is merged, set repository_id to base repository
                         $commitRecord->repository_id = $repository->id;
                     }
 

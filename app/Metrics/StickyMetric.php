@@ -115,6 +115,7 @@ class StickyMetric extends BaseMetric
                           //->selectRaw('COUNT(DISTINCT commits.author_id) AS total_contributors')
                           //->selectRaw('commits.id, commits.author_id, commits.created_at, commits.repository_id')
                           ->selectRaw('DISTINCT commits.author_id')
+                          ->join('users', 'users.github_id', '=', 'commits.author_id')
                           ->where(function ($q) use ($repository) {
 
                               // OR
@@ -130,8 +131,9 @@ class StickyMetric extends BaseMetric
 
                           })
                           // AND
-                          ->where('created_at', '>=', $startDate)
-                          ->where('created_at', '<', $endDate)
+                          ->where('commits.created_at', '>=', $startDate)
+                          ->where('commits.created_at', '<', $endDate)
+                          ->where('users.name', '<>', 'GitHub')
                           ->get();
 
         return $contributors->pluck('author_id')->toArray();

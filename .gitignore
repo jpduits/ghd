@@ -7,3 +7,4 @@
 /database/database.sqlite
 /docker/mysql-data
 /dump.txt
+/scripts/logs

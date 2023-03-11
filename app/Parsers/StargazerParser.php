@@ -53,19 +53,29 @@ class StargazerParser extends BaseParser
 
             foreach ($stargazers as $stargazer) {
                 // first check stargazer exists
-                $stargazerRecord = Stargazer::where('user_id', '=', $stargazer['user']['id'])->where('repository_id', '=', $repository->id)->first();
+                $starredAtDate = $stargazer['starred_at'];
+                $starredAt = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $starredAtDate)->toDateTimeString();
+                $user = $this->userParser->userExistsOrCreate($stargazer['user']);
+
+                $stargazerRecord = Stargazer::where('user_id', '=', $user->id)
+                                            ->where('repository_id', '=', $repository->id)
+                                            ->where('starred_at', '=', $starredAt)
+                                            ->first();
                 if (!$stargazerRecord instanceof Stargazer) {
                     // Commit does not exist, create
                     $stargazerRecord = new Stargazer();
-                    $user = $this->userParser->userExistsOrCreate($stargazer['user']);
                     $stargazerRecord->user_id = $user->id;
                     $stargazerRecord->repository_id = $repository->id;
-                    $starredAtDate = $stargazer['starred_at'];
-                    $stargazerRecord->starred_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $starredAtDate)->toDateTimeString();
+                    $stargazerRecord->starred_at = $starredAt;
 
                     if ($stargazerRecord->save()) {
                         $this->writeToTerminal('Startgazer user: '.$stargazer['user']['id'].' saved ('.$stargazerCounter.').');
                         $stargazerCounter++;
+                    }
+                    else {
+                        $this->writeToTerminal('Error saving startgazer user: '.$stargazer['user']['id'].' ('.$stargazerCounter.').', 'info-red');
+                        print_r($stargazer);
+                        print_r($user);
                     }
                 }
                 else {

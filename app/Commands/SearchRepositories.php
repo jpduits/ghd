@@ -3,10 +3,13 @@
 namespace App\Commands;
 
 use Github\Client;
+use Carbon\Carbon;
 use Github\AuthMethod;
 use Github\ResultPager;
+use TiagoHillebrandt\ParseLinkHeader;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
+use Github\HttpClient\Message\ResponseMediator;
 
 class SearchRepositories extends Command
 {
@@ -15,7 +18,7 @@ class SearchRepositories extends Command
      *
      * @var string
      */
-    protected $signature = 'search:repositories {language} {stars} {count} {dateFrom} {public=true} {archived=false}';
+    protected $signature = 'search:repositories {language} {stars} {dateFrom} {count=-1} {public=true} {archived=false}';
 
     /**
      * The description of the command.
@@ -23,6 +26,14 @@ class SearchRepositories extends Command
      * @var string
      */
     protected $description = 'Search filtered repositories from GitHub for composing a dataset';
+    private Client $client;
+
+
+    public function __construct(Client $client)
+    {
+        parent::__construct();
+        $this->client = $client;
+    }
 
     /**
      * Execute the console command.
@@ -40,73 +51,96 @@ class SearchRepositories extends Command
         $archived = $this->argument('archived');
         $count = $this->argument('count');
 
-        if ($count > 100) {
-            $this->error('Count cannot exceed 100');
+/*        if ($count > 30) {
+            $this->error('Search cannot exceed 30');
             return 1;
-        }
+        }*/
 
-        // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-        // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
-        // filter: 	https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-        // per page 	https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28
+        // searching: https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+        // filter: https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+        // per page: https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28
+        // sorting: https://docs.github.com/en/search-github/getting-started-with-searching-on-github/sorting-search-results
 
+        $page = 1;
+        $lastPage = 1;
 
+        $this->info('Search '.$count.' '.$language.' repositories with  '.$stars.' stars, from: '.$dateFrom);
 
-        $client = new Client();
-        $client->authenticate(env('GITHUB_TOKEN'), null, AuthMethod::ACCESS_TOKEN);
-
-        $searchLimit = $client->api('rate_limit')->getResource('search')->getLimit();
-        $this->info('Search-limit: '.$searchLimit);
-
-        $coreLimit = $client->api('rate_limit')->getResource('core')->getLimit();
-        $remaining = $client->api('rate_limit')->getResource('core')->getRemaining();
-        $reset = $client->api('rate_limit')->getResource('core')->getReset();
-        $this->info('Core-limit: '.$coreLimit);
-        $this->info('Remaining: '.$remaining);
-        $this->info('Reset: '.$reset);
-
-        $q = "language:{$language} created:<={$dateFrom} archived:{$archived} stars:{$stars}";
+        $lastYear = Carbon::now()->subYear()->format('Y-m-d');
+        $q  = "language:{$language} created:<={$dateFrom} pushed:>={$lastYear} archived:{$archived} stars:{$stars}";
+        //$q .= " size:<=102400"; // max 100MB
+        $q .= " size:<=51200"; // max 50MB
         $q .= ($public) ? ' is:public' : '';
-        $q .= '&sort=id';
 
-        $search = $client->api('search');
+        $this->info('Query: '.$q);
 
-        $paginator = new ResultPager($client, $count);
-        $params = [
-            $q,
+        $uri = 'https://api.github.com/search/repositories?q=' . $q . '&s=stars&o=desc&page='.$page;
 
-        ];
-        $result = $paginator->fetch($search, 'repositories', $params);
+        $repoCounter = 0;
+        $done = false;
 
-        if (isset($result['items'])) {
+        while (true) {
 
-            foreach ($result['items'] as $repo) {
 
-                // get all details from specific repo
-                $repoDetails = $client->api('repo')->showById($repo['id']);
-                // get the issues from the current repo (to get the total count)
-                $q = "repo:{$repoDetails['owner']['login']}/{$repoDetails['name']} is:issue";
+            $response = $this->client->getHttpClient()->get($uri);
 
-                $repoIssues = $client->api('search')->issues($q);
+            $headers = $response->getHeaders();
+            if (isset($headers['Link'][0] )) {
+                $links = (new ParseLinkHeader($headers['Link'][0]))->toArray();
+                $lastPage = $links['last']['page'] ?? $lastPage;
+            }
 
-                $this->line(
-                    $stars.
-                    "\t".$repoDetails['html_url'].
-                    "\t".$repoDetails['owner']['login'].
-                    "\t".$repoDetails['name'].
-                    "\t".$repoDetails['full_name'].
-                    "\t".$repoDetails['id'].
-                    "\t".$repoDetails['created_at'].
-                    "\t".$repoDetails['stargazers_count']. //stars
-                    "\t".$repoDetails['subscribers_count']. //watch
-                    "\t".$repoDetails['forks_count']. // forks
-                    "\t".$repoIssues['total_count']. // total issues
-                    "\t".$repoDetails['open_issues']. // open issues
-                    "\t".$repoDetails['default_branch'] );
+            $repositories = ResponseMediator::getContent($response);
+
+            if ($page == 1) {
+                $this->info('Total count: ' . $repositories['total_count']);
+            }
+
+            $this->info('Get page ' . $page . ' of ' . $lastPage);
+
+            if (isset($repositories['items'])) {
+
+                foreach ($repositories['items'] as $repoDetails) {
+
+                    if (($count != -1) && ($repoCounter >= $count)) { // -1 is no count limit
+                        $done = true;
+                        break;
+                    }
+
+                    $this->line(
+                        $stars .
+                        "\t" . $repoDetails['size'] . ' = ' . round($repoDetails['size'] / 1024) . 'MB' .
+                        "\t" . $repoDetails['id'] .
+
+                        "\t" . $repoDetails['full_name'] .
+                        "\t" . $repoDetails['owner']['login'] .
+                        "\t" . $repoDetails['name'] .
+                        "\t" . $repoDetails['default_branch'].
+                        "\t" . $repoDetails['html_url'] .
+
+                        "\t" .Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $repoDetails['created_at'])->toDateTimeString().
+                        "\t" .Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $repoDetails['updated_at'])->toDateTimeString().
+                        "\t" . $repoDetails['stargazers_count']. //stargazers
+                        "\t" . $repoDetails['forks_count'] . // forks
+                        "\t" . $repoDetails['open_issues']  // open issues
+                    );
+                    $repoCounter++;
+                }
+
 
             }
 
-        }
+            // no next page, break from while
+            if ((!isset($links['next'])) || ($done)) {
+                break;
+            }
+
+            // else get next page
+            $page++;
+            $uri = $links['next']['link'];
+
+
+        } // while
 
         return 0;
     }

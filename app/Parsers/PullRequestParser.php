@@ -98,6 +98,7 @@ class PullRequestParser extends BaseParser
                     if ($mergedAtDate !== null) {
                         $pullRequestRecord->merged_at = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $mergedAtDate)->toDateTimeString();
                     }
+
                     $pullRequestRecord->merge_commit_sha = $pullRequest['merge_commit_sha'];
 
                     // head
