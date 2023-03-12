@@ -12,11 +12,15 @@ if [ ! -f "$1" ]; then
   exit 1
 fi
 
-LOGFILE="./logs/logfile_$(date +%Y-%m-%d_%H-%M-%S).log"
+
 
 # Loop file
+counter=1
+
 while IFS= read -r line; do
-    echo "Get repository: $line"
+    LOGFILE="./logs/logfile_$(date +%Y-%m-%d_%H-%M-%S).log"
+    echo "($counter) Get repository: $line"
     echo "Current time: $(date +%Y-%m-%d_%H-%M-%S)"
     php ../ghdataset get:repository $line >> "$LOGFILE"
+    counter=$((counter+1))
 done < "$1"

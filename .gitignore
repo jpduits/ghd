@@ -8,3 +8,4 @@
 /docker/mysql-data
 /dump.txt
 /scripts/logs
+/scripts/.~lock.*
