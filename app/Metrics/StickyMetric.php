@@ -21,14 +21,6 @@ class StickyMetric extends BaseMetric
         // if endDate is null, set it to now
         // default interval is 26 means a period is a half year (26 weeks)
 
-/*        $info = 'Sticky metric for ' . $repository->full_name . ' from ' . $startDate->format('Y-m-d');
-        $info .= ' (period interval: ' . $periodInterval . ' weeks)';
-        if ($endDate instanceof Carbon) {
-            $info .= ' loop interval until ' . $endDate->format('Y-m-d');
-        }
-        $this->writeToTerminal($info);*/
-
-
         $measurements = []; // loop results
 
         // calculate sticky value for a range of periods
@@ -65,23 +57,12 @@ class StickyMetric extends BaseMetric
         $periodEndDate = $periodStartDate->copy()->addWeeks($periodInterval); // end period Pi
         $periodPreviousStartDate = $periodStartDate->copy()->subWeeks($periodInterval); // start period Pi-1
 
-
-
-/*        $this->writeToTerminal('(Pi-1) start date:  ' . $periodPreviousStartDate->format('Y-m-d'));
-        $this->writeToTerminal('(Pi-1) end date:    ' . $periodStartDate->format('Y-m-d'));
-        $this->writeToTerminal('(Pi)   start date:  ' . $periodStartDate->format('Y-m-d'));
-        $this->writeToTerminal('(Pi)   end date:    ' . $periodEndDate->format('Y-m-d'));*/
-
         // get values for period Pi
         $contributorsPeriod = $this->getContributorsInPeriod($repository, $periodStartDate, $periodEndDate);
         $contributorsPreviousPeriod = $this->getContributorsInPeriod($repository, $periodPreviousStartDate, $periodStartDate);
 
         // check how many contributors from Pi are als in Pi-1
         $matches = array_intersect($contributorsPeriod, $contributorsPreviousPeriod);
-
-/*        $this->writeToTerminal('Contributors in period Pi: ' . count($contributorsPeriod).' ('.implode(',', $contributorsPeriod).')');
-        $this->writeToTerminal('Contributors in period Pi-1: ' . count($contributorsPreviousPeriod).' ('.implode(',', $contributorsPreviousPeriod).')');
-        $this->writeToTerminal('Contributors in in Pi and in Pi-1: ' .count($matches). ' ('. implode(',', $matches).')');*/
 
 
         if (count($contributorsPreviousPeriod) == 0) {
@@ -90,9 +71,6 @@ class StickyMetric extends BaseMetric
         }
         else {
             $stickValue = count($matches) / count($contributorsPreviousPeriod);
-/*            $this->writeToTerminal('Sticky value: ' . count($matches) . ' / ' . count($contributorsPreviousPeriod) . ' = ' . count($matches) / count($contributorsPreviousPeriod));
-
-            $this->writeHorizontalLineToTerminal();*/
         }
 
         return [
@@ -115,7 +93,7 @@ class StickyMetric extends BaseMetric
                           //->selectRaw('COUNT(DISTINCT commits.author_id) AS total_contributors')
                           //->selectRaw('commits.id, commits.author_id, commits.created_at, commits.repository_id')
                           ->selectRaw('DISTINCT commits.author_id')
-                          ->join('users', 'users.github_id', '=', 'commits.author_id')
+                          ->join('users', 'users.id', '=', 'commits.author_id')
                           ->where(function ($q) use ($repository) {
 
                               // OR
@@ -123,19 +101,18 @@ class StickyMetric extends BaseMetric
                                   // subquery, to get commits from pull requests (when not merged)
                                   $q->select('pull_requests_commits.commit_id')
                                     ->from('pull_requests')
-                                    ->join('pull_requests_commits', 'pull_requests_commits.pull_request_id', '=', 'github_id')
+                                    ->join('pull_requests_commits', 'pull_requests_commits.pull_request_id', '=', 'pull_requests.github_id')
                                     ->where('pull_requests.base_repository_id', '=', $repository->id);
 
 
-                              })->orWhere('repository_id', '=', $repository->id);
+                              })->orWhere('commits.repository_id', '=', $repository->id);
 
                           })
                           // AND
                           ->where('commits.created_at', '>=', $startDate)
                           ->where('commits.created_at', '<', $endDate)
-                          ->where('users.name', '<>', 'GitHub')
-                          ->get();
+                          ->where('users.name', '<>', 'GitHub');
 
-        return $contributors->pluck('author_id')->toArray();
+        return $contributors->get()->pluck('author_id')->toArray();
     }
 }

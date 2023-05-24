@@ -5,6 +5,7 @@ namespace App\Parsers;
 use Github\Client;
 use Carbon\Carbon;
 use App\Models\Issue;
+use App\Models\Label;
 use App\Models\Repository;
 use TiagoHillebrandt\ParseLinkHeader;
 use Symfony\Component\Console\Output\Output;
@@ -12,6 +13,7 @@ use Github\HttpClient\Message\ResponseMediator;
 
 class IssueParser extends BaseParser
 {
+    const SINCE = '2023-03-14T11:45:53Z'; // label fix
 
     private UserParser $userParser;
 
@@ -52,9 +54,10 @@ class IssueParser extends BaseParser
             $this->writeToTerminal('Saving issues for '.$repository->full_name.' page '.$page.'/'.$lastPage);
 
             foreach ($issues as $issue) {
-                // first check stargazer exists
+                // first check issue exists
                 $issueRecord = Issue::where('github_id', '=', $issue['id'])->first();
-                if (!$issueRecord instanceof Issue) {
+                if (!$issueRecord instanceof Issue) { // else attach labels
+                    break;
                     // Commit does not exist, create
                     $issueRecord = new Issue();
                     $issueRecord->github_id = $issue['id'];
@@ -91,7 +94,37 @@ class IssueParser extends BaseParser
 
                 }
                 else {
-                    $this->writeToTerminal('Issue: '.$issue['id'].' already exists, skipping.', 'info-warning');
+
+                    // Issue exists, check if labels are attached, workaround
+                    if ($issue['labels'] !== []) {
+                        // check label exists
+                        $labelIds = [];
+
+                        foreach ($issue['labels'] as $label) {
+
+                            $labelRecord = Label::where('github_id', '=', $label['id'])->first();
+                            if (!$labelRecord instanceof Label) {
+                                // create label
+                                $labelRecord = new Label();
+                                $labelRecord->github_id = $label['id'];
+                                $labelRecord->name = $label['name'];
+                                $labelRecord->description = $label['description'] ?? '';
+                                $labelRecord->save();
+
+                                $this->writeToTerminal('Label '.$label['name'].' added.', 'info-warning');
+                            }
+                            $labelIds[] = $labelRecord->id;
+
+                        }
+
+                        // attach to issue
+                        if (count($labelIds) > 0) {
+                            $issueRecord->labels()->attach($labelIds);
+                        }
+
+                    }
+
+                    //$this->writeToTerminal('Issue: '.$issue['id'].' already exists, skipping.', 'info-warning');
                 }
 
             }
@@ -113,5 +146,6 @@ class IssueParser extends BaseParser
         return $issuesCounter;
 
     }
+
 
 }

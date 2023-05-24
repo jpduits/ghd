@@ -1,30 +1,30 @@
-reactor/lite-rx-api-hands-on
-jfree/jfreechart
-hub4j/github-api
-jmrozanec/cron-utils
-java-diff-utils/java-diff-utils
-vanilla-music/vanilla
-structurizr/dsl
-mixpanel/mixpanel-android
-wstrange/GoogleAuth
-PortSwigger/param-miner
-Esri/geometry-api-java
-eclipse-californium/californium
-asr-pub/LyricViewDemo
-ppareit/swiftp
-jenkinsci/slack-plugin
-rharter/auto-value-parcel
-yacy/yacy_grid_mcp
-apache/mina-sshd
-swagger-api/swagger-parser
-xuhuisheng/sonar-l10n-zh
-ua-parser/uap-java
-ItzSomebody/radon
-SeeSharpSoft/intellij-csv-validator
-esoco/objectrelations
-fabioz/eclipse.spellchecker
-cyNeo4j/cyNeo4j
-farnulfo/pst-exp
-indigo-dc/im-java-api
-ronnypolley/ecliseignorehelper
-imagej/imagej-troubleshooting
+reactor  lite-rx-api-hands-on
+jfree  jfreechart
+hub4j  github-api
+jmrozanec  cron-utils
+java-diff-utils  java-diff-utils
+vanilla-music  vanilla
+structurizr  dsl
+mixpanel  mixpanel-android
+wstrange  GoogleAuth
+PortSwigger  param-miner
+Esri  geometry-api-java
+eclipse-californium  californium
+asr-pub  LyricViewDemo
+ppareit  swiftp
+jenkinsci  slack-plugin
+rharter  auto-value-parcel
+yacy  yacy_grid_mcp
+apache  mina-sshd
+swagger-api  swagger-parser
+xuhuisheng  sonar-l10n-zh
+ua-parser  uap-java
+ItzSomebody  radon
+SeeSharpSoft  intellij-csv-validator
+esoco  objectrelations
+fabioz  eclipse.spellchecker
+cyNeo4j  cyNeo4j
+farnulfo  pst-exp
+indigo-dc  im-java-api
+ronnypolley  ecliseignorehelper
+imagej  imagej-troubleshooting

@@ -24,4 +24,9 @@ class Issue extends Model
     {
         return $this->belongsTo(User::class, 'author_id', 'id');
     }
+
+    public function labels()
+    {
+        return $this->belongsToMany(Label::class, 'issues_labels', 'issue_id', 'label_id');
+    }
 }

@@ -40,7 +40,13 @@ class ProjectState extends Model
         'pull_requests_count_current_period',
         'pull_requests_count_total',
         'forks_count_current_period',
-        'forks_count_total'
+        'forks_count_total',
+        'checkout_sha',
+        'volume',
+        'complexity',
+        'duplication',
+        'unit_size',
+        'maintainability_index',
     ];
 
 

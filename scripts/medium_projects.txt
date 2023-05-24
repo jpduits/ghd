@@ -1,30 +1,30 @@
-google/bundletool
-AxonFramework/AxonFramework
-halirutan/IntelliJ-Key-Promoter-X
-JackyAndroid/AndroidTVLauncher
-hneemann/Digital
-KeepSafe/ReLinker
-apache/curator
-mbechler/marshalsec
-microservices-patterns/ftgo-application
-Netflix/concurrency-limits
-igniterealtime/Smack
-pilgr/Paper
-assertj/assertj
-apache/maven-mvnd
-sofastack/sofa-bolt
-hierynomus/sshj
-linkedin/rest.li
-openzipkin/brave
-rsocket/rsocket-java
-google/jimfs
-FabricMC/fabric
-selenide/selenide
-srikanth-lingala/zip4j
-500px/greedo-layout-for-android
-exchange-core/exchange-core
-CaffeineMC/lithium-fabric
-mc1arke/sonarqube-community-branch-plugin
-jchambers/pushy
-aNNiMON/Lightweight-Stream-API
-OpenHFT/Java-Thread-Affinity
+google bundletool
+AxonFramework AxonFramework
+halirutan IntelliJ-Key-Promoter-X
+JackyAndroid AndroidTVLauncher
+hneemann Digital
+KeepSafe ReLinker
+apache curator
+mbechler marshalsec
+microservices-patterns ftgo-application
+Netflix concurrency-limits
+igniterealtime Smack
+pilgr Paper
+assertj assertj
+apache maven-mvnd
+sofastack sofa-bolt
+hierynomus sshj
+linkedin rest.li
+openzipkin brave
+rsocket rsocket-java
+google jimfs
+FabricMC fabric
+selenide selenide
+srikanth-lingala zip4j
+500px greedo-layout-for-android
+exchange-core exchange-core
+CaffeineMC lithium-fabric
+mc1arke sonarqube-community-branch-plugin
+jchambers pushy
+aNNiMON Lightweight-Stream-API
+OpenHFT Java-Thread-Affinity

@@ -24,7 +24,6 @@ class MagnetMetric extends BaseMetric
             $info .= ' loop interval until ' . $endDate->format('Y-m-d');
         }
         $this->writeToTerminal($info);*/
-
         // calculate magnet value for a range of periods
 
         $measurements = []; // loop results
@@ -50,29 +49,17 @@ class MagnetMetric extends BaseMetric
         return $measurements;
     }
 
-
-
-
-
-
     private function calculate(Repository $repository, Carbon $startDate, int $periodInterval = null) : array
     {
         $periodStartDate = $startDate->copy(); // start period Pi
         $periodEndDate = $startDate->copy()->addWeeks($periodInterval); // end period Pi
         $periodPreviousStartDate = $periodStartDate->copy()->subWeeks($periodInterval); // start period Pi-1
-/*        $this->writeToTerminal('(Pi)   start date:  ' . $startDate->format('Y-m-d'));
-        $this->writeToTerminal('(Pi)   end date:    ' . $periodEndDate->format('Y-m-d'));*/
-
         // get values for period Pi
         $developersTotal = $this->getDevelopersInPeriod($repository, null, $startDate);
         $developersCurrentPeriod = $this->getDevelopersInPeriod($repository, $startDate, $periodEndDate);
 
         // check how many developers from Pi are not in totalDevelopers
         $developersNewCurrentPeriod = array_diff($developersCurrentPeriod, $developersTotal);
-/*
-        $this->writeToTerminal('Developers in period Pi: ' . count($currentDevelopers).' ('.implode(',', $currentDevelopers).')');
-        $this->writeToTerminal('Total developers: ' . count($totalDevelopers).' ('.implode(',', $totalDevelopers).')');
-        $this->writeToTerminal('New developers in Pi: ' .count($newDevelopers). ' ('. implode(',', $newDevelopers).')');*/
 
         if (count($developersTotal) == 0) {
             $magnetValue = 0;
@@ -93,18 +80,14 @@ class MagnetMetric extends BaseMetric
             'magnet_value' => $magnetValue
         ];
 
-/*        $this->writeToTerminal('Magnet value: ' . count($newDevelopers) . ' / ' . count($totalDevelopers) . ' = ' . count($newDevelopers) / count($totalDevelopers));
-        $magnetValue = count($newDevelopers) / count($totalDevelopers);
-        $this->writeHorizontalLineToTerminal();
-        return $magnetValue;*/
     }
 
 
-    private function getDevelopersInPeriod(Repository $repository, Carbon $startDate = null, Carbon $endDate)
+    private function getDevelopersInPeriod(Repository $repository, Carbon $startDate = null, Carbon $endDate) : array
     {
         $developers = DB::table('commits')
                         ->selectRaw('DISTINCT commits.author_id')
-                        ->join('users', 'users.github_id', '=', 'commits.author_id')
+                        ->join('users', 'users.id', '=', 'commits.author_id')
                         ->where(function ($q) use ($repository) {
 
                             // OR
@@ -112,11 +95,11 @@ class MagnetMetric extends BaseMetric
                                 // subquery, to get commits from pull requests (when not merged)
                                 $q->select('pull_requests_commits.commit_id')
                                   ->from('pull_requests')
-                                  ->join('pull_requests_commits', 'pull_requests_commits.pull_request_id', '=', 'github_id')
+                                  ->join('pull_requests_commits', 'pull_requests_commits.pull_request_id', '=', 'pull_requests.github_id')
                                   ->where('pull_requests.base_repository_id', '=', $repository->id);
 
 
-                            })->orWhere('repository_id', '=', $repository->id);
+                            })->orWhere('commits.repository_id', '=', $repository->id);
 
                         })->where('commits.created_at', '<', $endDate) // AND
                         ->where('users.name', '<>', 'GitHub'); // AND
@@ -125,13 +108,7 @@ class MagnetMetric extends BaseMetric
             $developers->where('commits.created_at', '>=', $startDate);
         }
 
-        DB::enableQueryLog();
-        $developers = $developers->get();
-
-
-        /*if ($startDate === null)
-            dd(DB::getQueryLog());*/
-        return $developers->pluck('author_id')->toArray();
+        return $developers->get()->pluck('author_id')->toArray();
     }
 
 

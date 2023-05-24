@@ -81,7 +81,9 @@ class GetRepository extends Command
         }
         else {
             $this->info('No fail save found, start from the beginning');
-            $start = true;
+            $failSave = new FailSave();
+            $failSave->parser = '';
+          //  $start = true;
         }
 
         sleep(1);
@@ -108,9 +110,9 @@ class GetRepository extends Command
         }
 
         // issues
-        if (($start) || ($failSave->parser == 'issues')) {
+        if ((true) || ($failSave->parser == 'issues')) {
             $this->issueParser->getIssues($repository);
-            $start = true;
+            //$start = true;
         }
 
         // pull requests

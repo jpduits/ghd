@@ -2,14 +2,17 @@
 
 namespace App\Commands;
 
+use Exception;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Commit;
 use App\Models\Repository;
 use Illuminate\Support\Str;
 use App\Metrics\GithubMeta;
 use App\Models\ProjectState;
 use App\Metrics\StickyMetric;
 use App\Metrics\MagnetMetric;
+use App\Metrics\QualityMetric;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
@@ -50,14 +53,20 @@ class GetProjectState extends Command
     private MagnetMetric $magnetMetric;
     private string $uuid;
     private GithubMeta $githubMeta;
+    private string $checkoutDir;
+    private QualityMetric $qualityMetric;
 
 
-    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric, GithubMeta $githubMeta)
+    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric, GithubMeta $githubMeta, QualityMetric $qualityMetric)
     {
         parent::__construct();
+
+        $this->checkoutDir = env('GITHUB_TMP_CHECKOUT_DIR');
+
         $this->stickyMetric = $stickyMetric;
         $this->magnetMetric = $magnetMetric;
         $this->githubMeta = $githubMeta;
+        $this->qualityMetric = $qualityMetric;
     }
     /**
      * Execute the console command.
@@ -66,6 +75,12 @@ class GetProjectState extends Command
      */
     public function handle()
     {
+
+        if (!file_exists($this->checkoutDir)) {
+            $this->error('Temporary checkout directory does not exist: '.$this->checkoutDir);
+            exit(1);
+        }
+
         // validate input arguments
         $input = array_merge($this->arguments(), $this->options());
         $this->validate($input);
@@ -84,8 +99,8 @@ class GetProjectState extends Command
         $interval = $input['interval'];
 
         // repository
-        $owner = $input['owner'];
-        $repository = $input['repository'];
+        $ownerName = $input['owner'];
+        $repositoryName = $input['repository'];
         $fullName = $input['owner'].'/'.$input['repository'];
 
         $repository = Repository::where('full_name', '=', $fullName)->first();
@@ -93,14 +108,22 @@ class GetProjectState extends Command
             // start parsing dataset
             $this->line('Repository '.$fullName.' found in the dataset (ID: '.$repository->id.')');
 
+            // check of repository al is gecloned in temp directory
+            if (!file_exists($this->checkoutDir.'/'.$repositoryName)) {
+                $this->line('Cloning repository '.$fullName.' in temporary directory...');
+                if (!$this->cloneRepository($fullName)) {
+                    $this->error('Error cloning repository '.$fullName.' to temporary directory');
+                    exit(1);
+                }
+            }
+
+            $qualityMeasurements = $this->qualityMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
 
             $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
             $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
             $gitHubMeta = $this->githubMeta->get($repository, $startDate->copy(), $interval, clone($endDate));
 
-
-
-            // merge these arrays
+            // merge these arrays, dates and prev dats
             $measurements = array_reduce([$stickyMeasurements, $magnetMeasurements, $gitHubMeta], function($result, $current) {
                 foreach ($current as $item) {
                     $key = array_search($item['period_start_date'], array_column($result, 'period_start_date'));
@@ -119,6 +142,21 @@ class GetProjectState extends Command
 
                 return $result;
             }, []);
+
+
+            // add quality measurements to the array
+            $measurements = array_map(function($item1, $item2) {
+                // Controleer of period_start_date en period_end_date al aanwezig zijn in $item1
+                // Zo niet, voeg ze toe vanuit $item2
+                if (!isset($item1['period_start_date'])) {
+                    $item1['period_start_date'] = $item2['period_start_date'];
+                }
+                if (!isset($item1['period_end_date'])) {
+                    $item1['period_end_date'] = $item2['period_end_date'];
+                }
+
+                return array_merge($item1, $item2);
+            }, $measurements, $qualityMeasurements);
 
 
             foreach($measurements as $measurement) {
@@ -150,7 +188,9 @@ class GetProjectState extends Command
                         'pull_requests_count_current_period' => $measurement['pull_requests_count_current_period'],
                         'pull_requests_count_total' => $measurement['pull_requests_count_total'],
                         'forks_count_current_period' => $measurement['forks_count_current_period'],
-                        'forks_count_total' => $measurement['forks_count_total']
+                        'forks_count_total' => $measurement['forks_count_total'],
+
+                        'checkout_sha' => $measurement['checkout_sha'],
                     ]
 
 
@@ -223,7 +263,9 @@ class GetProjectState extends Command
             'pull req. total', // pull_requests_count_total
 
             'forks current', // forks_count_current_period
-            'forks total' // forks_count_total
+            'forks total', // forks_count_total
+
+            'checkout_sha'
         ]);
 
         foreach ($measurements as $measurement) {
@@ -258,7 +300,9 @@ class GetProjectState extends Command
                 $measurement->pull_requests_count_total,
 
                 $measurement->forks_count_current_period,
-                $measurement->forks_count_total
+                $measurement->forks_count_total,
+
+                $measurement->checkout_sha,
 
             ]);
         }
@@ -297,5 +341,16 @@ class GetProjectState extends Command
             exit(1);
         }*/
     }
+
+    private function cloneRepository(string $fullName) : bool
+    {
+        $output = [];
+        exec('cd '.$this->checkoutDir.' && git clone https://github.com/'.$fullName.'.git', $output);
+        foreach ($output as $line) {
+            $this->line($line);
+        }
+        return true;
+    }
+
 
 }
