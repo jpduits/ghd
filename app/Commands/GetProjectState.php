@@ -2,24 +2,20 @@
 
 namespace App\Commands;
 
-use Exception;
 use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Commit;
 use App\Models\Repository;
 use Illuminate\Support\Str;
-use App\Metrics\GithubMeta;
 use App\Models\ProjectState;
-use App\Metrics\StickyMetric;
-use App\Metrics\MagnetMetric;
-use App\Metrics\QualityMetric;
+use App\QualityModel\Maintainability;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Helper\Table;
 use Illuminate\Database\Eloquent\Collection;
+use App\QualityModel\Metrics\Community\GithubMeta;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use App\QualityModel\Metrics\Yamashita\StickyMetric;
+use App\QualityModel\Metrics\Yamashita\MagnetMetric;
 
 class GetProjectState extends Command
 {
@@ -54,10 +50,10 @@ class GetProjectState extends Command
     private string $uuid;
     private GithubMeta $githubMeta;
     private string $checkoutDir;
-    private QualityMetric $qualityMetric;
+    private Maintainability $maintainability;
 
 
-    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric, GithubMeta $githubMeta, QualityMetric $qualityMetric)
+    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric, GithubMeta $githubMeta, Maintainability $maintainability)
     {
         parent::__construct();
 
@@ -66,7 +62,7 @@ class GetProjectState extends Command
         $this->stickyMetric = $stickyMetric;
         $this->magnetMetric = $magnetMetric;
         $this->githubMeta = $githubMeta;
-        $this->qualityMetric = $qualityMetric;
+        $this->maintainability = $maintainability;
     }
     /**
      * Execute the console command.
@@ -99,8 +95,8 @@ class GetProjectState extends Command
         $interval = $input['interval'];
 
         // repository
-        $ownerName = $input['owner'];
-        $repositoryName = $input['repository'];
+/*        $ownerName = $input['owner'];
+        $repositoryName = $input['repository'];*/
         $fullName = $input['owner'].'/'.$input['repository'];
 
         $repository = Repository::where('full_name', '=', $fullName)->first();
@@ -108,17 +104,12 @@ class GetProjectState extends Command
             // start parsing dataset
             $this->line('Repository '.$fullName.' found in the dataset (ID: '.$repository->id.')');
 
-            // check of repository al is gecloned in temp directory
-            if (!file_exists($this->checkoutDir.'/'.$repositoryName)) {
-                $this->line('Cloning repository '.$fullName.' in temporary directory...');
-                if (!$this->cloneRepository($fullName)) {
-                    $this->error('Error cloning repository '.$fullName.' to temporary directory');
-                    exit(1);
-                }
-            }
+//            $qualityMeasurements = $this->qualityMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
 
-            $qualityMeasurements = $this->qualityMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
+            $maintainability = $this->maintainability->get($repository, $startDate->copy(), $interval, clone($endDate));
+            dd($maintainability);
 
+exit(1);
             $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
             $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
             $gitHubMeta = $this->githubMeta->get($repository, $startDate->copy(), $interval, clone($endDate));
@@ -342,15 +333,7 @@ class GetProjectState extends Command
         }*/
     }
 
-    private function cloneRepository(string $fullName) : bool
-    {
-        $output = [];
-        exec('cd '.$this->checkoutDir.' && git clone https://github.com/'.$fullName.'.git', $output);
-        foreach ($output as $line) {
-            $this->line($line);
-        }
-        return true;
-    }
+
 
 
 }

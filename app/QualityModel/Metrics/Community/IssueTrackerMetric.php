@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Metrics;
+namespace App\QualityModel\Metrics\Community;
 
 use Carbon\Carbon;
 use App\Models\Repository;

@@ -28,7 +28,8 @@
         "laravel-zero/framework": "^9.2",
         "nesbot/carbon": "^2.66",
         "nunomaduro/termwind": "^1.14",
-        "tiagohillebrandt/php-parse-link-header": "^1.0"
+        "tiagohillebrandt/php-parse-link-header": "^1.0",
+        "ext-simplexml": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

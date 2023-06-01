@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Metrics;
+namespace App\QualityModel\Metrics\Yamashita;
 
 use Carbon\Carbon;
 use App\Models\Repository;
 use Illuminate\Support\Facades\DB;
+use App\QualityModel\Metrics\BaseMetric;
 use Symfony\Component\Console\Output\Output;
 
 class MagnetMetric extends BaseMetric

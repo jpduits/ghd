@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Metrics;
+namespace App\QualityModel\Metrics\Community;
 
 use Carbon\Carbon;
 use App\Models\Repository;
 use Illuminate\Support\Str;
+use App\QualityModel\Metrics\BaseMetric;
 use Symfony\Component\Console\Output\Output;
 
 class GithubMeta extends BaseMetric
