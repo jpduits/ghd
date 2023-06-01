@@ -16,51 +16,20 @@ class MagnetMetric extends BaseMetric
         parent::__construct($output);
     }
 
-
-    public function get(Repository $repository, Carbon $startDate, int $periodInterval = 26, Carbon $endDate = null): array
-    {
-/*        $info = 'Magnet metric for ' . $repository->full_name . ' from ' . $startDate->format('Y-m-d');
-        $info .= ' (period interval: ' . $periodInterval . ' weeks)';
-        if ($endDate instanceof Carbon) {
-            $info .= ' loop interval until ' . $endDate->format('Y-m-d');
-        }
-        $this->writeToTerminal($info);*/
-        // calculate magnet value for a range of periods
-
-        $measurements = []; // loop results
-
-        while (true) {
-
-            $measurements[] = $this->calculate($repository, $startDate, $periodInterval);
-            //$this->writeToTerminal('Sticky value: ' . $sticky);
-
-            if ($endDate) { // when endDate is set, loop until endDate is reached
-
-                $startDate->addWeeks($periodInterval); // add interval to start date
-                if (($startDate->gt($endDate)) || ($startDate->gt(Carbon::now()))) {
-                    break;
-                }
-            }
-            else {
-                break;
-            }
-
-        }
-
-        return $measurements;
-    }
-
-    private function calculate(Repository $repository, Carbon $startDate, int $periodInterval = null) : array
+    public function calculate(Repository $repository, Carbon $startDate, int $periodInterval = null) : array
     {
         $periodStartDate = $startDate->copy(); // start period Pi
         $periodEndDate = $startDate->copy()->addWeeks($periodInterval); // end period Pi
         $periodPreviousStartDate = $periodStartDate->copy()->subWeeks($periodInterval); // start period Pi-1
         // get values for period Pi
-        $developersTotal = $this->getDevelopersInPeriod($repository, null, $startDate);
+        // get all developers until current period (to prevent double counting, new developer are also in total users)
+        $developersTotalBeforeStart = $this->getDevelopersInPeriod($repository, null, $startDate);
         $developersCurrentPeriod = $this->getDevelopersInPeriod($repository, $startDate, $periodEndDate);
 
         // check how many developers from Pi are not in totalDevelopers
-        $developersNewCurrentPeriod = array_diff($developersCurrentPeriod, $developersTotal);
+        $developersNewCurrentPeriod = array_diff($developersCurrentPeriod, $developersTotalBeforeStart);
+
+        $developersTotal = $this->getDevelopersInPeriod($repository, null, $periodEndDate);
 
         if (count($developersTotal) == 0) {
             $magnetValue = 0;
@@ -84,7 +53,7 @@ class MagnetMetric extends BaseMetric
     }
 
 
-    private function getDevelopersInPeriod(Repository $repository, Carbon $startDate = null, Carbon $endDate) : array
+    private function getDevelopersInPeriod(Repository $repository, ?Carbon $startDate, Carbon $endDate) : array
     {
         $developers = DB::table('commits')
                         ->selectRaw('DISTINCT commits.author_id')

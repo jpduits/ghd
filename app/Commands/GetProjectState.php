@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Repository;
 use Illuminate\Support\Str;
 use App\Models\ProjectState;
+use App\QualityModel\Community;
 use App\QualityModel\Maintainability;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Scheduling\Schedule;
@@ -51,18 +52,17 @@ class GetProjectState extends Command
     private GithubMeta $githubMeta;
     private string $checkoutDir;
     private Maintainability $maintainability;
+    private Community $community;
 
 
-    public function __construct(StickyMetric $stickyMetric, MagnetMetric $magnetMetric, GithubMeta $githubMeta, Maintainability $maintainability)
+    public function __construct(Community $community, Maintainability $maintainability)
     {
         parent::__construct();
 
         $this->checkoutDir = env('GITHUB_TMP_CHECKOUT_DIR');
 
-        $this->stickyMetric = $stickyMetric;
-        $this->magnetMetric = $magnetMetric;
-        $this->githubMeta = $githubMeta;
         $this->maintainability = $maintainability;
+        $this->community = $community;
     }
     /**
      * Execute the console command.
@@ -107,15 +107,19 @@ class GetProjectState extends Command
 //            $qualityMeasurements = $this->qualityMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
 
             $maintainability = $this->maintainability->get($repository, $startDate->copy(), $interval, clone($endDate));
-            dd($maintainability);
 
-exit(1);
-            $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
+
+/*            $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
             $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
             $gitHubMeta = $this->githubMeta->get($repository, $startDate->copy(), $interval, clone($endDate));
+*/
+
+            $community = $this->community->get($repository, $startDate->copy(), $interval, clone($endDate));
+
+//            dd($community);
 
             // merge these arrays, dates and prev dats
-            $measurements = array_reduce([$stickyMeasurements, $magnetMeasurements, $gitHubMeta], function($result, $current) {
+/*            $measurements = array_reduce([$stickyMeasurements, $magnetMeasurements, $gitHubMeta], function($result, $current) {
                 foreach ($current as $item) {
                     $key = array_search($item['period_start_date'], array_column($result, 'period_start_date'));
                     $key2 = array_search($item['period_end_date'], array_column($result, 'period_end_date'));
@@ -132,7 +136,7 @@ exit(1);
                 }
 
                 return $result;
-            }, []);
+            }, []);*/
 
 
             // add quality measurements to the array
@@ -147,8 +151,20 @@ exit(1);
                 }
 
                 return array_merge($item1, $item2);
-            }, $measurements, $qualityMeasurements);
+            }, $community, $maintainability);
 
+
+
+
+            $table = new Table(new ConsoleOutput);
+            $table->addRow(array_keys($measurements[0]));
+            foreach ($measurements as $measurement) {
+
+                $table->addRow($measurement);
+            }
+            $table->render();
+
+            die();
 
             foreach($measurements as $measurement) {
 

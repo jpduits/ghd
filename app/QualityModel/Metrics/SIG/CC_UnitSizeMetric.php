@@ -177,16 +177,16 @@ class CC_UnitSizeMetric extends BaseMetric
                 foreach ($locComplexityRisk as $complexityRisk => $loc_risk) {
                     $percentageComplexityRisk[$complexityRisk] = round(($loc_risk * 100) / $loc, 3);
                 }
-                $cc['loc_complexity_per_risk'] = $locComplexityRisk;
-                $cc['percentage_complexity_per_risk'] = $percentageComplexityRisk;
+                $cc['loc_complexity_per_risk'] = $this->arrayToString($locComplexityRisk);
+                $cc['percentage_complexity_per_risk'] = $this->arrayToString($percentageComplexityRisk);
 
 
                 // unit sizes
                 foreach ($locUnitSizeRisk as $unitSizeRisk => $loc_risk) {
                     $percentageUnitSizeRisk[$unitSizeRisk] = round(($loc_risk * 100) / $loc, 3);
                 }
-                $cc['loc_unit_size_per_risk'] = $locComplexityRisk;
-                $cc['percentage_unit_size_per_risk'] = $percentageComplexityRisk;
+                $cc['loc_unit_size_per_risk'] = $this->arrayToString($locComplexityRisk);
+                $cc['percentage_unit_size_per_risk'] = $this->arrayToString($percentageComplexityRisk);
 
                 // lines of code total
                 $cc['loc_total'] = $loc;
@@ -226,6 +226,15 @@ class CC_UnitSizeMetric extends BaseMetric
 
 
         return $cc;
+    }
+
+    private function arrayToString($array) : string
+    {
+        $string = '';
+        foreach ($array as $key => $value) {
+            $string .= $key.': '.$value."\n";
+        }
+        return $string;
     }
 
     private function getComplexityRisk(int $complexity) : ?string
