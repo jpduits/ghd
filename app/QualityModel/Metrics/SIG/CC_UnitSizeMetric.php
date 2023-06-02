@@ -25,7 +25,7 @@ class CC_UnitSizeMetric extends BaseMetric
     const COMPLEXITY_RELATIVE_RANKING = [
         ['moderate' => 25, 'high' => 0, 'very_high' => 0, 'ranking' => '++' , 'value' => 5],
         ['moderate' => 30, 'high' => 5, 'very_high' => 0, 'ranking' => '+' , 'value' => 4],
-        ['moderate' => 40, 'high' => 10, 'very_high' => 0, 'ranking' => '0' , 'value' => 3],
+        ['moderate' => 40, 'high' => 10, 'very_high' => 0, 'ranking' => 'o' , 'value' => 3],
         ['moderate' => 50, 'high' => 15, 'very_high' => 0, 'ranking' => '-' , 'value' => 2],
         ['moderate' => 100, 'high' => 100, 'very_high' => 100, 'ranking' => '--' , 'value' => 1],
     ];
@@ -33,7 +33,7 @@ class CC_UnitSizeMetric extends BaseMetric
     const UNIT_SIZE_RELATIVE_RANKING = [
         ['moderate' => 19.5, 'high' => 10.9, 'very_high' => 3.9, 'ranking' => '++' , 'value' => 5],
         ['moderate' => 26, 'high' => 15.5, 'very_high' => 6.5, 'ranking' => '+' , 'value' => 4],
-        ['moderate' => 34.1, 'high' => 22.2, 'very_high' => 11, 'ranking' => '0' , 'value' => 3],
+        ['moderate' => 34.1, 'high' => 22.2, 'very_high' => 11, 'ranking' => 'o' , 'value' => 3],
         ['moderate' => 45.9, 'high' => 31.4, 'very_high' => 18.1, 'ranking' => '-' , 'value' => 2],
         ['moderate' => 100, 'high' => 100, 'very_high' => 100, 'ranking' => '--' , 'value' => 1],
     ];

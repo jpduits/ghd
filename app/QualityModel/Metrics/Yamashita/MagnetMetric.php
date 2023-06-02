@@ -10,7 +10,6 @@ use Symfony\Component\Console\Output\Output;
 
 class MagnetMetric extends BaseMetric
 {
-
     public function __construct(Output $output)
     {
         parent::__construct($output);

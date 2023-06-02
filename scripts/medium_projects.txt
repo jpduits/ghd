@@ -1,8 +1,8 @@
+hneemann Digital
 google bundletool
 AxonFramework AxonFramework
 halirutan IntelliJ-Key-Promoter-X
 JackyAndroid AndroidTVLauncher
-hneemann Digital
 KeepSafe ReLinker
 apache curator
 mbechler marshalsec

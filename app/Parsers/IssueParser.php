@@ -57,7 +57,7 @@ class IssueParser extends BaseParser
                 // first check issue exists
                 $issueRecord = Issue::where('github_id', '=', $issue['id'])->first();
                 if (!$issueRecord instanceof Issue) { // else attach labels
-                    break;
+                    continue;
                     // Commit does not exist, create
                     $issueRecord = new Issue();
                     $issueRecord->github_id = $issue['id'];
@@ -96,7 +96,7 @@ class IssueParser extends BaseParser
                 else {
 
                     // Issue exists, check if labels are attached, workaround
-                    if ($issue['labels'] !== []) {
+                    if (count($issue['labels']) > 0) {
                         // check label exists
                         $labelIds = [];
 
@@ -113,6 +113,8 @@ class IssueParser extends BaseParser
 
                                 $this->writeToTerminal('Label '.$label['name'].' added.', 'info-warning');
                             }
+
+                            $this->writeToTerminal('Label '.$label['name'].' ('.$label['id'].') for issue '.$issue['id'].' added.');
                             $labelIds[] = $labelRecord->id;
 
                         }

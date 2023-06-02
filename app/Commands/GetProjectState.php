@@ -104,40 +104,8 @@ class GetProjectState extends Command
             // start parsing dataset
             $this->line('Repository '.$fullName.' found in the dataset (ID: '.$repository->id.')');
 
-//            $qualityMeasurements = $this->qualityMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
-
             $maintainability = $this->maintainability->get($repository, $startDate->copy(), $interval, clone($endDate));
-
-
-/*            $stickyMeasurements = $this->stickyMetric->get($repository, $startDate->copy(), $interval, clone($endDate)); // use clone because nullable
-            $magnetMeasurements = $this->magnetMetric->get($repository, $startDate->copy(), $interval, clone($endDate));
-            $gitHubMeta = $this->githubMeta->get($repository, $startDate->copy(), $interval, clone($endDate));
-*/
-
             $community = $this->community->get($repository, $startDate->copy(), $interval, clone($endDate));
-
-//            dd($community);
-
-            // merge these arrays, dates and prev dats
-/*            $measurements = array_reduce([$stickyMeasurements, $magnetMeasurements, $gitHubMeta], function($result, $current) {
-                foreach ($current as $item) {
-                    $key = array_search($item['period_start_date'], array_column($result, 'period_start_date'));
-                    $key2 = array_search($item['period_end_date'], array_column($result, 'period_end_date'));
-                    $key3 = array_search($item['previous_period_start_date'], array_column($result, 'previous_period_start_date'));
-                    $key4 = array_search($item['previous_period_end_date'], array_column($result, 'previous_period_end_date'));
-
-                    if ($key !== false && $key2 !== false && $key3 !== false && $key4 !== false) {
-                        // if all keys exist, merge the items
-                        $result[$key] = array_merge($result[$key], $item);
-                    } else {
-                        // otherwise add the item to the result array
-                        $result[] = $item;
-                    }
-                }
-
-                return $result;
-            }, []);*/
-
 
             // add quality measurements to the array
             $measurements = array_map(function($item1, $item2) {
@@ -152,8 +120,6 @@ class GetProjectState extends Command
 
                 return array_merge($item1, $item2);
             }, $community, $maintainability);
-
-
 
 
             $table = new Table(new ConsoleOutput);

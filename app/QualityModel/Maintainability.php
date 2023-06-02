@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Commit;
 use App\Traits\Terminal;
 use App\Models\Repository;
+use App\QualityModel\Metrics\SIG\SigRanking;
 use Symfony\Component\Console\Output\Output;
 use App\QualityModel\Metrics\SIG\VolumeMetric;
 use App\QualityModel\Metrics\SIG\DuplicationMetric;
@@ -21,8 +22,10 @@ class Maintainability
     private Output $output;
 
     protected bool $verbose = false;
+    private SigRanking $sigRanking;
 
-    public function __construct(Output $output, VolumeMetric $volumeMetric, CC_UnitSizeMetric $complexity_UnitSizeMetric, DuplicationMetric $duplicationMetric)
+    public function __construct(Output $output, VolumeMetric $volumeMetric, CC_UnitSizeMetric $complexity_UnitSizeMetric,
+                                DuplicationMetric $duplicationMetric, SigRanking $sigRanking)
     {
         $this->volumeMetric = $volumeMetric;
         $this->complexity_UnitSizeMetric = $complexity_UnitSizeMetric;
@@ -30,6 +33,7 @@ class Maintainability
 
         $this->checkoutDir = env('GITHUB_TMP_CHECKOUT_DIR');
         $this->output = $output;
+        $this->sigRanking = $sigRanking;
     }
 
     public function setVerbose(bool $verbose) : void
@@ -110,9 +114,9 @@ class Maintainability
                 $this->writeToTerminal('Checkout directory not found!', 'error');
             }
 
-
+            // map to system level score and merge
+            $results = array_merge($results, $this->sigRanking->calculate($results));
         }
-
 
         return array_merge(
             $results, [

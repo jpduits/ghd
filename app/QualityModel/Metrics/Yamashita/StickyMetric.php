@@ -16,42 +16,6 @@ class StickyMetric extends BaseMetric
         parent::__construct($output);
     }
 
-
-/*    public function get(Repository $repository, Carbon $startDate, int $periodInterval = 26, Carbon $endDate = null): array
-    {
-        // if endDate is null, set it to now
-        // default interval is 26 means a period is a half year (26 weeks)
-
-        $measurements = []; // loop results
-
-        // calculate sticky value for a range of periods
-        while (true) {
-
-
-            $measurements[] = $this->calculate($repository, $startDate, $periodInterval);
-
-
-            if ($endDate) { // when endDate is set, loop until endDate is reached
-
-                $startDate->addWeeks($periodInterval); // add interval to start date
-                if (($startDate->gt($endDate)) || ($startDate->gt(Carbon::now()))) {
-                    break;
-                }
-            }
-            else {
-                break;
-            }
-
-        }
-
-        return $measurements;
-    }*/
-
-
-
-
-
-
     public function calculate(Repository $repository, Carbon $startDate, int $periodInterval) : array
     {
         $periodStartDate = $startDate->copy(); // start period Pi

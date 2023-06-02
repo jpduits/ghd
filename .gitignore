@@ -6,7 +6,7 @@
 .env
 /database/database.sqlite
 /docker/mysql-data
-/dump.txt
+/dump*.txt
 /scripts/logs
 /scripts/.~lock.*
 /output.txt
