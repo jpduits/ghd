@@ -26,6 +26,7 @@ class GetProjectState extends Command
      * @var string
      */
     protected $signature = "get:project-state {owner} {repository}
+                            {--run-id= : Run ID (UUID)}
                             {--start-date= : Starting date (YYYY-MM-DD)}
                             {--end-date= : End date (YYYY-MM-DD), default today}
                             {--interval=26 : Interval (week(s), default 26)}
@@ -53,6 +54,8 @@ class GetProjectState extends Command
     private string $checkoutDir;
     private Maintainability $maintainability;
     private Community $community;
+
+    private string $runId = '';
 
 
     public function __construct(Community $community, Maintainability $maintainability)
@@ -84,6 +87,8 @@ class GetProjectState extends Command
         // generate UUID for this run
         $this->uuid = (string) Str::uuid();
         $this->outputFormat = $input['output-format'];
+
+        $this->runId = $input['run-id'];
 
         $startDate = Carbon::createFromFormat( 'Y-m-d', $input['start-date'])->startOfDay();
 
@@ -121,55 +126,16 @@ class GetProjectState extends Command
                 return array_merge($item1, $item2);
             }, $community, $maintainability);
 
-
-            $table = new Table(new ConsoleOutput);
-            $table->addRow(array_keys($measurements[0]));
-            foreach ($measurements as $measurement) {
-
-                $table->addRow($measurement);
-            }
-            $table->render();
-
-            die();
-
-            foreach($measurements as $measurement) {
-
-
-                $projectState = new ProjectState(
-                    [
-                        'run_uuid' => $this->uuid,
-                        'repository_id' => $repository['id'],
-                        'period_start_date' => $measurement['period_start_date'],
-                        'period_end_date' => $measurement['period_end_date'],
-                        'previous_period_start_date' => $measurement['previous_period_start_date'],
-                        'previous_period_end_date' => $measurement['previous_period_end_date'],
-                        'interval_weeks' => $interval,
-                        'sticky_metric_score' => $measurement['sticky_value'],
-                        'magnet_metric_score' => $measurement['magnet_value'],
-
-                        'developers_new_current_period' => $measurement['developers_new_current_period'],
-                        'developers_current_period' => $measurement['developers_current_period'],
-                        'developers_total' => $measurement['developers_total'],
-
-                        'developers_with_contributions_previous_period' => $measurement['developers_with_contributions_previous_period'],
-                        'developers_with_contributions_previous_and_current_period' => $measurement['developers_with_contributions_previous_and_current_period'],
-
-                        'issues_count_current_period' => $measurement['issues_count_current_period'],
-                        'issues_count_total' => $measurement['issues_count_total'],
-                        'stargazers_count_current_period' => $measurement['stargazers_count_current_period'],
-                        'stargazers_count_total' => $measurement['stargazers_count_total'],
-                        'pull_requests_count_current_period' => $measurement['pull_requests_count_current_period'],
-                        'pull_requests_count_total' => $measurement['pull_requests_count_total'],
-                        'forks_count_current_period' => $measurement['forks_count_current_period'],
-                        'forks_count_total' => $measurement['forks_count_total'],
-
-                        'checkout_sha' => $measurement['checkout_sha'],
-                    ]
-
-
-            );
-                $projectState->save();
-
+            // store results in database
+            foreach($measurements as $key => $measurement) {
+                $measurement = array_merge([
+                    'uuid' => $this->uuid,
+                    'full_name' => $fullName, // 'owner/repository
+                    'repository_id' => $repository->id,
+                    'interval' => $interval,
+                ], $measurement);
+                $measurements[$key] = $measurement;
+                $this->storeMeasurement($measurement);
             }
 
         }
@@ -178,12 +144,19 @@ class GetProjectState extends Command
             exit(1);
         }
 
-        $stateCollection = ProjectState::where('run_uuid', '=', $this->uuid)->get();
+
         if ($input['output-format'] == 'cli') {
-           $this->generateTable($stateCollection);
+
+            $table = new Table(new ConsoleOutput);
+            $table->addRow(array_keys($measurements[0]));
+            foreach ($measurements as $measurement) {
+                $table->addRow($measurement);
+            }
+            $table->render();
 
         }
         else if ($input['output-format'] == 'json') {
+            $stateCollection = ProjectState::where('run_uuid', '=', $this->uuid)->get();
             echo $stateCollection->toJson();
         }
 
@@ -202,7 +175,7 @@ class GetProjectState extends Command
         // $schedule->command(static::class)->everyMinute();
     }
 
-
+/*
     private function generateTable(Collection $measurements)
     {
         $table = new Table(new ConsoleOutput);
@@ -280,7 +253,7 @@ class GetProjectState extends Command
             ]);
         }
         $table->render();
-    }
+    }*/
 
 
 
@@ -289,13 +262,12 @@ class GetProjectState extends Command
 
 
         $rules = [
+            'run-id' => 'required|uuid',
             'start-date' => 'required|date_format:Y-m-d',
             'end-date' => 'nullable|date_format:Y-m-d',
             'interval' => 'nullable|integer',
             'output-format' => 'required|in:csv,json,cli',
         ];
-
-
 
         $validator = Validator::make($input, $rules);
 
@@ -313,6 +285,75 @@ class GetProjectState extends Command
             $this->error("Only one of 'end-date' and 'interval' can be provided.");
             exit(1);
         }*/
+    }
+
+    private function storeMeasurement(array $measurement)
+    {
+        $projectState = new ProjectState(
+            [
+                'run_uuid' => $this->uuid,
+                'repository_id' => $measurement['repository_id'],
+
+                'period_start_date' => $measurement['period_start_date'],
+                'period_end_date' => $measurement['period_end_date'],
+                'previous_period_start_date' => $measurement['previous_period_start_date'],
+                'previous_period_end_date' => $measurement['previous_period_end_date'],
+                'interval_weeks' => $measurement['interval'],
+                'sticky_metric_score' => $measurement['sticky_value'],
+                'magnet_metric_score' => $measurement['magnet_value'],
+                'quadrant' => $measurement['quadrant'],
+
+                'developers_new_current_period' => $measurement['developers_new_current_period'],
+                'developers_current_period' => $measurement['developers_current_period'],
+                'developers_total' => $measurement['developers_total'],
+
+                'developers_with_contributions_previous_period' => $measurement['developers_with_contributions_previous_period'],
+                'developers_with_contributions_current_period' => $measurement['developers_with_contributions_current_period'],
+                'developers_with_contributions_previous_and_current_period' => $measurement['developers_with_contributions_previous_and_current_period'],
+
+                'issues_count_current_period' => $measurement['issues_count_current_period'],
+                'issues_count_total' => $measurement['issues_count_total'],
+                'stargazers_count_current_period' => $measurement['stargazers_count_current_period'],
+                'stargazers_count_total' => $measurement['stargazers_count_total'],
+                'pull_requests_count_current_period' => $measurement['pull_requests_count_current_period'],
+                'pull_requests_count_total' => $measurement['pull_requests_count_total'],
+                'forks_count_current_period' => $measurement['forks_count_current_period'],
+                'forks_count_total' => $measurement['forks_count_total'],
+                'bugs_current_period' => $measurement['bugs_current_period'],
+                'bugs_total' => $measurement['bugs_total'],
+                'bugs_closed_current_period' => $measurement['bugs_closed_current_period'],
+                'bugs_closed_total' => $measurement['bugs_closed_total'],
+                'support_current_period' => $measurement['support_current_period'],
+                'support_total' => $measurement['support_total'],
+                'support_closed_current_period' => $measurement['support_closed_current_period'],
+                'support_closed_total' => $measurement['support_closed_total'],
+                'total_loc' => $measurement['total_loc'],
+                'total_kloc' => $measurement['total_kloc'],
+                'sig_volume_ranking' => $measurement['sig_volume_ranking'],
+                'sig_volume_ranking_numeric' => $measurement['sig_volume_ranking_numeric'],
+                'loc_complexity_per_risk' => $measurement['loc_complexity_per_risk'],
+                'percentage_complexity_per_risk' => $measurement['percentage_complexity_per_risk'],
+                'loc_unit_size_per_risk' => $measurement['loc_unit_size_per_risk'],
+                'percentage_unit_size_per_risk' => $measurement['percentage_unit_size_per_risk'],
+                'sig_complexity_ranking' => $measurement['sig_complexity_ranking'],
+                'sig_complexity_ranking_value' => $measurement['sig_complexity_ranking_value'],
+                'sig_unit_size_ranking' => $measurement['sig_unit_size_ranking'],
+                'sig_unit_size_ranking_value' => $measurement['sig_unit_size_ranking_value'],
+                'duplication_line_count' => $measurement['duplication_line_count'],
+                'duplication_block_count' => $measurement['duplication_block_count'],
+                'duplication_percentage' => $measurement['duplication_percentage'],
+                'sig_duplication_ranking' => $measurement['sig_duplication_ranking'],
+                'sig_duplication_ranking_numeric' => $measurement['sig_duplication_ranking_numeric'],
+                'sig_analysability_ranking' => $measurement['sig_analysability_ranking'],
+                'sig_analysability_ranking_numeric' => $measurement['sig_analysability_ranking_numeric'],
+                'sig_changeability_ranking' => $measurement['sig_changeability_ranking'],
+                'sig_changeability_ranking_numeric' => $measurement['sig_changeability_ranking_numeric'],
+                'sig_testability_ranking' => $measurement['sig_testability_ranking'],
+                'sig_testability_ranking_numeric' => $measurement['sig_testability_ranking_numeric'],
+                'checkout_sha' => $measurement['checkout_sha']
+            ]);
+        $projectState->save();
+
     }
 
 
