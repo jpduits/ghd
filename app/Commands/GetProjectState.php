@@ -7,12 +7,13 @@ use App\Models\Repository;
 use Illuminate\Support\Str;
 use App\Models\ProjectState;
 use App\QualityModel\Community;
-use App\QualityModel\Maintainability;
+use App\QualityModel\SourceCode;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Helper\Table;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Arr;
 use App\QualityModel\Metrics\Community\GithubMeta;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use App\QualityModel\Metrics\Yamashita\StickyMetric;
@@ -52,19 +53,19 @@ class GetProjectState extends Command
     private string $uuid;
     private GithubMeta $githubMeta;
     private string $checkoutDir;
-    private Maintainability $maintainability;
+    private SourceCode $sourceCode;
     private Community $community;
 
     private string $runId = '';
 
 
-    public function __construct(Community $community, Maintainability $maintainability)
+    public function __construct(Community $community, SourceCode $sourceCode)
     {
         parent::__construct();
 
         $this->checkoutDir = env('GITHUB_TMP_CHECKOUT_DIR');
 
-        $this->maintainability = $maintainability;
+        $this->sourceCode = $sourceCode;
         $this->community = $community;
     }
     /**
@@ -109,8 +110,10 @@ class GetProjectState extends Command
             // start parsing dataset
             $this->line('Repository '.$fullName.' found in the dataset (ID: '.$repository->id.')');
 
-            $maintainability = $this->maintainability->get($repository, $startDate->copy(), $interval, clone($endDate));
-            $community = $this->community->get($repository, $startDate->copy(), $interval, clone($endDate));
+
+            $sourceCode = $this->sourceCode->get($repository, $startDate->copy(), $interval, $endDate);
+            $community = $this->community->get($repository, $startDate->copy(), $interval, $endDate);
+
 
             // add quality measurements to the array
             $measurements = array_map(function($item1, $item2) {
@@ -124,7 +127,7 @@ class GetProjectState extends Command
                 }
 
                 return array_merge($item1, $item2);
-            }, $community, $maintainability);
+            }, $community, $sourceCode);
 
             // store results in database
             foreach($measurements as $key => $measurement) {
@@ -155,11 +158,35 @@ class GetProjectState extends Command
             $table->render();
 
         }
-        else if ($input['output-format'] == 'json') {
-            $stateCollection = ProjectState::where('run_uuid', '=', $this->uuid)->get();
-            echo $stateCollection->toJson();
-        }
+        else if (($input['output-format'] == 'json') || ($input['output-format'] == 'csv')) {
 
+            $stateCollection = ProjectState::where('run_uuid', '=', $this->uuid)->get();
+
+            if ($input['output-format'] == 'json') {
+                $fileName = 'output__' . $this->uuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.json';
+                $content = $stateCollection->toJson();
+
+            }
+            elseif ($input['output-format'] == 'csv') {
+                $fileName = 'output__' . $this->uuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.csv';
+                // add headers
+                $data = $stateCollection->toArray();
+                $data = Arr::prepend($data, array_keys($data[0])); // add the headers as first row
+
+                $content = '';
+                foreach ($data as $line) {
+                    $content .= implode("\t", $line).PHP_EOL;
+                }
+
+            }
+
+            if ($fileName && $content) {
+                $this->line('Results saving to: '.$fileName);
+                Storage::disk('local')->put($fileName, $content);
+
+            }
+
+        }
 
         exit(0);
     }
@@ -174,87 +201,6 @@ class GetProjectState extends Command
     {
         // $schedule->command(static::class)->everyMinute();
     }
-
-/*
-    private function generateTable(Collection $measurements)
-    {
-        $table = new Table(new ConsoleOutput);
-
-        $table->setHeaders([
-            'run', // run_uuid
-            'repo id', // repository_id
-            'start', // start_date
-            'end', // period_end_date
-            'prev start', // previous_period_start_date
-            'prev end', // previous_period_end_date
-
-            'interval', // interval_weeks
-            'sticky', // sticky_metric_score
-            'magnet', // magnet_metric_score
-
-            'devs current', // developers_current_period
-            'devs new current', // developers_new_current_period
-            'devs total', // developers_total
-
-            'devs contrib. prev', // developers_with_contributions_previous_period
-            'devs contrib. prev+current', // developers_with_contributions_previous_and_current_period
-
-            'issues current', // issues_count_current_period
-            'issues total', // issues_count_total
-
-            'stars current', // stargazers_count_current_period
-            'stars total', // stargazers_count_total
-
-            'pull req. current', // pull_requests_count_current_period
-            'pull req. total', // pull_requests_count_total
-
-            'forks current', // forks_count_current_period
-            'forks total', // forks_count_total
-
-            'checkout_sha'
-        ]);
-
-        foreach ($measurements as $measurement) {
-
-            $table->addRow([
-                $measurement->run_uuid,
-                $measurement->repository_id,
-                $measurement->period_start_date->format('Y-m-d'),
-                $measurement->period_end_date->format('Y-m-d'),
-                $measurement->previous_period_start_date->format('Y-m-d'),
-                $measurement->previous_period_end_date->format('Y-m-d'),
-
-                $measurement->interval_weeks,
-                $measurement->sticky_metric_score,
-                $measurement->magnet_metric_score,
-
-                $measurement->developers_current_period,
-                $measurement->developers_new_current_period,
-                $measurement->developers_total,
-
-
-                $measurement->developers_with_contributions_previous_period,
-                $measurement->developers_with_contributions_previous_and_current_period,
-
-                $measurement->issues_count_current_period,
-                $measurement->issues_count_total,
-
-                $measurement->stargazers_count_current_period,
-                $measurement->stargazers_count_total,
-
-                $measurement->pull_requests_count_current_period,
-                $measurement->pull_requests_count_total,
-
-                $measurement->forks_count_current_period,
-                $measurement->forks_count_total,
-
-                $measurement->checkout_sha,
-
-            ]);
-        }
-        $table->render();
-    }*/
-
 
 
     public function validate(array $input)
@@ -350,7 +296,13 @@ class GetProjectState extends Command
                 'sig_changeability_ranking_numeric' => $measurement['sig_changeability_ranking_numeric'],
                 'sig_testability_ranking' => $measurement['sig_testability_ranking'],
                 'sig_testability_ranking_numeric' => $measurement['sig_testability_ranking_numeric'],
-                'checkout_sha' => $measurement['checkout_sha']
+                'checkout_sha' => $measurement['checkout_sha'],
+                'issues_average_duration_days' => $measurement['issues_average_duration_days'],
+                'comments_total' => $measurement['comments_total'],
+                'comments_relevant_percentage' => $measurement['comments_relevant_percentage'],
+                'comments_relevant' => $measurement['comments_relevant'],
+                'comments_copyright' => $measurement['comments_copyright'],
+                'comments_auxiliary' => $measurement['comments_auxiliary'],
             ]);
         $projectState->save();
 

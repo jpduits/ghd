@@ -18,6 +18,16 @@ class ProjectState extends Model
         'previous_period_end_date'
     ];
 
+    // transform date format
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i',
+        'updated_at' => 'datetime:Y-m-d H:i',
+        'period_start_date' => 'datetime:Y-m-d',
+        'period_end_date' => 'datetime:Y-m-d',
+        'previous_period_start_date' => 'datetime:Y-m-d',
+        'previous_period_end_date' => 'datetime:Y-m-d'
+    ];
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function repository()

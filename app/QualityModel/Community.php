@@ -25,8 +25,9 @@ class Community
 
     public function __construct(Output $output, GithubMeta $githubMeta, OosCategoryMetric $oosCategoryMetric, IssueMetric $issueMetric, MagnetMetric $magnetMetric, StickyMetric $stickyMetric)
     {
-        $this->githubMeta = $githubMeta;
         $this->output = $output;
+
+        $this->githubMeta = $githubMeta;
         $this->oosCategoryMetric = $oosCategoryMetric;
         $this->issueMetric = $issueMetric;
     }

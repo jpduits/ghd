@@ -33,7 +33,7 @@ class IssueMetric extends BaseMetric
         $supportClosedCurrentPeriod =  $this->getIssuesInPeriod($repository, $periodStartDate, $periodEndDate, ['help wanted', 'kind/question', 'kind / question', 'question', 'support'], ['closed']);
         $supportClosedTotal =  $this->getIssuesInPeriod($repository, null, $periodEndDate, ['help wanted', 'kind/question', 'kind / question', 'question', 'support'], ['closed']);
 
-
+        $averageDuration = $this->getAverageDuration($repository, $periodEndDate);
 
         return [
             'bugs_current_period' => count($bugsCurrentPeriod),
@@ -46,6 +46,7 @@ class IssueMetric extends BaseMetric
             'support_closed_total' => count($supportClosedTotal),
             'period_start_date' => $periodStartDate->format('Y-m-d'),
             'period_end_date' => $periodEndDate->format('Y-m-d'),
+            'issues_average_duration_days' => $averageDuration ?? null
         ];
 
     }
@@ -79,6 +80,17 @@ class IssueMetric extends BaseMetric
         return $bugs->get()->pluck('github_id')->toArray();
     }
 
+    private function getAverageDuration(Repository $repository, Carbon $endDate) : ?float
+    {
+        $averageDuration = DB::table('issues')
+                             ->where('issues.repository_id', '=', $repository->id)
+                             ->where('issues.closed_at', '<', $endDate)
+                             ->whereNotNull('issues.closed_at')
+                             ->selectRaw('AVG(DATEDIFF(closed_at, created_at)) AS average_issue_duration_days')
+                             ->first();
+
+        return $averageDuration->average_issue_duration_days ?? null;
+    }
 
 
 }
