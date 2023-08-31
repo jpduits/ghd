@@ -9,6 +9,7 @@
 /dump*.txt
 /scripts/logs
 /scripts/.~lock.*
+/scripts/db_dump
 /output.txt
 /scripts/analyzers/comments/processed/
 /temp
