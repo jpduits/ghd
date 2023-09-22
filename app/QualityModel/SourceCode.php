@@ -52,7 +52,7 @@ class SourceCode
     {
         // check of repository al is gecloned in temp directory
         if (!file_exists($this->checkoutDir.'/'.$repository->name)) {
-            $fullName = $repository->fullName;
+            $fullName = $repository->full_name;
 
             $this->output->writeln('Cloning repository '.$fullName.' in temporary directory...');
             if (!$this->cloneRepository($fullName)) {
@@ -93,7 +93,12 @@ class SourceCode
         $periodEndDate = $startDate->copy()->addWeeks($periodInterval); // end period Pi
 
         $commitHash = $this->getLatestCommitHash($repository, $periodStartDate, $periodEndDate);
-        $this->writeToTerminal('Commit hash: ' . $commitHash);
+        if ($commitHash) {
+            $this->writeToTerminal('Commit hash: ' . $commitHash);
+        }
+        else {
+            $this->writeToTerminal('No commit hash found', 'error');
+        }
         // checkout commit
         if ($commitHash) {
 
@@ -124,14 +129,17 @@ class SourceCode
 
             // map to system level score and merge
             $results = array_merge($results, $this->sigRanking->calculate($results));
+
+            return array_merge(
+                $results, [
+                'period_start_date' => $periodStartDate->format('Y-m-d'),
+                'period_end_date' => $periodEndDate->format('Y-m-d'),
+                'checkout_sha' => $commitHash
+            ]);
+
         }
 
-        return array_merge(
-            $results, [
-            'period_start_date' => $periodStartDate->format('Y-m-d'),
-            'period_end_date' => $periodEndDate->format('Y-m-d'),
-            'checkout_sha' => $commitHash
-        ]);
+        return [];
 
     }
 
@@ -163,9 +171,26 @@ class SourceCode
                              ->where('created_at', '<=', $endDate ?? Carbon::now())
                              ->orderBy('created_at', 'desc')
                              ->first();
+
         if ($commit instanceof Commit) {
             return $commit->sha;
         }
+        else {
+            // no commit in this period, search for latest commit
+            $commit = $repository->commits()
+                                 ->where('created_at', '<=', $startDate)
+                                 ->orderBy('created_at', 'desc')
+                                 ->first();
+
+            if ($commit instanceof Commit) {
+                $this->writeToTerminal('No commit in this period, get latest previous commit', 'error');
+                return $commit->sha;
+            }
+
+
+        }
+
+        $this->writeToTerminal('No commit found!', 'error');
         return null;
     }
 

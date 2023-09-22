@@ -19,7 +19,7 @@ class BaseMetric
     /**
      * @var false
      */
-    protected bool $verbose = false;
+    protected bool $verbose = true;
 
     /**
      * @param Output $output

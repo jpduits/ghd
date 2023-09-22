@@ -17,6 +17,8 @@
     ],
     "require": {
         "php": "^8.0",
+        "ext-simplexml": "*",
+        "doctrine/dbal": "^3.6",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.0",
         "illuminate/database": "^9.0",
@@ -28,8 +30,7 @@
         "laravel-zero/framework": "^9.2",
         "nesbot/carbon": "^2.66",
         "nunomaduro/termwind": "^1.14",
-        "tiagohillebrandt/php-parse-link-header": "^1.0",
-        "ext-simplexml": "*"
+        "tiagohillebrandt/php-parse-link-header": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

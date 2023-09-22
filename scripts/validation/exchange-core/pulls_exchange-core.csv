@@ -1,0 +1,44 @@
+235285125	005 hdr hist	2018-12-02T21:04:59Z	closed
+263451823	Lombok version fix for JDK 10.	2019-03-22T00:48:15Z	closed
+265935370	Switch to standard LMAX Disruptor library	2019-03-30T12:17:22Z	closed
+275094677	Sharding	2019-05-01T17:28:31Z	closed
+282311932	High performance snapshot save/restore	2019-05-26T17:48:59Z	closed
+286472447	Fix risk check logic for symbols in exchange mode	2019-06-09T13:56:59Z	closed
+295050600	redesign binary commands and reports processing	2019-07-06T16:55:25Z	closed
+296365522	add latest version for surefire	2019-07-10T22:00:40Z	closed
+297309086	Optimizations and performance tests improvements	2019-07-13T12:03:04Z	closed
+299557814	fees	2019-07-20T11:41:13Z	closed
+304058314	Gateway API methods	2019-08-04T10:50:34Z	closed
+339008258	Client suspend operation support	2019-11-09T12:47:22Z	closed
+341670895	Direct order book implementation	2019-11-15T22:38:35Z	closed
+344250190	add support of Orders Count property within L2 MarketData	2019-11-21T21:51:06Z	closed
+353351717	Add test cases that ignore duplicate order	2019-12-16T02:50:13Z	closed
+357080779	Koloboke	2019-12-26T22:45:26Z	closed
+357922660	Objects pooling and agrona hash tables	2019-12-30T01:25:25Z	closed
+361865049	shared events pool	2020-01-12T19:55:18Z	closed
+362335305	parallel deserialization	2020-01-13T21:41:59Z	closed
+385205518	journalling	2020-03-07T23:37:43Z	closed
+387634974	Intruduction cucumber fwk	2020-03-13T07:38:06Z	closed
+395175573	lz4 compression	2020-03-29T00:28:48Z	closed
+398661463	update versions	2020-04-04T18:00:37Z	closed
+430010514	fix deadlock when using blocking wait strategy	2020-06-07T12:05:53Z	closed
+449357326	Correct a spelling error in README.md #67	2020-07-15T09:21:50Z	closed
+502044327	Bump junit from 4.13 to 4.13.1	2020-10-13T07:03:37Z	closed
+606317731	Bump guava from 28.2-jre to 29.0-jre	2021-03-31T20:36:34Z	closed
+617574526	Solving Issue #59	2021-04-18T23:15:19Z	closed
+617574623	Solving issue #59	2021-04-18T23:16:06Z	closed
+626695521	Stop Loss/Take Profit Integration	2021-04-29T23:57:43Z	closed
+628287413	Code reorganization	2021-05-01T00:14:44Z	closed
+629169164	MoveOrder (Update Timestamp)	2021-05-03T15:08:59Z	open
+629169415	MoveOrder (Update Timestamp)	2021-05-03T15:09:23Z	open
+665449262	Fixing USER_SUSPEND method	2021-06-09T00:12:42Z	open
+701093346	.travis.yml does not cache dependencies	2021-08-02T04:00:17Z	closed
+827071670	fix issue 103	2022-01-20T02:21:33Z	closed
+917181476	Bump cucumber7	2022-04-23T11:19:35Z	closed
+925478757	update installation guide	2022-05-02T11:53:42Z	closed
+934054876	027 lib updates, throwIfSnapshotNotFound	2022-05-11T19:15:02Z	closed
+936089315	Bump to junit5, mockito, nasdaq	2022-05-13T16:01:49Z	closed
+943653155	Order Specific Fee Calculation	2022-05-22T13:26:18Z	open
+1083236080	Fix uid is 0 in SingleUserReportResult	2022-10-11T12:21:14Z	open
+1083400224	More testcases for account	2022-10-11T14:20:09Z	open
+1393191223	Bump guava from 31.1-jre to 32.0.0-jre	2023-06-14T22:52:07Z	open

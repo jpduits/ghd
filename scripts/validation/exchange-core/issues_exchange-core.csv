@@ -1,0 +1,138 @@
+1774240990	140	Delete symbol in exchange-core	open	2023-06-26T08:37:17Z
+1757768531	139	Bump guava from 31.1-jre to 32.0.0-jre	open	2023-06-14T22:52:07Z
+1497890054	138	Does exchange-core support java17 or higher version	closed	2022-12-15T06:50:58Z
+1445567147	137	如何配置订单为限价订单，价格相同才可以交易	open	2022-11-11T14:40:10Z
+1445563380	136	Hello! How to configure a price limit order? Where is the module	open	2022-11-11T14:37:04Z
+1410073499	135	Exchange Core	open	2022-10-15T07:04:49Z
+1404730873	134	More testcases for account	open	2022-10-11T14:20:09Z
+1404544759	133	Fix uid is 0 in SingleUserReportResult	open	2022-10-11T12:21:14Z
+1387766578	132	New release of exchange-core	open	2022-09-27T13:27:00Z
+1366312173	131	RAM is consuming more 	open	2022-09-08T13:16:50Z
+1331859905	130	Removing sun.misc.Unsafe;	open	2022-08-08T13:15:52Z
+1309820982	129	exchange-core does not work work with java17	open	2022-07-19T17:13:12Z
+1306824362	128	Remove symbols on the go	open	2022-07-16T14:36:12Z
+1294274284	127	How to handle failure or exception that may occur in Orderbook processing.	open	2022-07-05T13:04:13Z
+1284771758	126	Exchange core stock	open	2022-06-26T02:02:30Z
+1281862225	125	what is risk control  ?	open	2022-06-23T06:11:27Z
+1257874438	123	Please explain what this todo "TODO check if nextSequence is correct (not nextSequence+-1)?" mean? 	open	2022-06-02T08:36:24Z
+1244253505	122	Order Specific Fee Calculation	open	2022-05-22T13:26:18Z
+1235426732	121	Bump to junit5, mockito, nasdaq	closed	2022-05-13T16:01:49Z
+1233077781	120	027 lib updates, throwIfSnapshotNotFound	closed	2022-05-11T19:15:02Z
+1222794762	119	update installation guide	closed	2022-05-02T11:53:42Z
+1214853886	118	Journaling and Snapshot improvement	open	2022-04-25T18:03:05Z
+1213275173	117	Bump cucumber7	closed	2022-04-23T11:19:35Z
+1195955252	116	Java 17 Support 	open	2022-04-07T12:09:39Z
+1181239725	115	I need your help	closed	2022-03-25T20:27:02Z
+1122844469	114	Can you share benchmark code that you used in the main page of the project?	open	2022-02-03T09:27:30Z
+1108759626	113	fix issue 103	closed	2022-01-20T02:21:33Z
+1103927360	112	Do customer balance get persisted?	open	2022-01-14T17:15:30Z
+1080530537	111	process of making snapshots	open	2021-12-15T03:46:49Z
+1079658659	110	why in mode NO_RISK_PROCESSING, risk engine should work	open	2021-12-14T11:46:27Z
+1054525997	109	java.lang.NegativeArraySizeException in exchange-core	open	2021-11-16T07:10:51Z
+1037886543	108	Contribution needed for diagram to demonstrate how exchange-core works	open	2021-10-27T21:42:23Z
+1029331764	107	exchange core showing java.lang.OutOfMemoryError:Java Heap Space	open	2021-10-18T16:19:42Z
+957714951	106	.travis.yml does not cache dependencies	closed	2021-08-02T04:00:17Z
+951428984	105	OrderType	open	2021-07-23T09:55:36Z
+944159653	104	Order Type FOK	open	2021-07-14T08:04:23Z
+939574424	103	recovering from specific snapshot file name problem	closed	2021-07-08T07:48:04Z
+915656554	102	Fixing USER_SUSPEND method	open	2021-06-09T00:12:42Z
+874658843	101	MoveOrder (Update Timestamp)	open	2021-05-03T15:09:23Z
+874658512	100	MoveOrder (Update Timestamp)	open	2021-05-03T15:08:59Z
+873475093	99	Code reorganization	closed	2021-05-01T00:14:44Z
+871693894	98	Stop Loss/Take Profit Integration	closed	2021-04-29T23:57:43Z
+868839373	97	java.io.FileNotFoundException: .\dumps\NUMBERS_journal_0_0001.ecj (The system cannot find the path specified)	closed	2021-04-27T13:17:33Z
+864139903	96	Confusion about baseScaleK and quoteScaleK and Price	open	2021-04-21T18:06:04Z
+860790207	95	Solving issue #59	closed	2021-04-18T23:16:06Z
+860790087	94	Solving Issue #59	closed	2021-04-18T23:15:19Z
+849410416	93	API is ready?	closed	2021-04-02T19:14:13Z
+847293842	92	Bump guava from 28.2-jre to 29.0-jre	closed	2021-03-31T20:36:34Z
+823206388	91	How to get execution report  and the real-time orderbook	open	2021-03-05T15:47:13Z
+823079650	90	Maximum capacity of keeping orders	closed	2021-03-05T13:23:24Z
+818291742	89	Support for UUID instead of int	open	2021-02-28T19:44:33Z
+797705443	88	Where is MatcherEventType.CANCEL?	closed	2021-01-31T12:58:50Z
+797690474	87	How to place MarketOrder?	open	2021-01-31T11:35:35Z
+792570792	86	Code error?	open	2021-01-23T14:29:55Z
+784744654	85	How to present floating in amount and price for symbol	open	2021-01-13T02:57:34Z
+777332137	84	Storing the exchange	open	2021-01-01T18:38:57Z
+766005900	83	RiskRelease out of order execution	open	2020-12-14T06:57:46Z
+764709577	82	when do you want to support FIX	open	2020-12-13T01:20:50Z
+754466172	81	why  duplicate order id - can match, but can not place	open	2020-12-01T14:55:23Z
+750841924	80	OrderId datatype	closed	2020-11-25T14:01:12Z
+728010814	79	OrderBook Creation	closed	2020-10-23T08:13:11Z
+719936420	78	Bump junit from 4.13 to 4.13.1	closed	2020-10-13T07:03:37Z
+711168317	77	BinaryCommandsProcessor code problem	open	2020-09-29T14:29:14Z
+691866451	76	LimitOrder and MarketOrder?	open	2020-09-03T10:57:07Z
+688563343	75	code problem	open	2020-08-29T16:29:56Z
+681593057	74	canPlaceMarginOrder	open	2020-08-19T06:49:10Z
+678775436	73	are there any guarantees for in-order processing?	open	2020-08-13T22:41:31Z
+673660139	72	Concurrency Issue 	closed	2020-08-05T16:02:25Z
+662076321	71	Pegged Orders	open	2020-07-20T17:34:12Z
+659114991	70	Question about putting journaling module in the event handlers?	closed	2020-07-17T10:20:46Z
+657781768	69	Does this engine support Distributed deployment?	open	2020-07-16T02:00:24Z
+657200224	68	Correct a spelling error in README.md #67	closed	2020-07-15T09:21:50Z
+657196070	67	Find a spelling mistake in README.md	closed	2020-07-15T09:15:28Z
+657037551	66	About account balance	open	2020-07-15T03:45:40Z
+651592950	65	exchange-core Trade details	closed	2020-07-06T14:38:52Z
+651527316	64	exchange-core orderbook	closed	2020-07-06T13:12:35Z
+650952220	63	Expose exchange-core API to accept requests from other applications	open	2020-07-04T20:36:16Z
+650324594	62	Can you write a simple description of the system？	closed	2020-07-03T03:53:07Z
+650069889	61	Recovering users balances and orderbook in case of crash ?	closed	2020-07-02T16:41:30Z
+645558564	60	exchange-core source code	closed	2020-06-25T13:22:12Z
+639189667	59	InitialStateConfiguration.lastKnownStateFromJournal, and Error continuing	closed	2020-06-15T21:40:50Z
+636190647	58	Access custom balance, symbols, users . What should I do?	closed	2020-06-10T12:04:33Z
+636135841	57	Confusion about the data type of the Order	open	2020-06-10T10:33:40Z
+633352915	56	fix deadlock when using blocking wait strategy	closed	2020-06-07T12:05:53Z
+623815521	55	Can not access Disruptor internals when starting the project	closed	2020-05-24T07:53:27Z
+621803883	54	Testing basic user cases. 	open	2020-05-20T14:22:43Z
+619233681	53	Performance issues when starting the project	closed	2020-05-15T20:32:47Z
+611388312	52	Issues for Downloading Maven Plugins 	closed	2020-05-03T11:16:01Z
+610789111	51	Compilation Failed Error	open	2020-05-01T14:49:09Z
+607707460	50	Abstract the matching engine 	closed	2020-04-27T17:05:09Z
+593974614	49	update versions	closed	2020-04-04T18:00:37Z
+589687606	48	lz4 compression	closed	2020-03-29T00:28:48Z
+580424407	47	Intruduction cucumber fwk	closed	2020-03-13T07:38:06Z
+577417424	45	journalling	closed	2020-03-07T23:37:43Z
+569382322	44	How would journaling work?	open	2020-02-22T19:34:29Z
+566229419	43	can i matching order with myself?	closed	2020-02-17T11:14:29Z
+549198041	42	parallel deserialization	closed	2020-01-13T21:41:59Z
+548618535	41	shared events pool	closed	2020-01-12T19:55:18Z
+548394108	40	Risk engine and balances as optional feature	closed	2020-01-11T07:18:39Z
+546245489	39	activeOrderId, activeOrderUid, activeOrderAction removed from MatcherTradeEvent	closed	2020-01-07T12:00:26Z
+543661827	38	Objects pooling and agrona hash tables	closed	2019-12-30T01:25:25Z
+542687369	37	Koloboke	closed	2019-12-26T22:45:26Z
+541664279	36	Ca it handle 1M OrderBooks? :)	closed	2019-12-23T09:27:10Z
+541659765	35	Fast vs Direct Order Books	closed	2019-12-23T09:16:25Z
+538812677	34	How to ensure the accuracy of the data(account / order / balance ) when saving the snapshot? E.g. transaction	closed	2019-12-17T03:36:10Z
+538156174	33	Add test cases that ignore duplicate order	closed	2019-12-16T02:50:13Z
+530375107	32	when the machine down, has anyway to solve it?	open	2019-11-29T14:31:39Z
+527396193	31	Provide Initial SyncUp File	closed	2019-11-22T20:19:52Z
+526861413	30	add support of Orders Count property within L2 MarketData	closed	2019-11-21T21:51:06Z
+523725200	29	Direct order book implementation	closed	2019-11-15T22:38:35Z
+520415260	28	Client suspend operation support	closed	2019-11-09T12:47:22Z
+502668704	27	Usage example	closed	2019-10-04T14:26:44Z
+497942629	26	Adapte it with websockets, updating balances etc.	closed	2019-09-24T21:52:57Z
+492610708	25	How can i run exchange-core	closed	2019-09-12T06:28:01Z
+492610330	24	How can i Run exchange-core	closed	2019-09-12T06:26:55Z
+482040966	23	Running tests. 	open	2019-08-18T21:48:03Z
+480893848	22	Add more order types	closed	2019-08-14T21:19:07Z
+476539844	21	Gateway API methods	closed	2019-08-04T10:50:34Z
+475577998	20	How to improve the core performance of the transaction	closed	2019-08-01T09:35:57Z
+470665909	19	fees	closed	2019-07-20T11:41:13Z
+467711908	18	Optimizations and performance tests improvements	closed	2019-07-13T12:03:04Z
+467141926	17	Lombok and maven	closed	2019-07-11T22:50:43Z
+466544023	16	add latest version for surefire	closed	2019-07-10T22:00:40Z
+464871726	15	redesign binary commands and reports processing	closed	2019-07-06T16:55:25Z
+462634473	14	Exception in thread "Thread-x" java.lang.IllegalStateException: Thread is already running	closed	2019-07-01T10:24:30Z
+453900203	13	Fix risk check logic for symbols in exchange mode	closed	2019-06-09T13:56:59Z
+448590210	12	High performance snapshot save/restore	closed	2019-05-26T17:48:59Z
+448293918	11	Pending balance and some logic bugs	closed	2019-05-24T18:11:07Z
+447136637	10	errors  like The blank final field uid may not have been initialized	closed	2019-05-22T13:27:30Z
+442685057	9	Can Anyone help or guide me how to compile the project Because I am facing the issue If anyone knows please kindly help me?	closed	2019-05-10T12:05:58Z
+439246922	8	Sharding	closed	2019-05-01T17:28:31Z
+434140764	7	MatchingEngineRouter only support one symbol now?	closed	2019-04-17T07:50:28Z
+427276536	6	Switch to standard LMAX Disruptor library	closed	2019-03-30T12:17:22Z
+424001501	5	Lombok version fix for JDK 10.	closed	2019-03-22T00:48:15Z
+417080825	4	What is the difference of the codes about lamx/disruptor between  in the src directory and https://github.com/LMAX-Exchange/disruptor?	closed	2019-03-05T02:14:09Z
+397182507	3	How to Compile This Project	closed	2019-01-09T02:18:13Z
+386599794	2	005 hdr hist	closed	2018-12-02T21:04:59Z
+375431057	1	I couldn't build	closed	2018-10-30T11:01:41Z

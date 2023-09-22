@@ -232,7 +232,7 @@ class CC_UnitSizeMetric extends BaseMetric
     {
         $string = '';
         foreach ($array as $key => $value) {
-            $string .= $key.': '.$value."\n";
+            $string .= $key.': '.$value." *** ";
         }
         return $string;
     }
