@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="simian.xsl" type="text/xsl"?>
+<!--
+Similarity Analyser 2.5.10 - http://www.harukizaemon.com/simian
+Copyright (c) 2003-2018 Simon Harris.  All rights reserved.
+Simian is not free unless used solely for non-commercial or evaluation purposes.
+-->
+<simian version="2.5.10">
+    <check defaultLanguage="Java" failOnDuplication="true" ignoreCharacterCase="true" ignoreCurlyBraces="true" ignoreIdentifierCase="true" ignoreModifiers="true" ignoreStringCase="true" threshold="6">
+        <set lineCount="6" fingerprint="35c5a7af4c520b63e94632d01f0048c6">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/RiskEngine.java" startLineNumber="120" endLineNumber="126"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/MatchingEngineRouter.java" startLineNumber="125" endLineNumber="131"/>
+        </set>
+        <set lineCount="6" fingerprint="9160db3f7bcb9a103678760651d82190">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrdersBucketNaiveTest.java" startLineNumber="172" endLineNumber="180"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrdersBucketNaiveTest.java" startLineNumber="140" endLineNumber="148"/>
+        </set>
+        <set lineCount="6" fingerprint="7ee92f4b3c8b5b91a1333083a13a330b">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/SymbolPositionRecord.java" startLineNumber="249" endLineNumber="254"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/api/reports/SingleUserReportResult.java" startLineNumber="191" endLineNumber="196"/>
+        </set>
+        <set lineCount="6" fingerprint="c233c8297050e9757fabb0eb51403298">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITMultiOperation.java" startLineNumber="80" endLineNumber="85"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITMultiOperation.java" startLineNumber="58" endLineNumber="63"/>
+        </set>
+        <set lineCount="6" fingerprint="0bd501c3fe4bb2b273fc26033ddbed1e">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/journaling/ISerializationProcessor.java" startLineNumber="44" endLineNumber="49"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/journaling/DiskSerializationProcessor.java" startLineNumber="126" endLineNumber="131"/>
+        </set>
+        <set lineCount="6" fingerprint="7de9355ee80e82b8564c292e3482fd52">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/TestDataParameters.java" startLineNumber="23" endLineNumber="28"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITMultiOperation.java" startLineNumber="38" endLineNumber="43"/>
+        </set>
+        <set lineCount="6" fingerprint="76f07be7c278d0826832d1e5a30e32a4">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="88" endLineNumber="93"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="74" endLineNumber="79"/>
+        </set>
+        <set lineCount="6" fingerprint="10dcb7c5bcbe9c5c38f4911fffc50921">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="409" endLineNumber="414"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="389" endLineNumber="394"/>
+        </set>
+        <set lineCount="6" fingerprint="ebcaa376f968ff6544ea53e979e92540">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfJournaling.java" startLineNumber="46" endLineNumber="53"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="60" endLineNumber="71"/>
+        </set>
+        <set lineCount="6" fingerprint="f8d76171ab1ddc98b542e10cb9db97e1">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="393" endLineNumber="398"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="372" endLineNumber="377"/>
+        </set>
+        <set lineCount="6" fingerprint="998488c8c1ceff0836212d806519ce5f">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughput.java" startLineNumber="53" endLineNumber="58"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughput.java" startLineNumber="39" endLineNumber="44"/>
+        </set>
+        <set lineCount="6" fingerprint="c1d0e574bf9200b64b0acd75c87f8ea4">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/config/PerformanceConfiguration.java" startLineNumber="136" endLineNumber="141"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/config/PerformanceConfiguration.java" startLineNumber="120" endLineNumber="125"/>
+        </set>
+        <set lineCount="6" fingerprint="4bf211827b4cd7b07b5ff7a68b2ef73a">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="306" endLineNumber="311"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="221" endLineNumber="226"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="149" endLineNumber="155"/>
+        </set>
+        <set lineCount="6" fingerprint="83cc9f05ec60b3dfc89b3c67fcebf5b0">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/SymbolPositionRecord.java" startLineNumber="70" endLineNumber="76"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/api/reports/SingleUserReportResult.java" startLineNumber="179" endLineNumber="185"/>
+        </set>
+        <set lineCount="6" fingerprint="fb9667bb75c8ec26ca2f93260402c140">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfJournaling.java" startLineNumber="33" endLineNumber="40"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="45" endLineNumber="52"/>
+        </set>
+        <set lineCount="6" fingerprint="13354ec4a20b153bc4ab9293f3de9ecc">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="252" endLineNumber="260"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="172" endLineNumber="180"/>
+        </set>
+        <set lineCount="6" fingerprint="7d5d704c5e52699a5191f656d2922262">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="621" endLineNumber="627"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="605" endLineNumber="611"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="589" endLineNumber="595"/>
+        </set>
+        <set lineCount="6" fingerprint="8b71a5ddc96ecd3b31b65dc374e191bf">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/TestDataParameters.java" startLineNumber="34" endLineNumber="39"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITMultiOperation.java" startLineNumber="61" endLineNumber="66"/>
+        </set>
+        <set lineCount="6" fingerprint="477524cb57ffa619f2f51b97b283d6f7">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfJournaling.java" startLineNumber="91" endLineNumber="99"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="95" endLineNumber="102"/>
+        </set>
+        <set lineCount="6" fingerprint="a51aac98b041a3386e30dc9031936941">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="113" endLineNumber="121"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="81" endLineNumber="88"/>
+        </set>
+        <set lineCount="6" fingerprint="33be44438136d503bab8f39088c3e9d8">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="233" endLineNumber="239"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="146" endLineNumber="152"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="60" endLineNumber="66"/>
+        </set>
+        <set lineCount="6" fingerprint="5e0d8bbf52ae53c8292cd97bd846c921">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/config/PerformanceConfiguration.java" startLineNumber="156" endLineNumber="161"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/config/PerformanceConfiguration.java" startLineNumber="140" endLineNumber="145"/>
+        </set>
+        <set lineCount="6" fingerprint="d28ff410ab1157c3c41d0c2a31740a5f">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="423" endLineNumber="431"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="411" endLineNumber="419"/>
+        </set>
+        <set lineCount="6" fingerprint="7cfdf58e29f388f0cbc50cace34c93b4">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughput.java" startLineNumber="103" endLineNumber="119"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughputJournaling.java" startLineNumber="84" endLineNumber="100"/>
+        </set>
+        <set lineCount="6" fingerprint="2b2e2b610c3f8d50d5c0f31fb7256061">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughput.java" startLineNumber="85" endLineNumber="100"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughputJournaling.java" startLineNumber="66" endLineNumber="81"/>
+        </set>
+        <set lineCount="6" fingerprint="7feafe96d122f72b2192e71eb2b21624">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/L2MarketData.java" startLineNumber="35" endLineNumber="40"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/L2MarketDataHelper.java" startLineNumber="30" endLineNumber="35"/>
+        </set>
+        <set lineCount="6" fingerprint="e3ac3e1108c639db79a491cfd3cb1f70">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrdersBucketNaiveTest.java" startLineNumber="235" endLineNumber="240"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrdersBucketNaiveTest.java" startLineNumber="184" endLineNumber="189"/>
+        </set>
+        <set lineCount="6" fingerprint="06d1370a52611d17c50c52af4124f229">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="356" endLineNumber="365"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="196" endLineNumber="206"/>
+        </set>
+        <set lineCount="6" fingerprint="eab26c8a7b1f2f748eefa359d8cb0b91">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegrationRejection.java" startLineNumber="54" endLineNumber="62"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="35" endLineNumber="43"/>
+        </set>
+        <set lineCount="6" fingerprint="bce3f0d9532ee2d5b5f578eb8bc770f0">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="894" endLineNumber="901"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="850" endLineNumber="857"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="807" endLineNumber="814"/>
+        </set>
+        <set lineCount="6" fingerprint="b74e50596bd88c1ed253f81588c0b9f8">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="881" endLineNumber="887"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="837" endLineNumber="843"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="794" endLineNumber="800"/>
+        </set>
+        <set lineCount="7" fingerprint="b05e67cb6e677783530c2823eeddcec1">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="314" endLineNumber="321"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="332" endLineNumber="339"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="350" endLineNumber="357"/>
+        </set>
+        <set lineCount="7" fingerprint="3326d03e83914a4cbccd328a50bef868">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/SymbolPositionRecord.java" startLineNumber="135" endLineNumber="143"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/SymbolPositionRecord.java" startLineNumber="158" endLineNumber="166"/>
+        </set>
+        <set lineCount="7" fingerprint="848ee9d209edb41b20628365401ed338">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="58" endLineNumber="64"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="62" endLineNumber="68"/>
+        </set>
+        <set lineCount="7" fingerprint="952aed2c46abe2215a31f66811a92f7d">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="39" endLineNumber="45"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="54" endLineNumber="60"/>
+        </set>
+        <set lineCount="7" fingerprint="75e77379e81eefab50399ab61e422d1d">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/RiskEngine.java" startLineNumber="65" endLineNumber="71"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/RiskEngine.java" startLineNumber="826" endLineNumber="832"/>
+        </set>
+        <set lineCount="7" fingerprint="d5a817db489257f68e32a0416d5ace05">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/modules/ITOrderBookBase.java" startLineNumber="174" endLineNumber="181"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/modules/ITOrderBookBase.java" startLineNumber="198" endLineNumber="205"/>
+        </set>
+        <set lineCount="7" fingerprint="3cf67bfa2ada4af7d6bc3ee2592ef6b3">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="714" endLineNumber="720"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="753" endLineNumber="759"/>
+        </set>
+        <set lineCount="7" fingerprint="1e6d3e8a188b9a9eaa8ef7356d199156">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommandsAvalanche.java" startLineNumber="76" endLineNumber="82"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommandsAvalanche.java" startLineNumber="93" endLineNumber="99"/>
+        </set>
+        <set lineCount="7" fingerprint="ed4257b0cd21ee596aa0d0e8d8623d73">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="638" endLineNumber="644"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="665" endLineNumber="671"/>
+        </set>
+        <set lineCount="7" fingerprint="242991edbbee527686f454f3bf3ff6e1">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="107" endLineNumber="113"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfJournaling.java" startLineNumber="104" endLineNumber="110"/>
+        </set>
+        <set lineCount="7" fingerprint="0ab35f226dfc41b071597afe1ad0f784">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookNaiveImpl.java" startLineNumber="321" endLineNumber="330"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="359" endLineNumber="368"/>
+        </set>
+        <set lineCount="7" fingerprint="0ca911db19890bde898eeb60a67ffc5c">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="89" endLineNumber="95"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfPersistence.java" startLineNumber="104" endLineNumber="110"/>
+        </set>
+        <set lineCount="7" fingerprint="637be35b8bae1660222c39a1e44aa388">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="546" endLineNumber="553"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="559" endLineNumber="566"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="572" endLineNumber="579"/>
+        </set>
+        <set lineCount="7" fingerprint="a0e00fba26def9b2f6da2941925c8670">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughputJournaling.java" startLineNumber="41" endLineNumber="47"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughputJournaling.java" startLineNumber="56" endLineNumber="62"/>
+        </set>
+        <set lineCount="7" fingerprint="0f472f5a1907e6803bd6b6ef9b6ef9d5">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="332" endLineNumber="341"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="411" endLineNumber="420"/>
+        </set>
+        <set lineCount="7" fingerprint="1d6c2323f11ac4ab8d2e7417c1704759">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="396" endLineNumber="402"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="416" endLineNumber="422"/>
+        </set>
+        <set lineCount="7" fingerprint="30e33c68ed3cc4db3534c1885fe3d85b">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/JournalingTestsModule.java" startLineNumber="57" endLineNumber="64"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/PersistenceTestsModule.java" startLineNumber="62" endLineNumber="69"/>
+        </set>
+        <set lineCount="7" fingerprint="d68f48ae53aea11fa8a7a89c617e8e3b">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="39" endLineNumber="45"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="61" endLineNumber="67"/>
+        </set>
+        <set lineCount="7" fingerprint="9323b88d0c86ac44763aef822a3d2b6f">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="38" endLineNumber="44"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="40" endLineNumber="46"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfHiccups.java" startLineNumber="34" endLineNumber="40"/>
+        </set>
+        <set lineCount="7" fingerprint="57ebac0a42bcc185ab65535043c13114">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughputJournaling.java" startLineNumber="39" endLineNumber="45"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughput.java" startLineNumber="37" endLineNumber="43"/>
+        </set>
+        <set lineCount="7" fingerprint="ff1e9228ef3cab98136c3a3b85d34a21">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommandsAvalanche.java" startLineNumber="35" endLineNumber="41"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommandsAvalanche.java" startLineNumber="54" endLineNumber="60"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="37" endLineNumber="43"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="57" endLineNumber="63"/>
+        </set>
+        <set lineCount="7" fingerprint="c77b0146ff1be40602494db9304fc074">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyJournaling.java" startLineNumber="100" endLineNumber="106"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="133" endLineNumber="139"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="107" endLineNumber="113"/>
+        </set>
+        <set lineCount="7" fingerprint="d64dd547c0ed16252576a0406d7613a5">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="79" endLineNumber="85"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="93" endLineNumber="99"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyCommands.java" startLineNumber="106" endLineNumber="112"/>
+        </set>
+        <set lineCount="7" fingerprint="209a6b60d0682ad68fe5acda484096a9">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/RunCukesDirectThroughputTests.java" startLineNumber="19" endLineNumber="25"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/RunCukeNaiveTests.java" startLineNumber="19" endLineNumber="25"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/RunCukesDirectLatencyTests.java" startLineNumber="19" endLineNumber="25"/>
+        </set>
+        <set lineCount="7" fingerprint="4f888ba78a45643c60a3142607d2447c">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyJournaling.java" startLineNumber="39" endLineNumber="45"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyJournaling.java" startLineNumber="54" endLineNumber="60"/>
+        </set>
+        <set lineCount="8" fingerprint="02ebb4fb2b7572061f90f681f3097804">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="132" endLineNumber="139"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyJournaling.java" startLineNumber="99" endLineNumber="106"/>
+        </set>
+        <set lineCount="8" fingerprint="ea22b739e97b2a6c3e08d1b0664c91be">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="85" endLineNumber="92"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyJournaling.java" startLineNumber="69" endLineNumber="76"/>
+        </set>
+        <set lineCount="8" fingerprint="5f3905f028f695e1bd3c3f1a8726c139">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegrationRejection.java" startLineNumber="62" endLineNumber="76"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="46" endLineNumber="57"/>
+        </set>
+        <set lineCount="8" fingerprint="c1ab09a41b68c1e99061c84c7762ee33">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfHiccups.java" startLineNumber="34" endLineNumber="41"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="40" endLineNumber="47"/>
+        </set>
+        <set lineCount="8" fingerprint="f6f987880d0dd76ce5aeda9df87c0796">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="332" endLineNumber="342"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegration.java" startLineNumber="314" endLineNumber="324"/>
+        </set>
+        <set lineCount="8" fingerprint="fa5e4d311b0b92c0a5c17b5bbe45e3a8">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="240" endLineNumber="249"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="160" endLineNumber="169"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="319" endLineNumber="328"/>
+        </set>
+        <set lineCount="8" fingerprint="c400041610b50545b895cf07900a4368">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughput.java" startLineNumber="48" endLineNumber="57"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfThroughputJournaling.java" startLineNumber="51" endLineNumber="60"/>
+        </set>
+        <set lineCount="8" fingerprint="be16930d2233380ea3846cf8e29ab5b4">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="155" endLineNumber="165"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="242" endLineNumber="252"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="69" endLineNumber="79"/>
+        </set>
+        <set lineCount="8" fingerprint="2c18eb853c9d5bf30f36b36557930894">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatency.java" startLineNumber="109" endLineNumber="116"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/perf/PerfLatencyJournaling.java" startLineNumber="84" endLineNumber="91"/>
+        </set>
+        <set lineCount="8" fingerprint="edabf8e13ed20b6f2b079d96234600f1">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="698" endLineNumber="705"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/ExchangeApi.java" startLineNumber="680" endLineNumber="687"/>
+        </set>
+        <set lineCount="9" fingerprint="b4aca984b9c8f7ce82b6adb6f2f91c88">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegrationRejection.java" startLineNumber="285" endLineNumber="300"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegrationRejection.java" startLineNumber="372" endLineNumber="387"/>
+        </set>
+        <set lineCount="9" fingerprint="9338a261f553fa65d67fc2844f54dc5c">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/Order.java" startLineNumber="124" endLineNumber="134"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="902" endLineNumber="912"/>
+        </set>
+        <set lineCount="9" fingerprint="87fac6e923497d2c654cbaf64d96499a">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrderBookDirectImplMarginTest.java" startLineNumber="27" endLineNumber="37"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrderBookDirectImplExchangeTest.java" startLineNumber="25" endLineNumber="35"/>
+        </set>
+        <set lineCount="9" fingerprint="6eec5f9ccf412b4410cea5c4237777e0">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/LatencyTestsModule.java" startLineNumber="95" endLineNumber="108"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/util/LatencyTestsModule.java" startLineNumber="359" endLineNumber="373"/>
+        </set>
+        <set lineCount="9" fingerprint="1b7d2a786401cbc320bc278b24c2888d">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="342" endLineNumber="350"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="126" endLineNumber="134"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="196" endLineNumber="204"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="281" endLineNumber="289"/>
+        </set>
+        <set lineCount="9" fingerprint="5e6d1a276e1327ddb70939cd4166c09a">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegrationRejection.java" startLineNumber="335" endLineNumber="343"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITExchangeCoreIntegrationRejection.java" startLineNumber="422" endLineNumber="430"/>
+        </set>
+        <set lineCount="9" fingerprint="70a4868c761d9e83a4b1e3de1c5f27ba">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITMultiOperation.java" startLineNumber="31" endLineNumber="39"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITMultiOperation.java" startLineNumber="54" endLineNumber="62"/>
+        </set>
+        <set lineCount="9" fingerprint="8e523006526cea822ba22407d8e2b658">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="165" endLineNumber="173"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="242" endLineNumber="250"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="108" endLineNumber="116"/>
+        </set>
+        <set lineCount="10" fingerprint="bca82cb7ebd7d5d9f4990208dfeb37d9">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrderBookBaseTest.java" startLineNumber="783" endLineNumber="796"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/orderbook/OrderBookBaseTest.java" startLineNumber="698" endLineNumber="715"/>
+        </set>
+        <set lineCount="13" fingerprint="c5d5e793853a2fcfeb591e6a4e0a64b2">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="83" endLineNumber="97"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="169" endLineNumber="183"/>
+        </set>
+        <set lineCount="14" fingerprint="a4e0d518d556e040df749ec8f9dc636a">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="207" endLineNumber="226"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="121" endLineNumber="139"/>
+        </set>
+        <set lineCount="16" fingerprint="08c6f38ec981929d2a3c9b45f175feb8">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="805" endLineNumber="829"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/Order.java" startLineNumber="40" endLineNumber="64"/>
+        </set>
+        <set lineCount="16" fingerprint="7b8772af132b2ca10688a232d9264df9">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="191" endLineNumber="207"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="121" endLineNumber="137"/>
+        </set>
+        <set lineCount="16" fingerprint="e41da00dcae0a85d15699384f6d13d1b">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="103" endLineNumber="124"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookNaiveImpl.java" startLineNumber="84" endLineNumber="104"/>
+        </set>
+        <set lineCount="17" fingerprint="c63626f9461e1e3994400e3913f2030b">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/TwoStepSlaveProcessor.java" startLineNumber="50" endLineNumber="79"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/TwoStepMasterProcessor.java" startLineNumber="56" endLineNumber="86"/>
+        </set>
+        <set lineCount="19" fingerprint="fd38ab035b1f9be7a307bd370d80b3e8">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/TwoStepMasterProcessor.java" startLineNumber="61" endLineNumber="93"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/processors/GroupingProcessor.java" startLineNumber="71" endLineNumber="102"/>
+        </set>
+        <set lineCount="19" fingerprint="34909cd674b2667e60c859f0bee67e4c">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="56" endLineNumber="79"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesMargin.java" startLineNumber="229" endLineNumber="252"/>
+        </set>
+        <set lineCount="21" fingerprint="06fcf5470f90c4dab5bca28bf2b06289">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="162" endLineNumber="184"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="239" endLineNumber="261"/>
+        </set>
+        <set lineCount="22" fingerprint="bfba44976ab849863e12fa2998d3375c">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="368" endLineNumber="398"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="289" endLineNumber="319"/>
+        </set>
+        <set lineCount="31" fingerprint="f1ec5b3dc57b605ad5bcdf99cb42ad1d">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="129" endLineNumber="170"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/tests/integration/ITFeesExchange.java" startLineNumber="209" endLineNumber="250"/>
+        </set>
+        <set lineCount="31" fingerprint="7b9a8e035aabf30b0ea0623720a2ff69">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/common/Order.java" startLineNumber="71" endLineNumber="118"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/main/java/exchange/core2/core/orderbook/OrderBookDirectImpl.java" startLineNumber="847" endLineNumber="896"/>
+        </set>
+        <set lineCount="36" fingerprint="33ff8e39de38dc869c0526bb6a52d0d4">
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="193" endLineNumber="236"/>
+            <block sourceFile="/home/jp/tmp_checkouts/exchange-core/src/test/java/exchange/core2/core/SimpleEventsProcessorTest.java" startLineNumber="278" endLineNumber="322"/>
+        </set>
+        <summary duplicateFileCount="43" duplicateLineCount="1574" duplicateBlockCount="175" totalFileCount="149" totalRawLineCount="21554" totalSignificantLineCount="10801" processingTime="179"/>
+    </check>
+</simian>

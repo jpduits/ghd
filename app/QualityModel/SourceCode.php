@@ -109,7 +109,7 @@ class SourceCode
             if (file_exists($this->checkoutDir . '/' . $repository->name)) {
 
                 // calculate volume metrics
-                $volume = $this->volumeMetric->calculate($repository);
+                $volume = $this->volumeMetric->calculate($repository); // oldskool LOC
                 $loc = $volume['total_loc'];
 
                 // calculate cyclomatic complexity and unit size

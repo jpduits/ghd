@@ -1,0 +1,191 @@
+{
+  "formatVersion": 0,
+  "pmdVersion": "7.0.0-rc1",
+  "timestamp": "2023-09-27T12:20:21.030+02:00",
+  "files": [
+    {
+      "filename": "/home/jp/tmp_checkouts/Strassen-matrix-multiplication-Java/Strassen.java",
+      "violations": [
+        {
+          "beginline": 5,
+          "begincolumn": 8,
+          "endline": 5,
+          "endcolumn": 13,
+          "description": "The class \u0027Codechef\u0027 has a NCSS line count of 86 (Highest \u003d 38).",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 5,
+          "begincolumn": 8,
+          "endline": 5,
+          "endcolumn": 13,
+          "description": "The class \u0027Codechef\u0027 has a total cyclomatic complexity of 22 (highest 5).",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 7,
+          "begincolumn": 28,
+          "endline": 7,
+          "endcolumn": 44,
+          "description": "The method \u0027StrassenMultiply(int[][], int[][])\u0027 has a NCSS line count of 38.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 7,
+          "begincolumn": 28,
+          "endline": 7,
+          "endcolumn": 44,
+          "description": "The method \u0027StrassenMultiply(int[][], int[][])\u0027 has a cyclomatic complexity of 2.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 83,
+          "begincolumn": 24,
+          "endline": 83,
+          "endcolumn": 28,
+          "description": "The method \u0027main(String[])\u0027 has a NCSS line count of 17.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 83,
+          "begincolumn": 24,
+          "endline": 83,
+          "endcolumn": 28,
+          "description": "The method \u0027main(String[])\u0027 has a cyclomatic complexity of 5.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 118,
+          "begincolumn": 27,
+          "endline": 118,
+          "endcolumn": 38,
+          "description": "The method \u0027addMatrices(int[][], int[][])\u0027 has a NCSS line count of 7.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 118,
+          "begincolumn": 27,
+          "endline": 118,
+          "endcolumn": 38,
+          "description": "The method \u0027addMatrices(int[][], int[][])\u0027 has a cyclomatic complexity of 3.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 130,
+          "begincolumn": 27,
+          "endline": 130,
+          "endcolumn": 38,
+          "description": "The method \u0027subMatrices(int[][], int[][])\u0027 has a NCSS line count of 7.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 130,
+          "begincolumn": 27,
+          "endline": 130,
+          "endcolumn": 38,
+          "description": "The method \u0027subMatrices(int[][], int[][])\u0027 has a cyclomatic complexity of 3.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 142,
+          "begincolumn": 24,
+          "endline": 142,
+          "endcolumn": 35,
+          "description": "The method \u0027printMatrix(int[][])\u0027 has a NCSS line count of 8.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 142,
+          "begincolumn": 24,
+          "endline": 142,
+          "endcolumn": 35,
+          "description": "The method \u0027printMatrix(int[][])\u0027 has a cyclomatic complexity of 3.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 155,
+          "begincolumn": 24,
+          "endline": 155,
+          "endcolumn": 35,
+          "description": "The method \u0027divideArray(int[][], int[][], int, int)\u0027 has a NCSS line count of 4.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 155,
+          "begincolumn": 24,
+          "endline": 155,
+          "endcolumn": 35,
+          "description": "The method \u0027divideArray(int[][], int[][], int, int)\u0027 has a cyclomatic complexity of 3.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        },
+        {
+          "beginline": 163,
+          "begincolumn": 24,
+          "endline": 163,
+          "endcolumn": 36,
+          "description": "The method \u0027copySubArray(int[][], int[][], int, int)\u0027 has a NCSS line count of 4.",
+          "rule": "NcssCount",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#ncsscount"
+        },
+        {
+          "beginline": 163,
+          "begincolumn": 24,
+          "endline": 163,
+          "endcolumn": 36,
+          "description": "The method \u0027copySubArray(int[][], int[][], int, int)\u0027 has a cyclomatic complexity of 3.",
+          "rule": "CyclomaticComplexity",
+          "ruleset": "Design",
+          "priority": 3,
+          "externalInfoUrl": "https://pmd.github.io/pmd-7.0.0-rc1/pmd_rules_java_design.html#cyclomaticcomplexity"
+        }
+      ]
+    }
+  ],
+  "suppressedViolations": [],
+  "processingErrors": [],
+  "configurationErrors": []
+}
