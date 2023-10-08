@@ -4,7 +4,7 @@ import csv
 import os
 
 # Load the trained pipeline
-pipeline = joblib.load('./scripts/analyzers/comments/compound_classifier_pipeline.pkl')
+pipeline = joblib.load('compound_classifier_pipeline.pkl')
 
 # Get the input CSV file from the command line
 input_csv_file = sys.argv[1]
@@ -19,7 +19,7 @@ total_classifications = {}
 # Open the input CSV file and output CSV file
 with open(input_csv_file, 'r') as csvfile, open(output_csv_file, 'w', newline='') as outputfile:
     csvreader = csv.reader(csvfile)
-    csvwriter = csv.writer(outputfile)
+    csvwriter = csv.writer(outputfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 
     # Write the header for the output CSV
     csvwriter.writerow(['Type', 'Comment', 'Predicted Label'])
@@ -41,6 +41,7 @@ with open(input_csv_file, 'r') as csvfile, open(output_csv_file, 'w', newline=''
         # Update the dictionaries for classifications and totals
         if comment_type not in classifications:
             classifications[comment_type] = {}
+
         if predicted_label not in classifications[comment_type]:
             classifications[comment_type][predicted_label] = 0
         classifications[comment_type][predicted_label] += 1

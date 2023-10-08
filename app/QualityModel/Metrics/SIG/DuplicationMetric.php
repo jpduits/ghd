@@ -73,7 +73,7 @@ class DuplicationMetric extends BaseMetric
 
                 }
 
-                unlink($tmpFile);
+                //unlink($tmpFile);
             }
 
 

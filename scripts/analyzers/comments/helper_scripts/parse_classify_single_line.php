@@ -24,9 +24,9 @@ if ($argc > 1) {
 
         foreach ($lines as $line) {
 
+            $line = trim(strtolower($line));
 
-            if (!strpos($line, ',""')) {
-
+            if (strpos($line, ',""') === false) {
 
                 if ($train) {
 

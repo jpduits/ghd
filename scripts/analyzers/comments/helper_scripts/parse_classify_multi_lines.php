@@ -29,7 +29,7 @@ if ($argc > 1) { // $argc is the argument count
             $multiLine = explode("\n", $multiLine);
             foreach ($multiLine as $key => $line) {
                 // trim
-                $tempLine = trim($line);
+                $tempLine = trim(strtolower($line));
                 // remove /* and */
                 $tempLine = str_replace("/*", "", $tempLine);
                 $tempLine = str_replace("*/", "", $tempLine);

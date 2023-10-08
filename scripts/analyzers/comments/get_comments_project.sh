@@ -28,7 +28,7 @@ fi
 
 if $train; then
 
-    output_file="scripts/analyzers/comments/processed/comments_training_data.csv"
+    output_file="processed/comments_training_data.csv"
 
     file_size=$(stat -c %s "$output_file")
     echo "File size: $file_size"
@@ -40,7 +40,7 @@ else
 
     # get hash of GIT commit
     suffix=($(cd $1 && git rev-parse HEAD))
-    output_file="scripts/analyzers/comments/processed/comments_$suffix.csv"
+    output_file="processed/comments_$suffix.csv"
     # clear file
     echo -n "" > "$output_file"
 
@@ -65,7 +65,8 @@ find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f
         # -E extended regex
         # -o only matching
         # first sed: escape double quotes
-        single_line=$(grep -aPo "$single_line_comment_regex" "$java_file" | sed 's#\/\/\|\/\/ ##g' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | sed 's/"/\`/g' | sed 's/^/"/; s/$/",/' | sed 's/.*/single_line,&/')
+#                                                                                                                                                                         sed 's/^/"/; s/$/",/'
+        single_line=$(grep -aPo "$single_line_comment_regex" "$java_file" | sed 's#\/\/\|\/\/ ##g' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | sed 's/"/\`/g' | sed 's/^/"/; s/$/"/' | sed 's/.*/single_line,&/')
 
         if [ -n "$single_line" ]; then
 
@@ -74,9 +75,9 @@ find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f
 
             # parse tempfile
             if $train; then
-                php scripts/analyzers/comments/helper_scripts/parse_classify_single_line.php "$temp_file" --train
+                php helper_scripts/parse_classify_single_line.php "$temp_file" --train
             else
-                php scripts/analyzers/comments/helper_scripts/parse_classify_single_line.php "$temp_file"
+                php helper_scripts/parse_classify_single_line.php "$temp_file"
             fi
 
             cat $temp_file >> "$output_file"
@@ -102,9 +103,9 @@ find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f
 
         # parse tempfile to make multiline comments one line
         if $train; then
-            php scripts/analyzers/comments/helper_scripts/parse_classify_multi_lines.php "$temp_file" --train
+            php helper_scripts/parse_classify_multi_lines.php "$temp_file" --train
         else
-            php scripts/analyzers/comments/helper_scripts/parse_classify_multi_lines.php "$temp_file"
+            php helper_scripts/parse_classify_multi_lines.php "$temp_file"
         fi
 
 

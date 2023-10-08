@@ -112,15 +112,11 @@ class CC_UnitSizeMetric extends BaseMetric
                 $ncssMethodPattern = "/The (method|constructor) '(.+)' has a NCSS line count of (\d+)/";
                 $ncssClassPattern = "/The (class) '(.+)' has a NCSS line count of (\d+)/";
 
-                $ncssLineCount = 0; // all ncss lines for classes
-
-
                 // save the lines per unit with checkstyle tool
-
                 $tempFileCheckStyle = tempnam(sys_get_temp_dir(), 'checkstyle_'.$time);
                 $command = 'java -jar '.self::CHECKSTYLE_JAR.' -c '.self::CHECKSTYLE_RULES.' '.$this->checkoutDir.'/' . $repository->name . ' -o '.$tempFileCheckStyle.' /**/*.java';
                 $this->writeToTerminal('Executing command: '.$command);
-                $checkStylepattern =  '/\[(\w+)\] (.+):(\d+):\d+: (\w+)=(\d+) \[MethodLength\]/';
+                $checkStylePattern =  '/\[(\w+)\] (.+):(\d+):\d+: (\w+)=(\d+) \[MethodLength\]/';
 
                 $checkStyleResults = [];
 
@@ -139,8 +135,8 @@ class CC_UnitSizeMetric extends BaseMetric
                 foreach ($lines as $auditLine) {
 
                     // check line starts with [ERROR] $file['filename']:
-                    if (preg_match($checkStylepattern, $auditLine, $matches)) {
-                        $errorType = $matches[1];
+                    if (preg_match($checkStylePattern, $auditLine, $matches)) {
+                        //$errorType = $matches[1];
                         $filePath = $matches[2];
                         $lineNumber = $matches[3];
                         $methodName = $matches[4];
@@ -149,10 +145,6 @@ class CC_UnitSizeMetric extends BaseMetric
                     }
 
                 }
-
-                print_r($checkStyleResults);
-
-
 
                 foreach ($json['files'] as $file) {
 
@@ -217,7 +209,7 @@ class CC_UnitSizeMetric extends BaseMetric
 
                     }
 
-                    print_r($results);
+                    //print_r($results);
 
                     // now we have an array (results) with the complexity and loc_unit per method (unit) of the current file
                     foreach ($results as $method => $measure) {
