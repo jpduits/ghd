@@ -233,8 +233,6 @@ class GetProjectState extends Command
     private function storeMeasurement(array $measurement)
     {
 
-        print_r($measurement);
-
         $projectState = new ProjectState(
             [
                 'run_uuid' => $this->runUuid,
@@ -305,6 +303,8 @@ class GetProjectState extends Command
                 'comments_auxiliary' => $measurement['comments_auxiliary'] ?? 0,
             ]);
         $projectState->save();
+
+        print_r($measurement);
 
     }
 

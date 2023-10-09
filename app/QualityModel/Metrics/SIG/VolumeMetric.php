@@ -26,7 +26,12 @@ class VolumeMetric extends BaseMetric
     public function calculate(Repository $repository): array
     {
         // calculate volume (loc) for Java files
-        $command = 'cloc --json --include-lang=Java ' . $this->checkoutDir . '/' . $repository->name;
+        // save the file list to a temp file
+        $time = time();
+        $tempFileList = tempnam(sys_get_temp_dir(), 'cloc_filelist_'.$time);
+        exec('find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList);
+
+        $command = 'cloc --list-file='.$tempFileList.' --json --include-lang=Java';
 
         $this->writeToTerminal('Executing command: ' . $command);
         exec($command, $output);

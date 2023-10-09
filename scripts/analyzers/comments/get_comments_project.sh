@@ -24,11 +24,12 @@ if [ ! -d"$1" ]; then
 fi
 
 
-
+current_dir="$(dirname "$0")"
+echo "current dir=$current_dir"
 
 if $train; then
 
-    output_file="processed/comments_training_data.csv"
+    output_file="$current_dir/processed/comments_training_data.csv"
 
     file_size=$(stat -c %s "$output_file")
     echo "File size: $file_size"
@@ -40,7 +41,7 @@ else
 
     # get hash of GIT commit
     suffix=($(cd $1 && git rev-parse HEAD))
-    output_file="processed/comments_$suffix.csv"
+    output_file="$current_dir/processed/comments_$suffix.csv"
     # clear file
     echo -n "" > "$output_file"
 
@@ -75,9 +76,9 @@ find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f
 
             # parse tempfile
             if $train; then
-                php helper_scripts/parse_classify_single_line.php "$temp_file" --train
+                php $current_dir/helper_scripts/parse_classify_single_line.php "$temp_file" --train
             else
-                php helper_scripts/parse_classify_single_line.php "$temp_file"
+                php $current_dir/helper_scripts/parse_classify_single_line.php "$temp_file"
             fi
 
             cat $temp_file >> "$output_file"
@@ -103,9 +104,9 @@ find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f
 
         # parse tempfile to make multiline comments one line
         if $train; then
-            php helper_scripts/parse_classify_multi_lines.php "$temp_file" --train
+            php $current_dir/helper_scripts/parse_classify_multi_lines.php "$temp_file" --train
         else
-            php helper_scripts/parse_classify_multi_lines.php "$temp_file"
+            php $current_dir/helper_scripts/parse_classify_multi_lines.php "$temp_file"
         fi
 
 

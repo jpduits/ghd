@@ -23,14 +23,27 @@ class CC_UnitSizeMetric extends BaseMetric
     ];
 
     const COMPLEXITY_RELATIVE_RANKING = [
-        ['moderate' => 25, 'high' => 0, 'very_high' => 0, 'ranking' => '++' , 'value' => 5],
+/*        ['moderate' => 25, 'high' => 0, 'very_high' => 0, 'ranking' => '++' , 'value' => 5],
         ['moderate' => 30, 'high' => 5, 'very_high' => 0, 'ranking' => '+' , 'value' => 4],
         ['moderate' => 40, 'high' => 10, 'very_high' => 0, 'ranking' => 'o' , 'value' => 3],
         ['moderate' => 50, 'high' => 15, 'very_high' => 0, 'ranking' => '-' , 'value' => 2],
+        ['moderate' => 100, 'high' => 100, 'very_high' => 100, 'ranking' => '--' , 'value' => 1],*/
+
+        ['moderate' => 21, 'high' => 0, 'very_high' => 0, 'ranking' => '++' , 'value' => 5],
+        ['moderate' => 30, 'high' => 5, 'very_high' => 0, 'ranking' => '+' , 'value' => 4],
+        ['moderate' => 40, 'high' => 10, 'very_high' => 0, 'ranking' => 'o' , 'value' => 3],
+        ['moderate' => 50, 'high' => 15, 'very_high' => 5, 'ranking' => '-' , 'value' => 2],
         ['moderate' => 100, 'high' => 100, 'very_high' => 100, 'ranking' => '--' , 'value' => 1],
+
     ];
 
     const UNIT_SIZE_RELATIVE_RANKING = [
+/*        ['moderate' => 25, 'high' => 0, 'very_high' => 0, 'ranking' => '++' , 'value' => 5],
+        ['moderate' => 30, 'high' => 5, 'very_high' => 0, 'ranking' => '+' , 'value' => 4],
+        ['moderate' => 40, 'high' => 10, 'very_high' => 0, 'ranking' => 'o' , 'value' => 3],
+        ['moderate' => 50, 'high' => 15, 'very_high' => 0, 'ranking' => '-' , 'value' => 2],
+        ['moderate' => 100, 'high' => 100, 'very_high' => 100, 'ranking' => '--' , 'value' => 1],*/
+
         ['moderate' => 19.5, 'high' => 10.9, 'very_high' => 3.9, 'ranking' => '++' , 'value' => 5],
         ['moderate' => 26, 'high' => 15.5, 'very_high' => 6.5, 'ranking' => '+' , 'value' => 4],
         ['moderate' => 34.1, 'high' => 22.2, 'very_high' => 11, 'ranking' => 'o' , 'value' => 3],
@@ -78,7 +91,7 @@ class CC_UnitSizeMetric extends BaseMetric
 
         // save the file list to a temp file
         $tempFileList = tempnam(sys_get_temp_dir(), 'pmd_filelist_'.$time);
-        exec('find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test.java" > '.$tempFileList);
+        exec('find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList);
 
         $ruleset = base_path(self::PMD_RULESET);
         // $(find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test.java")
@@ -128,7 +141,6 @@ class CC_UnitSizeMetric extends BaseMetric
                     return str_contains($auditLine, '[ERROR]') !== false;
                 });
 
-                //print_r($lines);
 
                 $this->writeToTerminal('Result code Checkstyle: '.$resultCode);
 
@@ -145,6 +157,7 @@ class CC_UnitSizeMetric extends BaseMetric
                     }
 
                 }
+
 
                 foreach ($json['files'] as $file) {
 
@@ -209,7 +222,6 @@ class CC_UnitSizeMetric extends BaseMetric
 
                     }
 
-                    //print_r($results);
 
                     // now we have an array (results) with the complexity and loc_unit per method (unit) of the current file
                     foreach ($results as $method => $measure) {
@@ -251,13 +263,12 @@ class CC_UnitSizeMetric extends BaseMetric
                 $cc['loc_complexity_per_risk'] = $this->arrayToString($locComplexityRisk);
                 $cc['percentage_complexity_per_risk'] = $this->arrayToString($percentageComplexityRisk);
 
-
                 // unit sizes
                 foreach ($locUnitSizeRisk as $unitSizeRisk => $loc_risk) {
                     $percentageUnitSizeRisk[$unitSizeRisk] = round(($loc_risk * 100) / $loc, 3);
                 }
-                $cc['loc_unit_size_per_risk'] = $this->arrayToString($locComplexityRisk);
-                $cc['percentage_unit_size_per_risk'] = $this->arrayToString($percentageComplexityRisk);
+                $cc['loc_unit_size_per_risk'] = $this->arrayToString($locUnitSizeRisk);
+                $cc['percentage_unit_size_per_risk'] = $this->arrayToString($percentageUnitSizeRisk);
 
                 // lines of code total
                 $cc['loc_total'] = $loc;

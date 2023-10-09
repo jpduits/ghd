@@ -3,8 +3,9 @@ import sys
 import csv
 import os
 
-# Load the trained pipeline
-pipeline = joblib.load('compound_classifier_pipeline.pkl')
+# Load the trained pipeline, from same directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+pipeline = joblib.load(os.path.join(script_dir, 'compound_classifier_pipeline.pkl'))
 
 # Get the input CSV file from the command line
 input_csv_file = sys.argv[1]
