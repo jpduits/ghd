@@ -57,7 +57,8 @@ multi_line_comment_regex='\/\*([^*]|(\*+([^*\/]|$)))*\*+\/'
 # Loop over all java files in the project directory
 #echo "Process: $1"
 # -o is OR
-find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f -name "*.java" | while IFS= read -r java_file; do
+find "$1" -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type f -name "*.java" -not -name "*Test*.java" | while IFS= read -r java_file; do
+#find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f -name "*.java" | while IFS= read -r java_file; do
 
     # check it is a file, not a directory
     if [[ -f "$java_file" ]]; then

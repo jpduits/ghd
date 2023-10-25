@@ -31,16 +31,26 @@ class DuplicationMetric extends BaseMetric
         // check repository is cloned
         if (file_exists($this->checkoutDir.'/'.$repository->name)) {
 
-            // calculate volume (loc) for Java files (min 6 lines), no json output available
-            $tmpFile = tempnam(sys_get_temp_dir(), 'simian'.time());
+            $time = time();
+            $tempFileList = tempnam(sys_get_temp_dir(), 'simian_filelist_'.$time);
+            $this->createFileListForRepository($this->checkoutDir . '/' . $repository->name, $tempFileList);
+/*            $command = 'find ' . $this->checkoutDir . '/' . $repository->name . ' -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList;
+            $this->writeToTerminal('Executing command: '.$command); // generate filelist to filter Simian result
+            exec($command);*/
+            $fileList = explode("\n", file_get_contents($tempFileList));
 
-            $command = 'java -jar '.self::SIMIAN_JAR.' -threshold=6 -formatter=xml:'.$tmpFile.' -defaultLanguage=java '.$this->checkoutDir.'/'.$repository->name.'/**/*.java';
+
+            // calculate volume (loc) for Java files (min 6 lines), no json output available
+            $simianResponseFile = tempnam(sys_get_temp_dir(), 'simian'.time());
+
+            // simian does not support filelists, so we analyze alle java files, and filter them later
+            $command = 'java -jar '.self::SIMIAN_JAR.' -threshold=6 -formatter=xml:'.$simianResponseFile.' -defaultLanguage=java '.$this->checkoutDir.'/'.$repository->name.'/**/*.java';
 
             $this->writeToTerminal('Executing command: ' . $command);
             exec($command, $output);
 
             if ($this->verbose) {
-                $this->writeToTerminal('Tmp-file: '.$tmpFile);
+                $this->writeToTerminal('Tmp-file: '.$simianResponseFile);
 
                 foreach ($output as $line) {
                     $this->writeToTerminal($line);
@@ -48,17 +58,40 @@ class DuplicationMetric extends BaseMetric
             }
 
 
-            if (file_exists($tmpFile)) {
-                $xmlOutput = file_get_contents($tmpFile);
+            if (file_exists($simianResponseFile)) {
+                $xmlOutput = file_get_contents($simianResponseFile);
                 $duplication = simplexml_load_string($xmlOutput);
 
                 if ($duplication !== false) { // valid XML
 
-                    $duplicateLineCount = (int)$duplication->check->summary['duplicateLineCount'] ?? 0;
-                    $duplicateBlockCount = (int)$duplication->check->summary['duplicateBlockCount'] ?? 0;
+                    $duplicateLineCount = 0;
+                    $duplicateBlockCount = 0;
+
+                    $this->writeHorizontalLineToTerminal();
+
+                    foreach ($duplication->check->set as $set) {
+
+                        $countDuplicate = true; // true if current file is in de filelist (so tests will not includes etc.)
+                        foreach ($set->block as $block) {
+
+                            if (!in_array($block['sourceFile'], $fileList))  {
+                                $countDuplicate = false;
+                                $this->writeToTerminal($block['sourceFile'].' file skipped for duplication count');
+                                break;
+                            }
+
+                        }
+
+                        if ($countDuplicate) {
+                            $duplicateLineCount += (int)$set['lineCount'] ?? 0;
+                            $duplicateBlockCount++;
+                        }
+
+                    }
+                    $this->writeHorizontalLineToTerminal();
 
                     // calculate duplication percentage
-                    $duplicationPercentage = round(($duplicateLineCount / $loc) * 100);
+                    $duplicationPercentage = round((($duplicateLineCount / $loc) * 100), 2);
 
                     // calculate duplication ranking
                     $ranking = $this->getDuplicationRanking($duplicationPercentage);

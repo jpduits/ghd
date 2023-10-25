@@ -26,6 +26,6 @@ counter=1
 while IFS= read -r line; do
     echo "($counter) Get repository: $line"
     echo "Current time: $(date +%Y-%m-%d_%H-%M-%S)"
-    php ghdataset get:project-state $line --start-date=2022-07-01 --run-uuid=$uuid --output-format=csv
+    php ghdataset get:project-state $line --start-date=2020-01-01 --run-uuid=$uuid --output-format=csv
     counter=$((counter+1))
 done < "$1"

@@ -37,4 +37,12 @@ class BaseMetric
         $this->verbose = $verbose;
     }
 
+    public function createFileListForRepository(string $repositoryPath, string $tempFileListName) : void
+    {
+        $command = 'find ' . $repositoryPath . ' -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileListName;
+        $this->writeToTerminal('Executing command: '.$command); // generate filelist
+        exec($command);
+
+    }
+
 }

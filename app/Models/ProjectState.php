@@ -9,6 +9,10 @@ class ProjectState extends Model
 
     protected $table = 'project_states';
 
+    protected $appends = [
+        // 'repository_full_name'
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -33,6 +37,11 @@ class ProjectState extends Model
     public function repository()
     {
         return $this->belongsTo(Repository::class, 'repository_id', 'id');
+    }
+
+    public function getrepositoryFullNameAttribute()
+    {
+        return $this->repository->value('full_name');
     }
 
 }

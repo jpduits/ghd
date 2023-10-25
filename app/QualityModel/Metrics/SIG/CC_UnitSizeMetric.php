@@ -91,7 +91,14 @@ class CC_UnitSizeMetric extends BaseMetric
 
         // save the file list to a temp file
         $tempFileList = tempnam(sys_get_temp_dir(), 'pmd_filelist_'.$time);
-        exec('find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList);
+        $this->createFileListForRepository($this->checkoutDir . '/' . $repository->name, $tempFileList);
+/*        $command = 'find ' . $this->checkoutDir . '/' . $repository->name . ' -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList;
+        $this->writeToTerminal('Executing command: '.$command); // generate filelist
+        exec($command);*/
+
+        $command = 'cat '.$tempFileList;
+        $this->writeToTerminal('Executing command: '.$command); // read filelist to array
+        exec($command, $filelistArray);
 
         $ruleset = base_path(self::PMD_RULESET);
         // $(find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test.java")
@@ -116,9 +123,9 @@ class CC_UnitSizeMetric extends BaseMetric
         if (file_exists($tempFile)) {
             $report = file_get_contents($tempFile);
 
-            $json = json_decode($report, true);
+            $pmdReportJsonResponse = json_decode($report, true);
 
-            if (is_array($json) && array_key_exists('files', $json)) {
+            if (is_array($pmdReportJsonResponse) && array_key_exists('files', $pmdReportJsonResponse)) {
 
                 // patterns to match the violations
                 $ccPattern = "/The (method|constructor) '(.+)' has a cyclomatic complexity of (\d+)/";
@@ -128,44 +135,80 @@ class CC_UnitSizeMetric extends BaseMetric
                 // save the lines per unit with checkstyle tool
                 $tempFileCheckStyle = tempnam(sys_get_temp_dir(), 'checkstyle_'.$time);
                 $command = 'java -jar '.self::CHECKSTYLE_JAR.' -c '.self::CHECKSTYLE_RULES.' '.$this->checkoutDir.'/' . $repository->name . ' -o '.$tempFileCheckStyle.' /**/*.java';
+                // -x ".*(/test/|/tests/|test\.java)"
                 $this->writeToTerminal('Executing command: '.$command);
                 $checkStylePattern =  '/\[(\w+)\] (.+):(\d+):\d+: (\w+)=(\d+) \[MethodLength\]/';
 
-                $checkStyleResults = [];
-
                 exec($command, $output, $resultCode);
 
-                $tempFileCheckStyleContent = file_get_contents($tempFileCheckStyle);
-                $lines = explode("\n", $tempFileCheckStyleContent);
-                $lines = array_filter($lines, function($auditLine) {
-                    return str_contains($auditLine, '[ERROR]') !== false;
+                $tempFileCheckStyleData = file_get_contents($tempFileCheckStyle);
+                $checkStyleResponse = explode("\n", $tempFileCheckStyleData);
+                $checkStyleResponse = array_filter($checkStyleResponse, function($auditLine) {
+                    return ((str_contains($auditLine, '[ERROR]') !== false) && (str_contains($auditLine, 'Got an exception') === false));
                 });
 
 
                 $this->writeToTerminal('Result code Checkstyle: '.$resultCode);
 
-                foreach ($lines as $auditLine) {
+                $methodsFound = 0;
+
+                $methodCounter = 0;
+                $currentFilePath = '';
+
+                $checkStyleResults = [];
+
+                foreach ($checkStyleResponse as $auditLine) {
 
                     // check line starts with [ERROR] $file['filename']:
                     if (preg_match($checkStylePattern, $auditLine, $matches)) {
                         //$errorType = $matches[1];
                         $filePath = $matches[2];
-                        $lineNumber = $matches[3];
+                        //$lineNumber = $matches[3];
                         $methodName = $matches[4];
                         $methodLength = $matches[5];
-                        $checkStyleResults[$filePath][$methodName . '_' . $lineNumber] = $methodLength;
+
+                        // check file is in filelist for PMD, so it uses the same set
+                       // $this->writeToTerminal($filePath);
+
+                        if (in_array($filePath, $filelistArray)) {
+
+                            if ($filePath !== $currentFilePath) {
+                                $methodCounter = 1;
+                            }
+                            else {
+                                $methodCounter++;
+                            }
+                            $currentFilePath = $filePath;
+
+                            $checkStyleResults[$filePath][$methodName . '_' . $methodCounter] = $methodLength;
+                            $methodsFound++;
+                        }
+
                     }
 
                 }
 
+                $this->writeToTerminal('Checkstyle results for: '.$methodsFound.' methods');
 
-                foreach ($json['files'] as $file) {
+                $methodCounter = 0;
+                $locUnitFileTotal = 0;
+                $locUnitRepositoryTotal = 0;
+                $currentFilePath = '';
+                $currentMethodName = '';
+
+                foreach ($pmdReportJsonResponse['files'] as $currentFile) {
 
                     // save for every file the complexity and loc_unit per method
-                    $results = [];
+                    $pmdResultsCurrentFile = [];
+
+                    if ($currentFile['filename'] !== $currentFilePath) {
+                        $methodCounter = 0;
+                        $currentMethodName = '';
+                        $locUnitFileTotal = 0;
+                    }
 
                     // violations per file
-                    foreach ($file['violations'] as $violation) {
+                    foreach ($currentFile['violations'] as $violation) {
 
                         $line = $violation['beginline'];
 
@@ -176,8 +219,14 @@ class CC_UnitSizeMetric extends BaseMetric
 
                                 if (preg_match($ccPattern, $violation['description'], $matches)) {
                                     $methodName = $matches[2];
+
+                                    if ($currentMethodName !== $methodName) {
+                                        $methodCounter++;
+                                    }
+                                    $currentMethodName = $methodName;
+
                                     $complexityValue = $matches[3];
-                                    $results[$methodName.'_'.$line]['complexity'] = $complexityValue;
+                                    $pmdResultsCurrentFile[$methodName.'_'.$methodCounter]['complexity'] = $complexityValue;
 
                                 }
                                 break;
@@ -187,8 +236,14 @@ class CC_UnitSizeMetric extends BaseMetric
 
                                 if (preg_match($ncssMethodPattern, $violation['description'], $matches)) {
                                     $methodName = $matches[2];
+
+                                    if ($currentMethodName !== $methodName) {
+                                        $methodCounter++;
+                                    }
+                                    $currentMethodName = $methodName;
+
                                     $ncssValue = $matches[3];
-                                    $results[$methodName.'_'.$line]['ncss_unit'] = $ncssValue;
+                                    $pmdResultsCurrentFile[$methodName.'_'.$methodCounter]['ncss_unit'] = $ncssValue;
 
                                     // get value from Checkstyle array, for loc value (is different from ncss)
                                     // first get plain method name (without parameters)
@@ -199,16 +254,16 @@ class CC_UnitSizeMetric extends BaseMetric
 
                                     // per file there is an array element with an array with method elements
                                     // so check in the array by current filename -> current_method
-                                    if (($methodNamePlain !== false) && (array_key_exists($file['filename'], $checkStyleResults)) && (array_key_exists($methodNamePlain.'_'.$line, $checkStyleResults[$file['filename']]))) {
-                                        $results[$methodName.'_'.$line]['loc_unit'] = $checkStyleResults[$file['filename']][$methodNamePlain.'_'.$line];
+                                    if (($methodNamePlain !== false) && (array_key_exists($currentFile['filename'], $checkStyleResults)) && (array_key_exists($methodNamePlain.'_'.$methodCounter, $checkStyleResults[$currentFile['filename']]))) {
+                                        $pmdResultsCurrentFile[$methodName.'_'.$methodCounter]['loc_unit'] = $checkStyleResults[$currentFile['filename']][$methodNamePlain.'_'.$methodCounter];
                                     }
                                     else {
                                         // if Checkstyle has an exception, use ncss value
-                                        $results[$methodName.'_'.$line]['loc_unit'] = $ncssValue;
-                                        $results[$methodName.'_'.$line]['exception'] = true;
+                                        $pmdResultsCurrentFile[$methodName.'_'.$methodCounter]['loc_unit'] = $ncssValue;
+                                        $pmdResultsCurrentFile[$methodName.'_'.$methodCounter]['exception'] = true;
                                     }
 
-                                    $results[$methodName.'_'.$line]['file'] = $file['filename'];
+                                    $pmdResultsCurrentFile[$methodName.'_'.$methodCounter]['file'] = $currentFile['filename'];
 
 
                                 }
@@ -222,14 +277,16 @@ class CC_UnitSizeMetric extends BaseMetric
 
                     }
 
-
                     // now we have an array (results) with the complexity and loc_unit per method (unit) of the current file
-                    foreach ($results as $method => $measure) {
+                    // for every file loop, pmdResults is empty
+                    foreach ($pmdResultsCurrentFile as $method => $measure) {
 
                         if (isset($measure['loc_unit']) && isset($measure['complexity'])) {
 
                             $complexity = (int)$measure['complexity'];
                             $locUnit = (int)$measure['loc_unit'];
+
+                            echo '* '.$method . ' has loc_unit of ' . $locUnit . ' and complexity of ' . $complexity . PHP_EOL;
 
                             // get the risk of the complexity
                             $complexityRisk = $this->getComplexityRisk($complexity);
@@ -245,14 +302,25 @@ class CC_UnitSizeMetric extends BaseMetric
                                 $locUnitSizeRisk[$unitSizeRisk] += $locUnit;
                             }
 
+                            $locUnitFileTotal += $locUnit;
+                            $locUnitRepositoryTotal += $locUnit;
+
+                        }
+                        else {
+                            $this->writeToTerminal('No loc unit or complexity measure result found', 'warning');
                         }
 
                     }
 
                     // store alle the results per file
                     // $cc[$file['filename']] = $results;
-                }
 
+                    echo '# ' . basename($currentFile['filename']).' has total loc_unit (all methods) of '.$locUnitFileTotal.PHP_EOL;
+
+                } // PMD files loop
+
+
+                echo '% Repository has total loc_unit (all methods) of '.$locUnitRepositoryTotal.PHP_EOL;
 
                 // based on the loc of each risk, calculate the percentage of the total loc
 

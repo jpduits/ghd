@@ -157,7 +157,21 @@ class GetProjectState extends Command
         }
         else if (($input['output-format'] == 'json') || ($input['output-format'] == 'csv')) {
 
-            $stateCollection = ProjectState::where('run_uuid', '=', $this->runUuid)->get();
+            $stateCollection = ProjectState::where('run_uuid', '=', $this->runUuid)->get(); // get all measurements with the selected run_uuid
+            $stateCollection->map(function($state) use ($fullName) {
+                $state->full_name = $fullName; // add fullname as first item
+            });
+
+            $this->newLine();
+            foreach ($stateCollection as $state) {
+
+                foreach ($state->toArray() as $key => $value) {
+                    $this->line('- ' . $key . ': ' . $value);
+                }
+                $this->line('---');
+                $this->newLine();
+            }
+
 
             if ($input['output-format'] == 'json') {
                 $fileName = 'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.json';
@@ -168,6 +182,8 @@ class GetProjectState extends Command
                 $fileName = 'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.csv';
                 // add headers
                 $data = $stateCollection->toArray();
+
+
                 $data = Arr::prepend($data, array_keys($data[0])); // add the headers as first row
 
                 $content = '';
@@ -303,8 +319,6 @@ class GetProjectState extends Command
                 'comments_auxiliary' => $measurement['comments_auxiliary'] ?? 0,
             ]);
         $projectState->save();
-
-        print_r($measurement);
 
     }
 

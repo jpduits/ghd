@@ -29,7 +29,11 @@ class VolumeMetric extends BaseMetric
         // save the file list to a temp file
         $time = time();
         $tempFileList = tempnam(sys_get_temp_dir(), 'cloc_filelist_'.$time);
-        exec('find ' . $this->checkoutDir . '/' . $repository->name . ' -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList);
+
+/*        $command = 'find ' . $this->checkoutDir . '/' . $repository->name . ' -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type f -name "*.java" -not -name "*Test*.java" > '.$tempFileList;
+        $this->writeToTerminal('Executing command: '.$command); // generate filelist
+        exec($command);*/
+        $this->createFileListForRepository($this->checkoutDir . '/' . $repository->name, $tempFileList);
 
         $command = 'cloc --list-file='.$tempFileList.' --json --include-lang=Java';
 

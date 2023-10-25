@@ -6,7 +6,7 @@
   <property name="haltOnException" value="false"/>
   <module name="TreeWalker">
     <module name="MethodLength">
-     <property name="max" value="1"/>
+     <property name="max" value="0"/>
      <property name="countEmpty" value="false"/>
      <message key="maxLen.method"
          value="{2}={0}"

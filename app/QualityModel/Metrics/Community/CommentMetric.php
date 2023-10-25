@@ -28,6 +28,7 @@ class CommentMetric extends BaseMetric
         if (file_exists($this->checkoutDir.'/'.$repository->name)) {
 
             // results are stored in processed/comments_COMMITHASH.csv
+            // (test) files are filtered in script
             $command = self::COMMENTS_PARSER . ' ' . $this->checkoutDir.'/'.$repository->name;
 
             // get comments from current commit
