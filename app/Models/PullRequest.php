@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class PullRequest extends Model
+
+class PullRequest extends HasDateModel
 {
     use HasFactory;
 

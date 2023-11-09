@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ProjectState extends Model
+class ProjectState extends HasDateModel
 {
 
     protected $table = 'project_states';
@@ -12,6 +10,8 @@ class ProjectState extends Model
     protected $appends = [
         // 'repository_full_name'
     ];
+
+    protected $timezone = 'Europe/Amsterdam';
 
     protected $dates = [
         'created_at',

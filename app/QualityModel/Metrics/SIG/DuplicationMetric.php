@@ -71,21 +71,36 @@ class DuplicationMetric extends BaseMetric
 
                     foreach ($duplication->check->set as $set) {
 
-                        $countDuplicate = true; // true if current file is in de filelist (so tests will not includes etc.)
+                        // true if current file is in de filelist (so tests will not includes etc.)
+                        $foundSourceFiles = 0;
+                        $message = [];
                         foreach ($set->block as $block) {
 
                             if (!in_array($block['sourceFile'], $fileList))  {
-                                $countDuplicate = false;
-                                $this->writeToTerminal($block['sourceFile'].' file skipped for duplication count');
-                                break;
+                                // source file not in array
+                                $this->writeToTerminal('* skipped file ' . $block['sourceFile'].' for duplication count');
+                            }
+                            else {
+                                $message[] = '# use file (startline: '.$block['startLineNumber'].') ' . $block['sourceFile'].' for duplication count';
+                                $foundSourceFiles++;
                             }
 
                         }
 
-                        if ($countDuplicate) {
+//                        $countDuplicate = count($set->block);
+
+                        if ($foundSourceFiles > 1) {
+
+                            $this->writeToTerminal(implode(PHP_EOL, $message));
                             $duplicateLineCount += (int)$set['lineCount'] ?? 0;
-                            $duplicateBlockCount++;
+                            $duplicateBlockCount+= ($foundSourceFiles);
+                            $this->writeToTerminal('% Total duplication line count: '.$duplicateLineCount);
+                            $this->writeToTerminal('% Total duplication block count: '.$duplicateBlockCount);
+                            $this->writeToTerminal('% Files with duplications: '.count($message) ?? 0);
                         }
+
+                        $this->writeHorizontalLineToTerminal();
+
 
                     }
                     $this->writeHorizontalLineToTerminal();

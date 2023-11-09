@@ -111,7 +111,6 @@ class GetProjectState extends Command
             $sourceCode = $this->sourceCode->get($repository, $startDate->copy(), $interval, $endDate);
             $community = $this->community->get($repository, $startDate->copy(), $interval, $endDate);
 
-
             // add quality measurements to the array
             $measurements = array_map(function($item1, $item2) {
                 // Controleer of period_start_date en period_end_date al aanwezig zijn in $item1
@@ -161,7 +160,6 @@ class GetProjectState extends Command
             $stateCollection->map(function($state) use ($fullName) {
                 $state->full_name = $fullName; // add fullname as first item
             });
-
             $this->newLine();
             foreach ($stateCollection as $state) {
 
@@ -171,7 +169,6 @@ class GetProjectState extends Command
                 $this->line('---');
                 $this->newLine();
             }
-
 
             if ($input['output-format'] == 'json') {
                 $fileName = 'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.json';
@@ -291,17 +288,17 @@ class GetProjectState extends Command
                 'total_kloc' => $measurement['total_kloc'] ?? 0,
                 'sig_volume_ranking' => $measurement['sig_volume_ranking'] ?? null,
                 'sig_volume_ranking_numeric' => $measurement['sig_volume_ranking_numeric'] ?? null,
-                'loc_complexity_per_risk' => $measurement['loc_complexity_per_risk'] ?? null,
-                'percentage_complexity_per_risk' => $measurement['percentage_complexity_per_risk'] ?? null,
-                'loc_unit_size_per_risk' => $measurement['loc_unit_size_per_risk'] ?? null,
-                'percentage_unit_size_per_risk' => $measurement['percentage_unit_size_per_risk'] ?? null,
+                'loc_complexity_per_risk' => $measurement['loc_complexity_per_risk'] ?? '',
+                'percentage_complexity_per_risk' => $measurement['percentage_complexity_per_risk'] ?? '',
+                'loc_unit_size_per_risk' => $measurement['loc_unit_size_per_risk'] ?? '',
+                'percentage_unit_size_per_risk' => $measurement['percentage_unit_size_per_risk'] ?? '',
                 'sig_complexity_ranking' => $measurement['sig_complexity_ranking'] ?? null,
                 'sig_complexity_ranking_value' => $measurement['sig_complexity_ranking_value'] ?? null,
                 'sig_unit_size_ranking' => $measurement['sig_unit_size_ranking'] ?? null,
                 'sig_unit_size_ranking_value' => $measurement['sig_unit_size_ranking_value'] ?? null,
-                'duplication_line_count' => $measurement['duplication_line_count'] ?? null,
-                'duplication_block_count' => $measurement['duplication_block_count'] ?? null,
-                'duplication_percentage' => $measurement['duplication_percentage'] ?? null,
+                'duplication_line_count' => $measurement['duplication_line_count'] ?? 0,
+                'duplication_block_count' => $measurement['duplication_block_count'] ?? 0,
+                'duplication_percentage' => $measurement['duplication_percentage'] ?? 0,
                 'sig_duplication_ranking' => $measurement['sig_duplication_ranking'] ?? null,
                 'sig_duplication_ranking_numeric' => $measurement['sig_duplication_ranking_numeric'] ?? null,
                 'sig_analysability_ranking' => $measurement['sig_analysability_ranking'] ?? null,
@@ -310,7 +307,7 @@ class GetProjectState extends Command
                 'sig_changeability_ranking_numeric' => $measurement['sig_changeability_ranking_numeric'] ?? null,
                 'sig_testability_ranking' => $measurement['sig_testability_ranking'] ?? null,
                 'sig_testability_ranking_numeric' => $measurement['sig_testability_ranking_numeric'] ?? null,
-                'checkout_sha' => $measurement['checkout_sha'],
+                'checkout_sha' => $measurement['checkout_sha'] ?? 'NOT FOUND',
                 'issues_average_duration_days' => $measurement['issues_average_duration_days']  ?? 0,
                 'comments_total' => $measurement['comments_total']  ?? 0,
                 'comments_relevant_percentage' => $measurement['comments_relevant_percentage']  ?? 0,
