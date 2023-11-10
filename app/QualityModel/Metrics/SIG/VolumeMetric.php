@@ -49,17 +49,19 @@ class VolumeMetric extends BaseMetric
             $kloc = round($loc / 1000) ?? 0;
             $ranking = $this->getKlocRanking($kloc);
 
-            return [
-                'total_loc' => $loc,
-                'total_kloc' => $kloc,
-                'sig_volume_ranking' => $ranking['ranking'] ?? 'o',
-                'sig_volume_ranking_numeric' => $ranking['value'] ?? 3,
-            ];
-
+        }
+        else {
+            $this->writeToTerminal(json_last_error(), 'error');
         }
 
 
-        return [];
+        return [
+            'total_loc' => $loc ?? 0,
+            'total_kloc' => $kloc ?? 0,
+            'sig_volume_ranking' => $ranking['ranking'] ?? 'o',
+            'sig_volume_ranking_numeric' => $ranking['value'] ?? 3,
+        ];
+
     }
 
 

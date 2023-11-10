@@ -127,12 +127,12 @@ class GetProjectState extends Command
 
             // store results in database
             foreach($measurements as $key => $measurement) {
-                $measurement = array_merge([
+                $measurement = array_merge($measurement, [
                     'run_uuid' => $this->runUuid,
                     'full_name' => $fullName, // 'owner/repository
                     'repository_id' => $repository->id,
                     'interval' => $interval,
-                ], $measurement);
+                ]);
                 $measurements[$key] = $measurement;
                 $this->storeMeasurement($measurement);
             }
@@ -157,9 +157,9 @@ class GetProjectState extends Command
         else if (($input['output-format'] == 'json') || ($input['output-format'] == 'csv')) {
 
             $stateCollection = ProjectState::where('run_uuid', '=', $this->runUuid)->get(); // get all measurements with the selected run_uuid
-            $stateCollection->map(function($state) use ($fullName) {
-                $state->full_name = $fullName; // add fullname as first item
-            });
+            $stateCollection->map(function($state) { $state->full_name = $state->repository->full_name; return $state; });
+
+            // add fullname as first item
             $this->newLine();
             foreach ($stateCollection as $state) {
 
