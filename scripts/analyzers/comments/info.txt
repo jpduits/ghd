@@ -1,0 +1,15 @@
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/adapter/AppUninstallAdapter.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/app/AppCardPresenter.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/app/AppDataManage.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/app/AppModel.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/app/AppUninstall.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/detail/MediaDetailsActivity.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/detail/MediaDetailsDescriptionPresenter.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/detail/MediaDetailsFragment.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/detail/MediaModel.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/function/FunctionCardPresenter.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/function/FunctionModel.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/main/ImgCardPresenter.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/main/MainActivity.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/util/Tools.java
+/home/jp/tmp_checkouts/AndroidTVLauncher/app/src/main/java/com/jacky/launcher/video/VideoActivity.java

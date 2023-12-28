@@ -42,9 +42,6 @@ class FixDataset extends Command
                     ->whereNotNull('email')
                     ->get();
 
-
-
-
         foreach ($duplicateUsers as $duplicateUser) {
 
             $this->line('E-mail ' . $duplicateUser->email . ' has multiple user records ('.$duplicateUser->count_email.')');
@@ -52,7 +49,7 @@ class FixDataset extends Command
             $filteredUser = User::where('email', $duplicateUser->email)
                  ->orderByRaw('LENGTH(name) DESC')
                  ->whereNot('name', '=', '')
-                ->whereNot('email', '=', '--gloabl')
+                ->whereNot('email', '=', '--global')
                 ->whereNot('email', '=', '“')
                 ->whereNot('email', '=', '=')
                  ->first();

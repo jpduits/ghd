@@ -16,6 +16,7 @@ output_csv_file = os.path.splitext(input_csv_file)[0] + '_classified.csv'
 # Initialize dictionaries to store classifications and totals
 classifications = {}
 total_classifications = {}
+total_classifications["LOC"] = 0
 
 # Open the input CSV file and output CSV file
 with open(input_csv_file, 'r') as csvfile, open(output_csv_file, 'w', newline='') as outputfile:
@@ -28,7 +29,11 @@ with open(input_csv_file, 'r') as csvfile, open(output_csv_file, 'w', newline=''
     # Process each row in the input CSV
     for row in csvreader:
         comment_type = row[0]
-        input_text = row[1]
+        try:
+            lines = int(row[1])
+        except ValueError:
+            lines = 0
+        input_text = row[2]
 
         # Predict the classification using the pipeline
         predicted_label = pipeline.predict([input_text])[0]
@@ -49,7 +54,10 @@ with open(input_csv_file, 'r') as csvfile, open(output_csv_file, 'w', newline=''
 
         if predicted_label not in total_classifications:
             total_classifications[predicted_label] = 0
+            total_classifications[predicted_label + "_LOC"] = 0
         total_classifications[predicted_label] += 1
+        total_classifications[predicted_label + "_LOC"] += lines
+        total_classifications["LOC"] += lines
 
 # Print the total classifications
 for label, count in total_classifications.items():

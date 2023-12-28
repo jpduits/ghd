@@ -25,11 +25,15 @@ if ($argc > 1) { // $argc is the argument count
 
         foreach ($multiLines as $multiLine) {
 
+            $multiLine = trim($multiLine);
+
             $parsedLine = '';
+            $locCounter = 0;
             $multiLine = explode("\n", $multiLine);
             foreach ($multiLine as $key => $line) {
                 // trim
                 $tempLine = trim(strtolower($line));
+                $locCounter++;
                 // remove /* and */
                 $tempLine = str_replace("/*", "", $tempLine);
                 $tempLine = str_replace("*/", "", $tempLine);
@@ -42,7 +46,10 @@ if ($argc > 1) { // $argc is the argument count
                 // escape "
                 $tempLine = str_replace('"', '`', $tempLine);
 
-                $parsedLine .= $tempLine . ' ';
+                if (!empty(trim($tempLine))) {
+                    $parsedLine .= $tempLine . ' ';
+                }
+
             }
 
             if (!empty(trim($parsedLine))) {
@@ -60,7 +67,7 @@ if ($argc > 1) { // $argc is the argument count
                 }
                 else {
 
-                    $parsedLines[] = 'multi_line,"' . trim($parsedLine) . '"';
+                    $parsedLines[] = 'multi_line,'.$locCounter.',"' . trim($parsedLine) . '"';
 
                 }
 

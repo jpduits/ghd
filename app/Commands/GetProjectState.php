@@ -157,14 +157,22 @@ class GetProjectState extends Command
         else if (($input['output-format'] == 'json') || ($input['output-format'] == 'csv')) {
 
             $stateCollection = ProjectState::where('run_uuid', '=', $this->runUuid)->get(); // get all measurements with the selected run_uuid
-            $stateCollection->map(function($state) { $state->full_name = $state->repository->full_name; return $state; });
+            $stateCollection = $stateCollection->map(function($state) { $state->full_name = $state->repository->full_name; return $state; });
+
+            $stateCollection->each(function ($item) {
+                // hide relation for output
+                $item->makeHidden('repository');
+            });
+
 
             // add fullname as first item
             $this->newLine();
             foreach ($stateCollection as $state) {
 
                 foreach ($state->toArray() as $key => $value) {
-                    $this->line('- ' . $key . ': ' . $value);
+                    if (!is_array($value)) {
+                        $this->line('- ' . $key . ': ' . $value);
+                    }
                 }
                 $this->line('---');
                 $this->newLine();
@@ -179,12 +187,18 @@ class GetProjectState extends Command
                 $fileName = 'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.csv';
                 // add headers
                 $data = $stateCollection->toArray();
+                unset($data['repository']);
 
-
+                $fullNameRepositoryRange = $data[0]['full_name']; // create new line between repo's
                 $data = Arr::prepend($data, array_keys($data[0])); // add the headers as first row
 
                 $content = '';
                 foreach ($data as $line) {
+
+                    if ((isset($line['full_name'])) && ($line['full_name'] != $fullNameRepositoryRange)) {
+                        $content .= PHP_EOL;
+                        $fullNameRepositoryRange = $line['full_name'];
+                    }
                     $content .= implode("\t", $line).PHP_EOL;
                 }
 
@@ -314,6 +328,13 @@ class GetProjectState extends Command
                 'comments_relevant' => $measurement['comments_relevant'] ?? 0,
                 'comments_copyright' => $measurement['comments_copyright'] ?? 0,
                 'comments_auxiliary' => $measurement['comments_auxiliary'] ?? 0,
+                'comments_relevant_loc' => $measurement['comments_relevant_loc'] ?? 0,
+                'comments_copyright_loc' => $measurement['comments_copyright_loc'] ?? 0,
+                'comments_auxiliary_loc' => $measurement['comments_auxiliary_loc'] ?? 0,
+                'comments_loc' => $measurement['comments_loc'] ?? 0,
+                'comments_percentage' => $measurement['comments_percentage'] ?? 0,
+                'sig_comments_ranking' => $measurement['sig_comments_ranking'] ?? null,
+                'sig_comments_ranking_numeric' => $measurement['sig_comments_ranking_numeric'] ?? null
             ]);
         $projectState->save();
 

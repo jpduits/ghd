@@ -9,9 +9,9 @@ use App\Models\Repository;
 use App\QualityModel\Metrics\SIG\SigRanking;
 use Symfony\Component\Console\Output\Output;
 use App\QualityModel\Metrics\SIG\VolumeMetric;
+use App\QualityModel\Metrics\SIG\CommentMetric;
 use App\QualityModel\Metrics\SIG\DuplicationMetric;
 use App\QualityModel\Metrics\SIG\CC_UnitSizeMetric;
-use App\QualityModel\Metrics\Community\CommentMetric;
 
 class SourceCode
 {
@@ -118,7 +118,9 @@ class SourceCode
                 // calculate duplication
                 $duplication = $this->duplicationMetric->calculate($repository, $loc);
 
-                $comments = $this->commentMetric->get($repository);
+                $comments = $this->commentMetric->calculate($repository, $loc);
+
+                print_r($comments);
 
                 $results = array_merge($volume, $complexity_UnitSize, $duplication, $comments);
 

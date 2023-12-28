@@ -57,6 +57,7 @@ multi_line_comment_regex='\/\*([^*]|(\*+([^*\/]|$)))*\*+\/'
 # Loop over all java files in the project directory
 #echo "Process: $1"
 # -o is OR
+
 find "$1" -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type f -name "*.java" -not -name "*Test*.java" | while IFS= read -r java_file; do
 #find "$1" -type d -name "test" -prune -o -type d -name "tests" -prune -o -type f -name "*.java" | while IFS= read -r java_file; do
 
@@ -68,7 +69,7 @@ find "$1" -type d \( -name "*test*" -o -name "*tests*" \) -prune -false -o -type
         # -o only matching
         # first sed: escape double quotes
 #                                                                                                                                                                         sed 's/^/"/; s/$/",/'
-        single_line=$(grep -aPo "$single_line_comment_regex" "$java_file" | sed 's#\/\/\|\/\/ ##g' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | sed 's/"/\`/g' | sed 's/^/"/; s/$/"/' | sed 's/.*/single_line,&/')
+        single_line=$(grep -aPo "$single_line_comment_regex" "$java_file" | sed 's#\/\/\|\/\/ ##g' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | sed 's/"/\`/g' | sed 's/^/"/; s/$/"/' | sed 's/.*/single_line,1,&/')
 
         if [ -n "$single_line" ]; then
 

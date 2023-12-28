@@ -1,3 +1,4 @@
+indigo-dc im-java-api
 reactor lite-rx-api-hands-on
 jfree jfreechart
 hub4j github-api
@@ -8,7 +9,7 @@ structurizr dsl
 mixpanel mixpanel-android
 wstrange GoogleAuth
 PortSwigger param-miner
-Esri geometry-api-java
+natario1 Transcoder
 eclipse-californium californium
 asr-pub LyricViewDemo
 ppareit swiftp
@@ -25,6 +26,5 @@ esoco objectrelations
 fabioz eclipse.spellchecker
 cyNeo4j cyNeo4j
 farnulfo pst-exp
-indigo-dc im-java-api
 ronnypolley ecliseignorehelper
 imagej imagej-troubleshooting
