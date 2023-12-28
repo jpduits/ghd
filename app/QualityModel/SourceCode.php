@@ -120,8 +120,6 @@ class SourceCode
 
                 $comments = $this->commentMetric->calculate($repository, $loc);
 
-                print_r($comments);
-
                 $results = array_merge($volume, $complexity_UnitSize, $duplication, $comments);
 
             }
