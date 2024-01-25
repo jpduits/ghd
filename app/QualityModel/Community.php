@@ -47,7 +47,11 @@ class Community
             if ($endDate) { // when endDate is set, loop until endDate is reached
 
                 $startDate->addWeeks($periodInterval); // add interval to start date
-                if (($startDate->gt($endDate)) || ($startDate->gt(Carbon::now()))) {
+                $periodEndDate = $startDate->copy()->addWeeks($periodInterval);
+                // Start datum groter dan einddatum
+                // Start datum groter dan vandaag
+                // Periode eind ligt voorbij einddatum
+                if ( ($startDate->gt($endDate)) || ($startDate->gt(Carbon::now())) || ($periodEndDate->gt($endDate)) ) {
                     break;
                 }
             }

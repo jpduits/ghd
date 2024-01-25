@@ -46,6 +46,7 @@ class VolumeMetric extends BaseMetric
         if ($volume !== null && json_last_error() === JSON_ERROR_NONE) { // valid JSON
 
             $loc = $volume['SUM']['code'] ?? 0;
+            $totalLines = $loc + ($volume['SUM']['comment'] ?? 0); // no blank lines
             $kloc = round($loc / 1000) ?? 0;
             $ranking = $this->getKlocRanking($kloc);
 
@@ -57,6 +58,7 @@ class VolumeMetric extends BaseMetric
 
         return [
             'total_loc' => $loc ?? 0,
+            'total_lines' => $totalLines ?? 0,
             'total_kloc' => $kloc ?? 0,
             'sig_volume_ranking' => $ranking['ranking'] ?? 'o',
             'sig_volume_ranking_numeric' => $ranking['value'] ?? 3,

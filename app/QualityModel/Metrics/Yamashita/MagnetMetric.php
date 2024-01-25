@@ -54,6 +54,9 @@ class MagnetMetric extends BaseMetric
 
     private function getDevelopersInPeriod(Repository $repository, ?Carbon $startDate, Carbon $endDate) : array
     {
+        /** alle users van de commits, waar commits_id voorkomt in de pull_request_commits table (van de betreffende repo)
+         * of uit de commits table binnen een bepaalde datum.
+         **/
         $developers = DB::table('commits')
                         ->selectRaw('DISTINCT commits.author_id')
                         ->join('users', 'users.id', '=', 'commits.author_id')

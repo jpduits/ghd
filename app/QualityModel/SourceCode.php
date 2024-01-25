@@ -72,7 +72,11 @@ class SourceCode
             if ($endDate) { // when endDate is set, loop until endDate is reached
 
                 $startDate->addWeeks($periodInterval); // add interval to start date
-                if (($startDate->gt($endDate)) || ($startDate->gt(Carbon::now()))) {
+                $periodEndDate = $startDate->copy()->addWeeks($periodInterval);
+                // Start datum groter dan einddatum
+                // Start datum groter dan vandaag
+                // Periode eind ligt voorbij einddatum
+                if ( ($startDate->gt($endDate)) || ($startDate->gt(Carbon::now())) || ($periodEndDate->gt($endDate)) ) {
                     break;
                 }
             }
@@ -110,7 +114,8 @@ class SourceCode
 
                 // calculate volume metrics
                 $volume = $this->volumeMetric->calculate($repository); // oldskool LOC
-                $loc = $volume['total_loc'];
+                $loc = $volume['total_loc']; // Loc
+                $totalLines  = $volume['total_lines'];
 
                 // calculate cyclomatic complexity and unit size
                 $complexity_UnitSize = $this->complexity_UnitSizeMetric->calculate($repository, $loc);
@@ -118,7 +123,7 @@ class SourceCode
                 // calculate duplication
                 $duplication = $this->duplicationMetric->calculate($repository, $loc);
 
-                $comments = $this->commentMetric->calculate($repository, $loc);
+                $comments = $this->commentMetric->calculate($repository, $totalLines);
 
                 $results = array_merge($volume, $complexity_UnitSize, $duplication, $comments);
 
@@ -166,7 +171,7 @@ class SourceCode
 
     private function getLatestCommitHash(Repository $repository, Carbon $startDate, Carbon|null $endDate) : ?string
     {
-        $commit = $repository->commits()
+/*        $commit = $repository->commits()
                              ->where('created_at', '>=', $startDate)
                              ->where('created_at', '<=', $endDate ?? Carbon::now())
                              ->orderBy('created_at', 'desc')
@@ -188,9 +193,55 @@ class SourceCode
             }
 
 
+        }*/
+
+        // first checkout the default branch (if switched to sha)
+        exec('cd ' . $this->checkoutDir . '/' . $repository->name . ' && git checkout ' . $repository->default_branch, $outputD);
+        if ($this->verbose) {
+            foreach ($outputD as $line) {
+                $this->writeToTerminal($line);
+            }
         }
 
-        $this->writeToTerminal('No commit found!', 'error');
+        $output = [];
+        // get latest 10 commits SHA's from specific date
+        exec('cd ' . $this->checkoutDir . '/' . $repository->name . ' && TZ="Europa/Amsterdam" git rev-list -n 10 --before="'.$endDate->format('Y-m-d').'" HEAD', $output);
+        $n = 0;
+
+        while (true && ($n < 10)) {
+
+            $sha = null;
+
+            if ((is_array($output)) && (count($output) > 0) && (strlen($output[$n]) == 40)) {
+
+
+                $sha = $output[$n];
+                $this->writeToTerminal('Last commit SHA before ' . $endDate->format('Y-m-d') . ' found: ' . $sha, 'error');
+                // check database exists
+
+                if ($repository->commits()->where('sha', '=', $sha)->count() == 1) {
+                    $this->writeToTerminal('SHA: '.$sha.' found in database!');
+                    break;
+                }
+                else {
+                    // not found in db, loop again
+                    $this->writeToTerminal('SHA: '.$sha.' not found in database', 'error');
+                    $n++;
+                }
+
+            }
+            else {
+                break; // no hash found
+            }
+
+        }
+
+        if ($sha) {
+            $this->writeToTerminal('Valid commit SHA before ' . $endDate->format('Y-m-d') . ' found: ' . $sha);
+            return $sha;
+        }
+
+        $this->writeToTerminal('No commit SHA found before '.$endDate->format('Y-m-d'), 'error');
         return null;
     }
 
@@ -198,12 +249,6 @@ class SourceCode
     {
         $output = [];
         exec('cd '.$this->checkoutDir.' && git clone https://github.com/'.$fullName.'.git', $output);
-
-        /*        if ($this->verbose) {
-                    foreach ($output as $line) {
-                        $this->line($line);
-                    }
-                }*/
         return true;
     }
 

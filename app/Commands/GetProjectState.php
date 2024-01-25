@@ -179,12 +179,12 @@ class GetProjectState extends Command
             }
 
             if ($input['output-format'] == 'json') {
-                $fileName = 'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.json';
+                $fileName = time().'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.json';
                 $content = $stateCollection->toJson();
 
             }
             elseif ($input['output-format'] == 'csv') {
-                $fileName = 'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.csv';
+                $fileName = time().'output__' . $this->runUuid . '__' . Carbon::now()->format('Y-m-d__H:i') . '.csv';
                 // add headers
                 $data = $stateCollection->toArray();
                 unset($data['repository']);
@@ -300,6 +300,7 @@ class GetProjectState extends Command
                 'support_closed_total' => $measurement['support_closed_total'] ?? 0,
                 'total_loc' => $measurement['total_loc'] ?? 0,
                 'total_kloc' => $measurement['total_kloc'] ?? 0,
+                'total_lines' => $measurement['total_lines'] ?? 0,
                 'sig_volume_ranking' => $measurement['sig_volume_ranking'] ?? null,
                 'sig_volume_ranking_numeric' => $measurement['sig_volume_ranking_numeric'] ?? null,
                 'loc_complexity_per_risk' => $measurement['loc_complexity_per_risk'] ?? '',
@@ -339,8 +340,4 @@ class GetProjectState extends Command
         $projectState->save();
 
     }
-
-
-
-
 }
