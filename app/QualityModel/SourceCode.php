@@ -96,17 +96,17 @@ class SourceCode
         $periodStartDate = $startDate->copy(); // start period Pi
         $periodEndDate = $startDate->copy()->addWeeks($periodInterval); // end period Pi
 
-        $commitHash = $this->getLatestCommitHash($repository, $periodStartDate, $periodEndDate);
-        if ($commitHash) {
-            $this->writeToTerminal('Commit hash: ' . $commitHash);
+        $commitSha = $this->getLatestCommitHash($repository, $periodStartDate, $periodEndDate);
+        if ($commitSha) {
+            $this->writeToTerminal('Commit SHA: ' . $commitSha);
         }
         else {
-            $this->writeToTerminal('No commit hash found', 'error');
+            $this->writeToTerminal('No commit SHA found', 'error');
         }
         // checkout commit
-        if ($commitHash) {
+        if ($commitSha) {
 
-            $this->checkoutCommit($repository, $commitHash);
+            $this->checkoutCommit($repository, $commitSha);
             // TODO: what to do if there is no commit hash in this period?
 
 
@@ -139,7 +139,7 @@ class SourceCode
                 $results, [
                 'period_start_date' => $periodStartDate->format('Y-m-d'),
                 'period_end_date' => $periodEndDate->format('Y-m-d'),
-                'checkout_sha' => $commitHash
+                'checkout_sha' => $commitSha
             ]);
 
         }
@@ -204,7 +204,7 @@ class SourceCode
         }
 
         $output = [];
-        // get latest 10 commits SHA's from specific date
+        // get latest 10 commit SHA's from specific date
         exec('cd ' . $this->checkoutDir . '/' . $repository->name . ' && TZ="Europa/Amsterdam" git rev-list -n 10 --before="'.$endDate->format('Y-m-d').'" HEAD', $output);
         $n = 0;
 

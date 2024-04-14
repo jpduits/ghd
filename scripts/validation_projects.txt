@@ -1,1 +1,3 @@
-MoeidHeidari Strassen-matrix-multiplication-Java
+jpduits smallsql
+jpduits hsqldb
+jpduits jabberpoint

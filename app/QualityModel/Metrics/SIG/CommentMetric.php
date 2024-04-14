@@ -26,7 +26,7 @@ class CommentMetric extends BaseMetric
         parent::__construct($output);
     }
 
-    public function calculate(Repository $repository, int $loc) : array
+    public function calculate(Repository $repository, int $totalLines) : array
     {
 
         $results = [];
@@ -67,7 +67,7 @@ class CommentMetric extends BaseMetric
 
             // calculate percentage comments.
             if (isset($results['comments_loc'])) {
-                $commentsPercentage = round(($results['comments_loc'] / $loc) * 100);
+                $commentsPercentage = round(($results['comments_loc'] / $totalLines) * 100);
             }
 
 

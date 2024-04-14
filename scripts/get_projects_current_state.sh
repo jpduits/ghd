@@ -27,7 +27,7 @@ while IFS= read -r line; do
     echo "Current time: $(date +%Y-%m-%d_%H-%M-%S)"
     logfile="./scripts/logs_get_state/$(date +%Y-%m-%d_%H-%M)_$(echo $line | cut -d' ' -f2).log" # knippen by spatie (alleen projectname)
     echo "Logfile: $logfile"
-    php ghdataset get:project-state $line --start-date=2019-01-01 --end-date=2023-01-01 --run-uuid=$uuid --output-format=csv > $logfile
+    php ghdataset get:project-state $line --start-date=2023-10-01 --run-uuid=$uuid --output-format=csv > $logfile
     counter=$((counter+1))
     echo ""
 done < "$1"

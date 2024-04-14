@@ -27,12 +27,12 @@ class SigRanking extends BaseMetric
         $unitSize = $results['sig_unit_size_ranking_value'] ?? 3;
         $duplication = $results['sig_duplication_ranking_numeric'] ?? 3;
         $comments = $results['sig_comments_ranking_numeric'] ?? 3;
-        $unitTesting = 3;
+        // $unitTesting = 3;
 
         // calculate scores
-        $analysability = round(($volume + $duplication + $unitSize + $unitTesting + $comments) / 5);
+        $analysability = round(($volume + $duplication + $unitSize + $comments) / 4);
         $changeability = round(($unitComplexity + $duplication + $comments) / 3);
-        $testability = round(($unitComplexity + $unitSize + $unitTesting) / 3);
+        $testability = round(($unitComplexity + $unitSize) / 2);
         //$stability = $unitTesting;
 
         return [

@@ -196,7 +196,7 @@ class GetProjectState extends Command
                 foreach ($data as $line) {
 
                     if ((isset($line['full_name'])) && ($line['full_name'] != $fullNameRepositoryRange)) {
-                        $content .= PHP_EOL;
+                        //$content .= PHP_EOL;
                         $fullNameRepositoryRange = $line['full_name'];
                     }
                     $content .= implode("\t", $line).PHP_EOL;
